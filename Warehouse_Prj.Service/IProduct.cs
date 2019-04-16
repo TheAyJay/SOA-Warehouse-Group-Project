@@ -12,34 +12,45 @@ namespace Warehouse_Prj.Service
     public interface IProduct
     {
         [OperationContract]
-        string GetData(int value);
+        Warehouse GetWarehouse(int id);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        bool UpdateWarehouse(Warehouse warehouse, ref string message);
 
-        // TODO: Add your service operations here
+        [OperationContract]
+        Product GetProduct(int id);
+
+        [OperationContract]
+        bool UpdateProduct(Product product, ref string message);
+
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "Warehouse_Prj.Service.ContractType".
     [DataContract]
-    public class CompositeType
+    public class Warehouse
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
+        public int WarehouseID { get; set; }
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public string WarehouseName { get; set; }
+        [DataMember]
+        public string WarehouseAddress { get; set; }
+
+    }
+
+    [DataContract]
+    public class Product
+    {
+        [DataMember]
+        public int ProductID { get; set; }
+        [DataMember]
+        public string UPC { get; set; }
+        [DataMember]
+        public string ProductName { get; set; }
+        [DataMember]
+        public string Quantity { get; set; }
+        [DataMember]
+        public decimal UnitPrice { get; set; }
     }
 }
