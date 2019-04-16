@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WarehouseProject
+namespace Order
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace WarehouseProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inbound());
+            Application.Run(new order());
         }
     }
 }
