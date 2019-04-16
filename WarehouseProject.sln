@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse_Prj.Service", "Wa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse_Prj.DAL", "Warehouse_Prj.DAL\Warehouse_Prj.DAL.csproj", "{17368525-95D5-4C03-AC23-628A69FF8540}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseServiceLayer", "..\..\source\repos\WarehouseService\WarehouseServiceLayer\WarehouseServiceLayer.csproj", "{15E9CC69-DFE5-4ABF-975A-C9E926BCF90B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{17368525-95D5-4C03-AC23-628A69FF8540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17368525-95D5-4C03-AC23-628A69FF8540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17368525-95D5-4C03-AC23-628A69FF8540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15E9CC69-DFE5-4ABF-975A-C9E926BCF90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15E9CC69-DFE5-4ABF-975A-C9E926BCF90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15E9CC69-DFE5-4ABF-975A-C9E926BCF90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15E9CC69-DFE5-4ABF-975A-C9E926BCF90B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
