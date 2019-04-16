@@ -8,7 +8,7 @@ using System.Text;
 namespace Warehouse_Prj.Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-    public class Product : IProduct
+    public class ProductService : IProduct
     {
         public Warehouse GetWarehouse(int id)
         {
