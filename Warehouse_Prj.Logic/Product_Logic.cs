@@ -11,7 +11,7 @@ namespace Warehouse_Prj.Logic
 {
     public class Product_Logic
     {
-        Product product = new Product();
+        
 
         public void Get_Product_By_Product_ID(int product_ID)
         {

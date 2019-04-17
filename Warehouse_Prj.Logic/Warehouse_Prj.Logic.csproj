@@ -50,7 +50,7 @@
       <Name>Warehouse_Prj.BDO</Name>
     </ProjectReference>
     <ProjectReference Include="..\Warehouse_Prj.DAL\Warehouse_Prj.DAL.csproj">
-      <Project>{17368525-95d5-4c03-ac23-628a69ff8540}</Project>
+      <Project>{6a8b8e30-6075-4041-8316-c46290e1c0b4}</Project>
       <Name>Warehouse_Prj.DAL</Name>
     </ProjectReference>
   </ItemGroup>
