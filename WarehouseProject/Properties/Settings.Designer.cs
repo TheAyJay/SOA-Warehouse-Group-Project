@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WarehouseProject.Properties
+namespace Inbound.Properties
 {
 
 

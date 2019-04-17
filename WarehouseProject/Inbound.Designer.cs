@@ -1,4 +1,4 @@
-﻿namespace WarehouseProject
+﻿namespace Inbound
 {
     partial class Inbound
     {

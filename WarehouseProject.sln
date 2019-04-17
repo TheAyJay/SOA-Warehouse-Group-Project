@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse_Prj.Logic", "Ware
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse_Prj.Service", "Warehouse_Prj.Service\Warehouse_Prj.Service.csproj", "{BEAD451B-FE3B-4DF5-95FE-A0D2FC7C2944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseInquiry", "WarehouseProject\WarehouseInquiry.csproj", "{1272B0C3-58E1-4D0D-BE5F-909C636DF513}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inbound", "WarehouseProject\Inbound.csproj", "{1272B0C3-58E1-4D0D-BE5F-909C636DF513}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateUpdate", "CreateUpdate\CreateUpdate.csproj", "{82F675B4-4A3C-4B14-BAB8-CE0B5FF0AF27}"
 EndProject
