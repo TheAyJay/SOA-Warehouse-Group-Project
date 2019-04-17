@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Order
+namespace Checker
 {
-    public partial class order : Form
+    public partial class Checker : Form
     {
-        public order()
+        public Checker()
         {
             InitializeComponent();
         }
-
     }
 }

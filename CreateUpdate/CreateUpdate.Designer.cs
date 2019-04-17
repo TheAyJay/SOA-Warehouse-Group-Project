@@ -265,7 +265,7 @@
             // lblnewcategory
             // 
             this.lblnewcategory.AutoSize = true;
-            this.lblnewcategory.Location = new System.Drawing.Point(41, 317);
+            this.lblnewcategory.Location = new System.Drawing.Point(44, 317);
             this.lblnewcategory.Name = "lblnewcategory";
             this.lblnewcategory.Size = new System.Drawing.Size(74, 13);
             this.lblnewcategory.TabIndex = 20;

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order", "Order\Order.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse_Prj.DAL", "Warehouse_Prj.DAL\Warehouse_Prj.DAL.csproj", "{6A8B8E30-6075-4041-8316-C46290E1C0B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checker", "Checker\Checker.csproj", "{43303E64-0CC5-4E15-B251-C556A7CC1370}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{6A8B8E30-6075-4041-8316-C46290E1C0B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A8B8E30-6075-4041-8316-C46290E1C0B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A8B8E30-6075-4041-8316-C46290E1C0B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43303E64-0CC5-4E15-B251-C556A7CC1370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43303E64-0CC5-4E15-B251-C556A7CC1370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43303E64-0CC5-4E15-B251-C556A7CC1370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43303E64-0CC5-4E15-B251-C556A7CC1370}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
