@@ -9,19 +9,13 @@ namespace Warehouse_Prj.Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface IProduct
+    public interface IWarehouse
     {
         [OperationContract]
         Warehouse GetWarehouse(int id);
 
         [OperationContract]
         bool UpdateWarehouse(Warehouse warehouse, ref string message);
-
-        [OperationContract]
-        Product GetProduct(int id);
-
-        [OperationContract]
-        bool UpdateProduct(Product product, ref string message);
 
     }
 
@@ -39,18 +33,5 @@ namespace Warehouse_Prj.Service
 
     }
 
-    [DataContract]
-    public class Product
-    {
-        [DataMember]
-        public int ProductID { get; set; }
-        [DataMember]
-        public string UPC { get; set; }
-        [DataMember]
-        public string ProductName { get; set; }
-        [DataMember]
-        public string Quantity { get; set; }
-        [DataMember]
-        public decimal UnitPrice { get; set; }
-    }
+
 }
