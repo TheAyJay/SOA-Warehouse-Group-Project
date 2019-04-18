@@ -36,5 +36,7 @@ namespace Warehouse_Prj.Service
         public string Quantity { get; set; }
         [DataMember]
         public decimal UnitPrice { get; set; }
+        [DataMember]
+        public string CategoryID { get; set; }
     }
 }

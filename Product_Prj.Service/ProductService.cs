@@ -18,6 +18,7 @@ namespace Warehouse_Prj.Service
             product.UPC = "fake UPC from the service layer";
             product.ProductName = "fake product name from service layer";
             product.Quantity = "fake quantity";
+            product.CategoryID = "fake categoryID from service layer";
             product.UnitPrice = 50.0m;
             return product;
         }
@@ -39,10 +40,18 @@ namespace Warehouse_Prj.Service
                 message = "UPC cannot be empty";
                 result = false;
             }
+
             // Product name connot be empty
             else if (string.IsNullOrEmpty(product.ProductName))
             {
                 message = "Product name connot be empty";
+                result = false;
+            }
+
+            // categoryID cannot be empty 
+            else if (string.IsNullOrEmpty(product.CategoryID))
+            {
+                message = "CategoryID cannot be empty";
                 result = false;
             }
 

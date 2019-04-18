@@ -29,7 +29,17 @@ namespace Warehouse_Prj.Service
         [DataMember]
         public string WarehouseName { get; set; }
         [DataMember]
-        public string WarehouseAddress { get; set; }
+        public string WarehouseAddressStreet { get; set; }
+
+        [DataMember]
+        public string WarehouseAddressCity { get; set; }
+
+        [DataMember]
+        public string WarehouseAddressState { get; set; }
+
+        [DataMember]
+        public string WarehouseAddressZipcode { get; set; }
+
 
     }
 

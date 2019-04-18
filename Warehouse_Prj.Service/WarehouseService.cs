@@ -16,7 +16,10 @@ namespace Warehouse_Prj.Service
             var warehouse = new Warehouse();
             warehouse.WarehouseID = id;
             warehouse.WarehouseName = "fake warehouse name from service layer";
-            warehouse.WarehouseAddress = "fake address from service layer";
+            warehouse.WarehouseAddressStreet = "fake one from service layer";
+            warehouse.WarehouseAddressCity = "fake one from service layer";
+            warehouse.WarehouseAddressState = "fake one from service layer";
+            warehouse.WarehouseAddressZipcode = "fake one from service layer";
             return warehouse;
         }
 
@@ -31,9 +34,27 @@ namespace Warehouse_Prj.Service
                 message = "Warehouse name cannot be empty";
                 result = false;
             }
-            else if (string.IsNullOrEmpty(warehouse.WarehouseAddress))
+            else if (string.IsNullOrEmpty(warehouse.WarehouseAddressStreet))
             {
-                message = "Warehouse address cannot be empty";
+                message = "Warehouse street address cannot be empty";
+                result = false;
+            }
+
+            else if (string.IsNullOrEmpty(warehouse.WarehouseAddressCity))
+            {
+                message = "Warehouse city address cannot be empty";
+                result = false;
+            }
+
+            else if (string.IsNullOrEmpty(warehouse.WarehouseAddressState))
+            {
+                message = "Warehouse state address cannot be empty";
+                result = false;
+            }
+
+            else if (string.IsNullOrEmpty(warehouse.WarehouseAddressZipcode))
+            {
+                message = "Warehouse Zipcode cannot be empty";
                 result = false;
             }
 
