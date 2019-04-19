@@ -13,7 +13,5 @@ namespace Warehouse_Prj.BDO
         public long Product_UPC { get; set; }
         public decimal Product_Price { get; set; }
         public Category_BDO Category { get; set; }
-
-
     }
 }
