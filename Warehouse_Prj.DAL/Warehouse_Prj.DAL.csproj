@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Product_DAO.cs" />
     <Compile Include="Queries\Inventory_Qs.cs" />
     <Compile Include="Queries\Category_Qs.cs" />
     <Compile Include="Queries\Warehouse_Qs.cs" />
@@ -61,6 +62,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Warehouse_Prj.BDO\Warehouse_Prj.BDO.csproj">
+      <Project>{a95fa38f-9315-42a7-8d01-2ce7927481ff}</Project>
+      <Name>Warehouse_Prj.BDO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

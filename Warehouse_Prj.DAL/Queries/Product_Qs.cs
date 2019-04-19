@@ -7,7 +7,7 @@ using Warehouse_Prj.DAL;
 
 namespace Warehouse_Prj.DAL.CRUD
 {
-    class Product_Qs
+    public class Product_Qs
     {
         public void Create(DataModel.Product product_in, ref string msg)
         {
@@ -31,13 +31,11 @@ namespace Warehouse_Prj.DAL.CRUD
 
         }
 
-        public void Update(DataModel.Product product_in, ref string msg)
+        public bool Update(DataModel.Product product_in, ref string msg)
         {
-
             using (var context = new DataModel.WarehouseContext())
             {
                 // Get and update product
-
                 var product = context.Products.SingleOrDefault(p => p.Product_ID == product_in.Product_ID);
                 if (product != null)
                 {
@@ -47,12 +45,13 @@ namespace Warehouse_Prj.DAL.CRUD
                     context.SaveChanges();
 
                     msg = "Product updated";
+                    return true;
                 }
                 else
                 {
                     msg = "No product found to update";
+                    return false;
                 }
-                
             }
         }
 
@@ -77,8 +76,6 @@ namespace Warehouse_Prj.DAL.CRUD
             product_ = null;
             using (var context = new DataModel.WarehouseContext())
             {
-
-
                 // Get product
                 var product = context.Products.SingleOrDefault(p => p.Product_ID == product_DTO.Product_ID);
                 if (product != null)
@@ -99,6 +96,33 @@ namespace Warehouse_Prj.DAL.CRUD
             }
 
             return product_;
+        }
+
+        public DataModel.Product Get_Product_By_ID(int product_ID, ref string msg)
+        {
+            DataModel.Product product = new DataModel.Product();
+            product = null;
+            using (var context = new DataModel.WarehouseContext())
+            {
+                // Get product
+                var product_Qs = context.Products.SingleOrDefault(p => p.Product_ID == product_ID);
+                if (product_Qs != null)
+                {
+                    msg = "Found product";
+                    product_Qs.Product_ID = product.Product_ID;
+                    product_Qs.Product_Name = product.Product_Name;
+                    product_Qs.Product_Price = product.Product_Price;
+                    product_Qs.Product_UPC = product.Product_UPC;
+
+                    return product;
+                }
+                else
+                {
+                    msg = "No product found";
+                }
+            }
+
+            return product;
         }
 
         public List<DataModel.Product> Get_All_Products(ref string msg)
