@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace Warehouse_Prj.DAL
 {
-    class DataModel
+    public class DataModel
     {
         static void Main(string[] args)
         {
@@ -39,8 +39,7 @@ namespace Warehouse_Prj.DAL
             public string Category_Description { get; set; }
 
             public virtual ICollection<Product> Products { get; set; }
-
-
+            
         }
 
         public class Product
@@ -64,17 +63,17 @@ namespace Warehouse_Prj.DAL
 
             public virtual ICollection<Product> Products { get; set; }
 
+            [NotMapped]
+            public virtual ICollection<Warehouse> Warehouses { get; set; }
+
         }
 
-        public class Shipment
+        public class Inventory
         {
-            public int Shipment_ID { get; set; }
+            public int Inventory_ID { get; set; }
             public int Product_Quantity { get; set; }
-            public string Current_Location { get; set; }
-            public DateTime Sent_Timestamp { get; set; }
-            public DateTime Received_Timestamp { get; set; }
 
-            public virtual Product Product { get; set; }
+            public virtual Product Products { get; set; }
             public virtual Warehouse Warehouse { get; set; }
 
         }
@@ -84,7 +83,7 @@ namespace Warehouse_Prj.DAL
             public virtual DbSet<Category> Categories { get; set; }
             public virtual DbSet<Product> Products { get; set; }
             public virtual DbSet<Warehouse> Warehouses { get; set; }
-            public virtual DbSet<Shipment> Shipments { get; set; }
+            public virtual DbSet<Inventory> Inventories { get; set; }
         }
 
 

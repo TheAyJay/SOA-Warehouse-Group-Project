@@ -51,7 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CRUD\Product_CRUD.cs" />
+    <Compile Include="Queries\Inventory_Qs.cs" />
+    <Compile Include="Queries\Category_Qs.cs" />
+    <Compile Include="Queries\Warehouse_Qs.cs" />
+    <Compile Include="Queries\Product_Qs.cs" />
     <Compile Include="DataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

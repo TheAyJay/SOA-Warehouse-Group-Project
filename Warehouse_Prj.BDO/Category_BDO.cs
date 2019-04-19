@@ -11,6 +11,7 @@ namespace Warehouse_Prj.BDO
         public int Category_ID { get; set; }        
         public string Category_Name { get; set; }
         public string Category_Description { get; set; }
+        public virtual ICollection<Product_BDO> Products { get; set; }
 
 
     }
