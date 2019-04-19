@@ -30,7 +30,7 @@
         {
             this.upc = new System.Windows.Forms.Label();
             this.warehousename = new System.Windows.Forms.Label();
-            this.Quentity = new System.Windows.Forms.Label();
+            this.Quantity = new System.Windows.Forms.Label();
             this.Submit = new System.Windows.Forms.Button();
             this.Zipcodebox = new System.Windows.Forms.TextBox();
             this.Statebox = new System.Windows.Forms.TextBox();
@@ -60,14 +60,14 @@
             this.warehousename.TabIndex = 2;
             this.warehousename.Text = "Warehouse Name";
             // 
-            // Quentity
+            // Quantity
             // 
-            this.Quentity.AutoSize = true;
-            this.Quentity.Location = new System.Drawing.Point(78, 181);
-            this.Quentity.Name = "Quentity";
-            this.Quentity.Size = new System.Drawing.Size(46, 13);
-            this.Quentity.TabIndex = 3;
-            this.Quentity.Text = "Quentity";
+            this.Quantity.AutoSize = true;
+            this.Quantity.Location = new System.Drawing.Point(78, 181);
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Size = new System.Drawing.Size(46, 13);
+            this.Quantity.TabIndex = 3;
+            this.Quantity.Text = "Quantity";
             // 
             // Submit
             // 
@@ -162,7 +162,7 @@
             this.Controls.Add(this.Statebox);
             this.Controls.Add(this.Zipcodebox);
             this.Controls.Add(this.Submit);
-            this.Controls.Add(this.Quentity);
+            this.Controls.Add(this.Quantity);
             this.Controls.Add(this.warehousename);
             this.Controls.Add(this.upc);
             this.Name = "Inbound";
@@ -176,7 +176,7 @@
 
         private System.Windows.Forms.Label upc;
         private System.Windows.Forms.Label warehousename;
-        private System.Windows.Forms.Label Quentity;
+        private System.Windows.Forms.Label Quantity;
         private System.Windows.Forms.Button Submit;
         private System.Windows.Forms.TextBox Zipcodebox;
         private System.Windows.Forms.TextBox Statebox;

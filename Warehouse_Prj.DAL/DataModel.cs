@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.ComponentModel.DataAnnotations;
 
 namespace Warehouse_Prj.DAL
 {
@@ -16,7 +18,7 @@ namespace Warehouse_Prj.DAL
             using (var context = new WarehouseContext())
             {
                 // Create and save a new Students
-                Console.WriteLine("Adding new students");
+                
 
                 var p = new Product
                 {
@@ -28,12 +30,14 @@ namespace Warehouse_Prj.DAL
 
                 };
 
-                context.Products.Add(p);
+                //context.Products.Add(p);
                 //context.SaveChanges();
+                //Console.WriteLine("Adding new products");
             }
         }
         public class Category
         {
+            [Key]
             public int Category_ID { get; set; }
             public string Category_Name { get; set; }
             public string Category_Description { get; set; }
@@ -44,6 +48,7 @@ namespace Warehouse_Prj.DAL
 
         public class Product
         {
+            [Key]
             public int Product_ID { get; set; }
             public string Product_Name { get; set; }
             public long Product_UPC { get; set; }
@@ -54,6 +59,7 @@ namespace Warehouse_Prj.DAL
 
         public class Warehouse
         {
+            [Key]
             public int Warehouse_ID { get; set; }
             public string Warehouse_Name { get; set; }
             public string Street { get; set; }
@@ -70,6 +76,7 @@ namespace Warehouse_Prj.DAL
 
         public class Inventory
         {
+            [Key]
             public int Inventory_ID { get; set; }
             public int Product_Quantity { get; set; }
 
@@ -80,12 +87,16 @@ namespace Warehouse_Prj.DAL
 
         public class WarehouseContext : DbContext
         {
+            public WarehouseContext() : base("WarehouseContext")
+            {
+
+            }
             public virtual DbSet<Category> Categories { get; set; }
             public virtual DbSet<Product> Products { get; set; }
             public virtual DbSet<Warehouse> Warehouses { get; set; }
             public virtual DbSet<Inventory> Inventories { get; set; }
         }
 
-
+  
     }
 }
