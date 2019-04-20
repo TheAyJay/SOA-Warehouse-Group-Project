@@ -1,7 +1,6 @@
 ﻿///
 /// Project: MSCS 6931 SOA Group Project
 /// Created: 4/18/2019
-/// Programmer: Omar Waller
 /// Description: Data Access Layer class for queries to the database for Products
 ///
 using System;
@@ -15,6 +14,8 @@ namespace Warehouse_Prj.DAL.CRUD
 {
     public class Product_Qs
     {
+        //Given a Product object, add to Products table
+        //Returns a boolean
         public bool Create(DataModel.Product product_in, ref string msg)
         {
             var ret = true;
@@ -49,13 +50,15 @@ namespace Warehouse_Prj.DAL.CRUD
             return ret;
         }
 
+        //Given a Product object, update the Products table on Product_ID
+        //Returns a boolean
         public bool Update(DataModel.Product product_in, ref string msg)
         {
             var ret = true;
 
             using (var context = new DataModel.WarehouseContext())
             {
-                // Get and update product
+                // Get and update Product
                 var product = context.Products.SingleOrDefault(p => p.Product_ID == product_in.Product_ID);
                 if (product != null)
                 {
@@ -82,7 +85,7 @@ namespace Warehouse_Prj.DAL.CRUD
                 }
                 else
                 {
-                    msg = "No product found to update";
+                    msg = "No product found with the provided ID";
                     ret = false;
                 }
             }
@@ -90,6 +93,8 @@ namespace Warehouse_Prj.DAL.CRUD
             return ret;
         }
 
+        //Given a UPC code, delete Product from Products table
+        //Returns a boolean
         public bool Delete_Product_By_UPC(long product_UPC, ref string msg)
         {
             var ret = true;
@@ -117,6 +122,8 @@ namespace Warehouse_Prj.DAL.CRUD
             return ret;
         }
 
+        //Given an ID, delete Product from Products table
+        //Returns a boolean
         public bool Delete_Product_By_ID(int product_ID, ref string msg)
         {
             var ret = true;
@@ -144,23 +151,25 @@ namespace Warehouse_Prj.DAL.CRUD
             return ret;
         }
 
+        //TODO
         public DataModel.Product Get_Product(DataModel.Product product_DTO, ref string msg)
         {
-            DataModel.Product product_ = new DataModel.Product();
-            product_ = null;
+            DataModel.Product product = new DataModel.Product();
+            product = null;
+
             using (var context = new DataModel.WarehouseContext())
             {
                 // Get product
-                var product = context.Products.SingleOrDefault(p => p.Product_ID == product_DTO.Product_ID);
+                var product_Qs = context.Products.SingleOrDefault(p => p.Product_ID == product_DTO.Product_ID);
                 if (product != null)
                 {
                     msg = "Found product";
-                    product.Product_ID = product_.Product_ID;
-                    product.Product_Name = product_.Product_Name;
-                    product.Product_Price = product_.Product_Price;
-                    product.Product_UPC = product_.Product_UPC;
+                    product.Product_ID = product_Qs.Product_ID;
+                    product.Product_Name = product_Qs.Product_Name;
+                    product.Product_Price = product_Qs.Product_Price;
+                    product.Product_UPC = product_Qs.Product_UPC;
 
-                    return product_;
+                    return product;
                 }
                 else
                 {
@@ -168,9 +177,11 @@ namespace Warehouse_Prj.DAL.CRUD
                 }
             }
 
-            return product_;
+            return product;
         }
 
+        //Given a UPC code, get Product from Products table
+        //Returns Product object
         public DataModel.Product Get_Product_By_UPC(long product_UPC, ref string msg)
         {
             //Create Product object
@@ -184,10 +195,10 @@ namespace Warehouse_Prj.DAL.CRUD
                 if (product_Qs != null)
                 {
                     msg = "Found product";
-                    product_Qs.Product_ID = product.Product_ID;
-                    product_Qs.Product_Name = product.Product_Name;
-                    product_Qs.Product_Price = product.Product_Price;
-                    product_Qs.Product_UPC = product.Product_UPC;
+                    product.Product_ID = product_Qs.Product_ID;
+                    product.Product_Name = product_Qs.Product_Name;
+                    product.Product_Price = product_Qs.Product_Price;
+                    product.Product_UPC = product_Qs.Product_UPC;
 
                     return product;
                 }
@@ -200,6 +211,8 @@ namespace Warehouse_Prj.DAL.CRUD
             return product;
         }
 
+        //Given an ID, get Product from Products table
+        //Returns Product object
         public DataModel.Product Get_Product_By_ID(int product_ID, ref string msg)
         {
             //Create Product object
@@ -213,10 +226,10 @@ namespace Warehouse_Prj.DAL.CRUD
                 if (product_Qs != null)
                 {
                     msg = "Found product";
-                    product_Qs.Product_ID = product.Product_ID;
-                    product_Qs.Product_Name = product.Product_Name;
-                    product_Qs.Product_Price = product.Product_Price;
-                    product_Qs.Product_UPC = product.Product_UPC;
+                    product.Product_ID = product_Qs.Product_ID;
+                    product.Product_Name = product_Qs.Product_Name;
+                    product.Product_Price = product_Qs.Product_Price;
+                    product.Product_UPC = product_Qs.Product_UPC;
 
                     return product;
                 }

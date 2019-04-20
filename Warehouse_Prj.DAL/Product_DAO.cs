@@ -1,7 +1,6 @@
 ﻿///
 /// Project: MSCS 6931 SOA Group Project
 /// Created: 4/19/2019
-/// Programmer: Andrew Jacobson
 /// Description: Data Access Object class for Products
 ///
 using System;
@@ -16,6 +15,8 @@ namespace Warehouse_Prj.DAL
 {
     public class Product_DAO
     {
+        //Given a Product_BDO object, add to Products table
+        //Returns a boolean
         public bool Create_Product(ref Product_BDO product_BDO, ref string message)
         {
             var ret = false;
@@ -37,7 +38,9 @@ namespace Warehouse_Prj.DAL
 
             return ret;
         }
-        
+
+        //Given an ID, delete Product from Products table
+        //Returns a boolean
         public bool Delete_Product_By_ID(int product_ID, ref string message)
         {
             var ret = false;
@@ -49,6 +52,8 @@ namespace Warehouse_Prj.DAL
             return ret;
         }
 
+        //Given a UPC code, delete Product from Products table
+        //Returns a boolean
         public bool Delete_Product_By_UPC(long product_UPC, ref string message)
         {
             var ret = false;
@@ -60,6 +65,8 @@ namespace Warehouse_Prj.DAL
             return ret;
         }
 
+        //Given an ID, fetch Product from Products table
+        //Returns a Product_BDO object
         public Product_BDO Get_Product_By_ID(int product_ID, ref string message)
         {
             //Create Product_BDO object
@@ -86,6 +93,8 @@ namespace Warehouse_Prj.DAL
             return product_BDO;
         }
 
+        //Given a UPC code, fetch Product from Products table
+        //Returns a Product_BDO object
         public Product_BDO Get_Product_By_UPC(long product_UPC, ref string message)
         {
             //Create Product_BDO object
@@ -112,6 +121,8 @@ namespace Warehouse_Prj.DAL
             return product_BDO;
         }
 
+        //Given a Product_BDO object, update the Products table on Product_ID
+        //Returns a boolean
         public bool Update_Product(ref Product_BDO product_BDO, ref string message)
         { 
             var ret = false;

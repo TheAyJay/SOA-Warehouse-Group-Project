@@ -1,4 +1,9 @@
-﻿using System;
+﻿///
+/// Project: MSCS 6931 SOA Group Project
+/// Created: 4/18/2019
+/// Description: Data Access Layer class for queries to the database for Warehouses
+///
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,89 +12,143 @@ using Warehouse_Prj.DAL;
 
 namespace Warehouse_Prj.DAL.CRUD
 {
-    class Warehouse_Qs
+    public class Warehouse_Qs
     {
-        public void Create(DataModel.Warehouse warehouse) {
+        //Given a Warehouse object, add to Warehouses table
+        //Returns a boolean
+        public bool Create(DataModel.Warehouse warehouse_in, ref string msg)
+        {
+            var ret = true;
 
             using (var context = new DataModel.WarehouseContext())
             {
-                // Create and save a new Products
-
+                // Create and save a new Warehouse
                 var newWarehouse = new DataModel.Warehouse();
 
-                newWarehouse.Warehouse_Name = warehouse.Warehouse_Name;
-                newWarehouse.Street = warehouse.Street;
-                newWarehouse.City = warehouse.City;
-                newWarehouse.State = warehouse.State;
-                newWarehouse.Zipcode = warehouse.Zipcode;
+                newWarehouse.Warehouse_ID = warehouse_in.Warehouse_ID;
+                newWarehouse.Warehouse_Name = warehouse_in.Warehouse_Name;
+                newWarehouse.Street = warehouse_in.Street;
+                newWarehouse.City = warehouse_in.City;
+                newWarehouse.State = warehouse_in.State;
+                newWarehouse.Zipcode = warehouse_in.Zipcode;
 
+                //Add the Warehouse
                 context.Warehouses.Add(newWarehouse);
-                context.SaveChanges();
-            }
-        }
 
-        public void Update(DataModel.Warehouse warehouse, ref string msg)
-        {
-
-            using (var context = new DataModel.WarehouseContext())
-            {
-                // Get and update product
-
-                var wse = context.Warehouses.First(w => w.Warehouse_ID == warehouse.Warehouse_ID);
-                if(wse != null)
+                //Check execution of transaction - we expect 1 change to have occurred
+                var execution_result = context.SaveChanges();
+                if(execution_result != 1)
                 {
-                    msg = "Warehouse being updated";
-                    wse.Warehouse_Name = warehouse.Warehouse_Name;
-                    wse.Street = warehouse.Street;
-                    wse.City = warehouse.City;
-                    wse.State = warehouse.State;
-                    wse.Zipcode = warehouse.Zipcode;
-                    context.SaveChanges();
+                    msg = "Warehouse was not added";
+                    ret = false;
                 }
-
                 else
                 {
-                    msg = "No Warehouses found with the provided ID";
+                    msg = "Warehouse added";
                 }
-                
             }
+
+            return ret;
         }
 
-        public void Delete(int warehouse_id)
+        //Given a Warehouse object, update the Warehouses table on Warehouse_ID
+        //Returns a boolean
+        public bool Update(DataModel.Warehouse warehouse_in, ref string msg)
         {
+            var ret = true;
 
             using (var context = new DataModel.WarehouseContext())
             {
-                // Delete the warehouse using warehouse ID
+                // Get and update Warehouse
+                var warehouse = context.Warehouses.First(w => w.Warehouse_ID == warehouse_in.Warehouse_ID);
+                if(warehouse != null)
+                {
+                    warehouse.Warehouse_Name = warehouse.Warehouse_Name;
+                    warehouse.Street = warehouse.Street;
+                    warehouse.City = warehouse.City;
+                    warehouse.State = warehouse.State;
+                    warehouse.Zipcode = warehouse.Zipcode;
 
+                    //Apply change
+                    context.Warehouses.Attach(warehouse);
+                    context.Entry(warehouse).State = System.Data.Entity.EntityState.Modified;
+
+                    //Check execution of transaction - we expect 1 change to have occurred
+                    var execution_result = context.SaveChanges();
+                    if(execution_result != 1)
+                    {
+                        msg = "Warehouse was not updated";
+                        ret = false;
+                    }
+                    else
+                    {
+                        msg = "Warehouse updated";
+                    }
+                }
+                else
+                {
+                    msg = "No Warehouse found with the provided ID";
+                    ret = false;
+                }
+            }
+
+            return ret;
+        }
+
+        //Given an ID, delete Warehouse from Warehouses
+        //Returns a boolean
+        public bool Delete_Warehouse_By_ID(int warehouse_id, ref string msg)
+        {
+            var ret = true;
+
+            using (var context = new DataModel.WarehouseContext())
+            {
+                // Delete Warehouse from the database using warehouse ID
                 var warehouse = new DataModel.Warehouse { Warehouse_ID = warehouse_id };
                 context.Warehouses.Attach(warehouse);
                 context.Warehouses.Remove(warehouse);
-                context.SaveChanges();
+
+                //Check execution of transaction - we expect 1 change to have occurred
+                var execution_result = context.SaveChanges();
+                if(execution_result != 1)
+                {
+                    msg = "Warehouse was not deleted";
+                    ret = false;
+                }
+                else
+                {
+                    msg = "Warehouse deleted";
+                }
             }
+
+            return ret;
         }
 
-        public DataModel.Warehouse GetWarehouse(DataModel.Warehouse warehouse_, ref string msg)
+        //Given an ID, delete Warehouse from Warehouses table
+        //Returns a boolean
+        public DataModel.Warehouse Get_Warehouse_By_ID(int warehouse_ID, ref string msg)
         {
-            DataModel.Warehouse Warehouse = new DataModel.Warehouse();
-            Warehouse = null;
+            //Create Warehouse object
+            DataModel.Warehouse warehouse = new DataModel.Warehouse();
+            warehouse = null;
+
             using(var context = new DataModel.WarehouseContext())
             {
-                var warehouse = context.Warehouses.SingleOrDefault(w => w.Warehouse_ID == warehouse_.Warehouse_ID);
+                //Get Warehouse from database
+                var warehouse_Qs = context.Warehouses.SingleOrDefault(w => w.Warehouse_ID == warehouse_ID);
 
-                if(warehouse != null)
+                //Translate query result to Warehouse object
+                if(warehouse_Qs != null)
                 {
-                    Warehouse.Warehouse_ID = warehouse.Warehouse_ID;
-                    Warehouse.Warehouse_Name = warehouse.Warehouse_Name;
-                    Warehouse.Street = warehouse.Street;
-                    Warehouse.State = warehouse.State;
-                    Warehouse.City = warehouse.City;
-                    Warehouse.State = warehouse.State;
-                    Warehouse.Zipcode = warehouse.Zipcode;
-
                     msg = "Warehouse found";
+                    warehouse.Warehouse_ID = warehouse_Qs.Warehouse_ID;
+                    warehouse.Warehouse_Name = warehouse_Qs.Warehouse_Name;
+                    warehouse.Street = warehouse_Qs.Street;
+                    warehouse.City = warehouse_Qs.City;
+                    warehouse.State = warehouse_Qs.State;
+                    warehouse.Zipcode = warehouse_Qs.Zipcode;
 
-                    return Warehouse;
+                    return warehouse;
                 }
                 else
                 {
@@ -98,10 +157,10 @@ namespace Warehouse_Prj.DAL.CRUD
 
             }
 
-            return Warehouse;
+            return warehouse;
         }
 
-
+        //TODO
         public List<DataModel.Warehouse> Get_All_Warehouses(ref string msg)
         {
             List<DataModel.Warehouse> warehouse_list = null;

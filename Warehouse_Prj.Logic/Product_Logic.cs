@@ -1,7 +1,6 @@
 ﻿///
 /// Project: MSCS 6931 SOA Group Project
 /// Created: 4/19/2019
-/// Programmer: Andrew Jacobson
 /// Description: Business logic class for Products
 ///
 using System;
@@ -30,7 +29,7 @@ namespace Warehouse_Prj.Logic
             return product_DAO.Get_Product_By_UPC(product_UPC, ref message);
         }
 
-        //Given a Product BDO, returns true/false depending on the success of the update
+        //Given a Product_BDO, returns true/false depending on the success of the update
         public bool Update_Product(ref Product_BDO product_BDO,  ref string message)
         {
             var product = Get_Product_By_ID(product_BDO.Product_ID, ref message);
@@ -46,7 +45,7 @@ namespace Warehouse_Prj.Logic
             }
         }
 
-        //Given a Product BDO, returns true/false depending on the success of the create
+        //Given a Product_BDO, returns true/false depending on the success of the create
         public bool Create_Product(ref Product_BDO product_BDO, ref string message)
         {
             return product_DAO.Create_Product(ref product_BDO, ref message);
