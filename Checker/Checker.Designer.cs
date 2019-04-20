@@ -4,6 +4,11 @@
     {
         /// <summary>
         /// Required designer variable.
+        /// Warehouse Checker
+        /// Checks specific warehouse for all products
+        /// 
+        /// Product Checker
+        /// Checks locations of product for all warehouses
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 

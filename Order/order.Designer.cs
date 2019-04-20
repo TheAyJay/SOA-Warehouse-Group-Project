@@ -55,7 +55,7 @@
             this.lblorderqty.Name = "lblorderqty";
             this.lblorderqty.Size = new System.Drawing.Size(75, 13);
             this.lblorderqty.TabIndex = 2;
-            this.lblorderqty.Text = "Order Quentity";
+            this.lblorderqty.Text = "Order Quantity";
             // 
             // lblorderzipcode
             // 

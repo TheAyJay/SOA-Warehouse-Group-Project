@@ -160,7 +160,7 @@ namespace Warehouse_Prj.DAL.CRUD
             return warehouse;
         }
 
-        //TODO
+        //Return a list of all Warehouses in the database.
         public List<DataModel.Warehouse> Get_All_Warehouses(ref string msg)
         {
             List<DataModel.Warehouse> warehouse_list = null;

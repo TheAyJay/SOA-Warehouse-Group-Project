@@ -14,6 +14,16 @@ namespace Warehouse_Prj.DAL.CRUD
 {
     public class Product_Qs
     {
+        /// <summary>
+        /// MSCS 701-702 Topics in Math Sts, & Comp Sci
+        /// Service Oriented Architecture (SOA)
+        /// Spring 2019
+        /// Omar Waller, Andrew Jacobson
+        /// 
+        /// Description: This class contains queries to the Products table in the database configured in the app.config file. .
+      
+        /// </summary>
+
         //Given a Product object, add to Products table
         //Returns a boolean
         public bool Create(DataModel.Product product_in, ref string msg)
@@ -151,34 +161,6 @@ namespace Warehouse_Prj.DAL.CRUD
             return ret;
         }
 
-        //TODO
-        public DataModel.Product Get_Product(DataModel.Product product_DTO, ref string msg)
-        {
-            DataModel.Product product = new DataModel.Product();
-            product = null;
-
-            using (var context = new DataModel.WarehouseContext())
-            {
-                // Get product
-                var product_Qs = context.Products.SingleOrDefault(p => p.Product_ID == product_DTO.Product_ID);
-                if (product != null)
-                {
-                    msg = "Found product";
-                    product.Product_ID = product_Qs.Product_ID;
-                    product.Product_Name = product_Qs.Product_Name;
-                    product.Product_Price = product_Qs.Product_Price;
-                    product.Product_UPC = product_Qs.Product_UPC;
-
-                    return product;
-                }
-                else
-                {
-                    msg = "No product found";
-                }
-            }
-
-            return product;
-        }
 
         //Given a UPC code, get Product from Products table
         //Returns Product object

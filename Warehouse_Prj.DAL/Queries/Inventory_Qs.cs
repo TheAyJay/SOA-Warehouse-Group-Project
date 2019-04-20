@@ -7,42 +7,83 @@ using Warehouse_Prj.DAL;
 
 namespace Warehouse_Prj.DAL.CRUD
 {
-    class Incentory_Qs
+    public class Inventory_Qs
     {
-        public void Create(DataModel.Category category) {
+        /// <summary>
+        /// MSCS 701-702 Topics in Math Sts, & Comp Sci
+        /// Service Oriented Architecture (SOA)
+        /// Spring 2019
+        /// Omar Waller
+        /// 
+        /// Description: This class contains CRUD and Get queries to the Inventory table in the Warehouse database configured 
+        /// in the app.config file.
+        /// </summary>
+
+        // This method creates a Inventory record in the Warehouse database and returns true if the operation was successful.
+        public bool Create(DataModel.Inventory inventory, ref string msg) {
 
             using (var context = new DataModel.WarehouseContext())
             {
                 // Create and save a new Products
 
-                var newCategory = new DataModel.Category();
+                var newInventory = new DataModel.Inventory();
+                bool success = false;
 
-                newCategory.Category_Description = category.Category_Description;
-                newCategory.Category_Name = category.Category_Name;
+                newInventory.Inventory_ID = inventory.Inventory_ID;
+                newInventory.Products = inventory.Products;
+                newInventory.Product_Quantity = inventory.Product_Quantity;
+                newInventory.Warehouse = inventory.Warehouse;
+                
+                //Check execution of transaction - we expect 1 change to have occurred
+                var execution_result = context.SaveChanges();
+                if (execution_result != 1)
+                {
+                    msg = "Inventory was not created";
+                }
+                else
+                {
+                    msg = "Category created";
+                    success = true;
+                }
 
-                context.Categories.Add(newCategory);
-                context.SaveChanges();
+                return success;
             }
         }
 
-        public void Update(DataModel.Category category)
+        // This method updates a Inventory record in the Warehouse database and returns true if the operation was successful.
+        public bool Update(DataModel.Inventory inventory, ref string msg)
         {
-
             using (var context = new DataModel.WarehouseContext())
             {
                 // Get and update product
 
-                var cat = context.Categories.SingleOrDefault(c => c.Category_ID == category.Category_ID);
-                if(cat != null)
+                var inventory_ = context.Inventories.SingleOrDefault(i => i.Inventory_ID == inventory.Inventory_ID);
+                bool success = false;
+                if(inventory_ != null)
                 {
-                    cat.Category_Name = category.Category_Name;
-                    cat.Category_Description = category.Category_Description;                    
+                    inventory_.Inventory_ID = inventory.Inventory_ID;
+                    inventory_.Products = inventory.Products;
+                    inventory_.Product_Quantity = inventory.Product_Quantity;
+                    inventory_.Warehouse = inventory.Warehouse;
                 }
-                context.SaveChanges();
+                //Check execution of transaction - we expect 1 change to have occurred
+                var execution_result = context.SaveChanges();
+                if (execution_result != 1)
+                {
+                    msg = "Inventory was not created";
+                }
+                else
+                {
+                    msg = "Category created";
+                    success = true;
+                }
+
+                return success;
             }
         }
 
-        public void Delete(int category_id)
+        // This method deletes a Inventory record in the Warehouse database and returns true if the operation was successful.
+        public bool Delete(int category_id, ref string msg)
         {
 
             using (var context = new DataModel.WarehouseContext())
@@ -50,12 +91,28 @@ namespace Warehouse_Prj.DAL.CRUD
                 // Delete the product using product ID
 
                 var category = new DataModel.Category { Category_ID = category_id };
+                bool success = false;
                 context.Categories.Attach(category);
                 context.Categories.Remove(category);
                 context.SaveChanges();
+
+                //Check execution of transaction - we expect 1 change to have occurred
+                var execution_result = context.SaveChanges();
+                if (execution_result != 1)
+                {
+                    msg = "Category not deleted.";
+                    success = false;
+                }
+                else
+                {
+                    msg = "Category deleted.";
+                }
+
+                return success;
             }
         }
 
+        //This method returns a list of warehouses given a UPC number.
         public List<DataModel.Inventory> Get_Warehouses_By_Product_UPC(DataModel.Product product, ref string msg)
         {
             List<DataModel.Inventory> warehouse_list = null;
