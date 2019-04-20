@@ -1,9 +1,4 @@
-﻿///
-/// Project: MSCS 6931 SOA Group Project
-/// Created: 4/18/2019
-/// Description: Data Access Layer class for queries to the database for Warehouses
-///
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +9,16 @@ namespace Warehouse_Prj.DAL.CRUD
 {
     public class Warehouse_Qs
     {
+        /// <summary>
+        /// MSCS 701-702 Topics in Math Sts, & Comp Sci
+        /// Service Oriented Architecture (SOA)
+        /// Spring 2019
+        /// Omar Waller
+        /// 
+        /// Description: This class contains CRUD and Get queries to the Warehouse table in the Warehouse database configured 
+        /// in the app.config file.
+        /// </summary>
+
         //Given a Warehouse object, add to Warehouses table
         //Returns a boolean
         public bool Create(DataModel.Warehouse warehouse_in, ref string msg)
