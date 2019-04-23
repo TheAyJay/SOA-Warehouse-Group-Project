@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201904230237134_WarehouseDB-v2.cs" />
+    <Compile Include="Migrations\201904230237134_WarehouseDB-v2.Designer.cs">
+      <DependentUpon>201904230237134_WarehouseDB-v2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Product_DAO.cs" />
     <Compile Include="Queries\Inventory_Qs.cs" />
@@ -70,6 +74,11 @@
       <Project>{a95fa38f-9315-42a7-8d01-2ce7927481ff}</Project>
       <Name>Warehouse_Prj.BDO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904230237134_WarehouseDB-v2.resx">
+      <DependentUpon>201904230237134_WarehouseDB-v2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
