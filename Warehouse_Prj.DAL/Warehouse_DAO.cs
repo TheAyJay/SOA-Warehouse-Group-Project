@@ -17,7 +17,7 @@ namespace Warehouse_Prj.DAL
     {
         //Given an ID, fetch Warehouse from Warehouses table
         //Returns a Warehouse_BDO object
-        public Warehouse_BDO Get_Warehouse_By_ID(int warehouse_ID, ref string message)
+        public Warehouse_BDO Get_Warehouse_By_ID(int warehouse_ID)
         {
             //Create Warehouse_BDO object
             Warehouse_BDO warehouse_BDO = null;
@@ -27,7 +27,7 @@ namespace Warehouse_Prj.DAL
 
             //Call Warehouse_Qs.Get_Warehouse_By_ID
             Warehouse_Qs warehouse_Query = new Warehouse_Qs();
-            warehouse_DTO_Result = warehouse_Query.Get_Warehouse_By_ID(warehouse_ID, ref message);
+            warehouse_DTO_Result = warehouse_Query.Get_Warehouse_By_ID(warehouse_ID);
 
             //If Warehouse is found, tranlsate to BDO object
             if (warehouse_DTO_Result != null)

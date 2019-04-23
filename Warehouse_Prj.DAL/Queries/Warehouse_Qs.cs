@@ -131,7 +131,7 @@ namespace Warehouse_Prj.DAL.CRUD
 
         //Given an ID, delete Warehouse from Warehouses table
         //Returns a boolean
-        public DataModel.Warehouse Get_Warehouse_By_ID(int warehouse_ID, ref string msg)
+        public DataModel.Warehouse Get_Warehouse_By_ID(int warehouse_ID)
         {
             //Create Warehouse object
             DataModel.Warehouse warehouse = new DataModel.Warehouse();
@@ -145,7 +145,6 @@ namespace Warehouse_Prj.DAL.CRUD
                 //Translate query result to Warehouse object
                 if(warehouse_Qs != null)
                 {
-                    msg = "Warehouse found";
                     warehouse.Warehouse_ID = warehouse_Qs.Warehouse_ID;
                     warehouse.Warehouse_Name = warehouse_Qs.Warehouse_Name;
                     warehouse.Street = warehouse_Qs.Street;
@@ -155,11 +154,6 @@ namespace Warehouse_Prj.DAL.CRUD
 
                     return warehouse;
                 }
-                else
-                {
-                    msg = "Warehouse not found";
-                }
-
             }
 
             return warehouse;

@@ -18,9 +18,9 @@ namespace Warehouse_Prj.Logic
         Warehouse_DAO warehouse_DAO = new Warehouse_DAO();
 
         //Returns a Warehouse given an ID
-        public Warehouse_BDO Get_Warehouse_By_ID(int warehouse_ID, ref string message)
+        public Warehouse_BDO Get_Warehouse_By_ID(int warehouse_ID)
         {
-            return warehouse_DAO.Get_Warehouse_By_ID(warehouse_ID, ref message);
+            return warehouse_DAO.Get_Warehouse_By_ID(warehouse_ID);
         }
 
         //Given a Warehouse_BDO, returns true/false depending on the success of the create
@@ -32,7 +32,7 @@ namespace Warehouse_Prj.Logic
         //Given a Warehouse_BDO, returns true/false depending on the success of the update
         public bool Update_Warehouse(ref Warehouse_BDO warehouse_BDO, ref string message)
         {
-            var warehouse = Get_Warehouse_By_ID(warehouse_BDO.Warehouse_ID, ref message);
+            var warehouse = Get_Warehouse_By_ID(warehouse_BDO.Warehouse_ID);
             if(warehouse == null)
             {
                 message = "Warehouse not in database";
