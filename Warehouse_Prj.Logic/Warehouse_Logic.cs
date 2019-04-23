@@ -23,10 +23,25 @@ namespace Warehouse_Prj.Logic
             return warehouse_DAO.Get_Warehouse_By_ID(warehouse_ID);
         }
 
+        //Returns a Warehouse given a name
+        public Warehouse_BDO Get_Warehouse_By_Name(string warehouse_Name)
+        {
+            return warehouse_DAO.Get_Warehouse_By_Name(warehouse_Name);
+        }
+
         //Given a Warehouse_BDO, returns true/false depending on the success of the create
         public bool Create_Warehouse(ref Warehouse_BDO warehouse_BDO, ref string message)
         {
-            return warehouse_DAO.Create_Warehouse(ref warehouse_BDO, ref message);
+            var warehouse = Get_Warehouse_By_Name(warehouse_BDO.Warehouse_Name);
+            if (warehouse != null)
+            {
+                message = "Warehouse exists already!";
+                return false;
+            }
+            else
+            {
+                return warehouse_DAO.Create_Warehouse(ref warehouse_BDO, ref message);
+            }
         }
 
         //Given a Warehouse_BDO, returns true/false depending on the success of the update

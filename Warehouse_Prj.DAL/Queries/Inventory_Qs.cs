@@ -25,14 +25,12 @@ namespace Warehouse_Prj.DAL.CRUD
             using (var context = new DataModel.WarehouseContext())
             {
                 // Create and save a new Products
-
                 var newInventory = new DataModel.Inventory();
                 bool success = false;
 
-                newInventory.Inventory_ID = inventory.Inventory_ID;
-                newInventory.Products = inventory.Products;
                 newInventory.Product_Quantity = inventory.Product_Quantity;
-                newInventory.Warehouse = inventory.Warehouse;
+                newInventory.Products_Product_ID = inventory.Products_Product_ID;
+                newInventory.Warehouse_Warehouse_ID = inventory.Warehouse_Warehouse_ID;
                 
                 //Check execution of transaction - we expect 1 change to have occurred
                 var execution_result = context.SaveChanges();
@@ -42,7 +40,7 @@ namespace Warehouse_Prj.DAL.CRUD
                 }
                 else
                 {
-                    msg = "Category created";
+                    msg = "Inventory created";
                     success = true;
                 }
 
@@ -50,67 +48,68 @@ namespace Warehouse_Prj.DAL.CRUD
             }
         }
 
-        // This method updates a Inventory record in the Warehouse database and returns true if the operation was successful.
-        public bool Update(DataModel.Inventory inventory, ref string msg)
-        {
-            using (var context = new DataModel.WarehouseContext())
-            {
-                // Get and update product
+        //TODO - Might not be needed as there is no UI for updating inventory
+        //This method updates a Inventory record in the Warehouse database and returns true if the operation was successful.
+        //public bool Update(DataModel.Inventory inventory, ref string msg)
+        //{
+        //    using (var context = new DataModel.WarehouseContext())
+        //    {
+        //        // Get and update product
+        //        var inventory_ = context.Inventories.SingleOrDefault(i => i.Inventory_ID == inventory.Inventory_ID);
+        //        bool success = false;
+        //        if(inventory_ != null)
+        //        {
+        //            inventory_.Inventory_ID = inventory.Inventory_ID;
+        //            inventory_.Products = inventory.Products;
+        //            inventory_.Product_Quantity = inventory.Product_Quantity;
+        //            inventory_.Warehouse = inventory.Warehouse;
+        //        }
+        //        //Check execution of transaction - we expect 1 change to have occurred
+        //        var execution_result = context.SaveChanges();
+        //        if (execution_result != 1)
+        //        {
+        //            msg = "Inventory was not created";
+        //        }
+        //        else
+        //        {
+        //            msg = "Category created";
+        //            success = true;
+        //        }
 
-                var inventory_ = context.Inventories.SingleOrDefault(i => i.Inventory_ID == inventory.Inventory_ID);
-                bool success = false;
-                if(inventory_ != null)
-                {
-                    inventory_.Inventory_ID = inventory.Inventory_ID;
-                    inventory_.Products = inventory.Products;
-                    inventory_.Product_Quantity = inventory.Product_Quantity;
-                    inventory_.Warehouse = inventory.Warehouse;
-                }
-                //Check execution of transaction - we expect 1 change to have occurred
-                var execution_result = context.SaveChanges();
-                if (execution_result != 1)
-                {
-                    msg = "Inventory was not created";
-                }
-                else
-                {
-                    msg = "Category created";
-                    success = true;
-                }
+        //        return success;
+        //    }
+        //}
 
-                return success;
-            }
-        }
-
+        //TODO - Might not be needed as there is no UI for deleting inventory
         // This method deletes a Inventory record in the Warehouse database and returns true if the operation was successful.
-        public bool Delete(int category_id, ref string msg)
-        {
+        //public bool Delete(int category_id, ref string msg)
+        //{
 
-            using (var context = new DataModel.WarehouseContext())
-            {
-                // Delete the product using product ID
+        //    using (var context = new DataModel.WarehouseContext())
+        //    {
+        //        // Delete the product using product ID
 
-                var category = new DataModel.Category { Category_ID = category_id };
-                bool success = false;
-                context.Categories.Attach(category);
-                context.Categories.Remove(category);
-                context.SaveChanges();
+        //        var category = new DataModel.Category { Category_ID = category_id };
+        //        bool success = false;
+        //        context.Categories.Attach(category);
+        //        context.Categories.Remove(category);
+        //        context.SaveChanges();
 
-                //Check execution of transaction - we expect 1 change to have occurred
-                var execution_result = context.SaveChanges();
-                if (execution_result != 1)
-                {
-                    msg = "Category not deleted.";
-                    success = false;
-                }
-                else
-                {
-                    msg = "Category deleted.";
-                }
+        //        //Check execution of transaction - we expect 1 change to have occurred
+        //        var execution_result = context.SaveChanges();
+        //        if (execution_result != 1)
+        //        {
+        //            msg = "Category not deleted.";
+        //            success = false;
+        //        }
+        //        else
+        //        {
+        //            msg = "Category deleted.";
+        //        }
 
-                return success;
-            }
-        }
+        //        return success;
+        //    }
+        //}
 
         //This method returns a list of warehouses given a UPC number.
         public List<DataModel.Inventory> Get_Warehouses_By_Product_UPC(DataModel.Product product, ref string msg)

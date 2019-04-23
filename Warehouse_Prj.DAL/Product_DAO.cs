@@ -25,7 +25,6 @@ namespace Warehouse_Prj.DAL
             DataModel.Product product_DTO = new DataModel.Product();
 
             //Translate BDO to DTO for Product_Qs
-            product_DTO.Product_ID = product_BDO.Product_ID;
             product_DTO.Product_Name = product_BDO.Product_Name;
             product_DTO.Product_UPC = product_BDO.Product_UPC;
             product_DTO.Product_Price = product_BDO.Product_Price;

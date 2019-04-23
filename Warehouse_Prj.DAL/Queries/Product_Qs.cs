@@ -35,7 +35,6 @@ namespace Warehouse_Prj.DAL.CRUD
                 // Create and save a new Product
                 var newProduct = new DataModel.Product();
 
-                newProduct.Product_ID = product_in.Product_ID;
                 newProduct.Product_Name = product_in.Product_Name;
                 newProduct.Product_Price = product_in.Product_Price;
                 newProduct.Product_UPC = product_in.Product_UPC;

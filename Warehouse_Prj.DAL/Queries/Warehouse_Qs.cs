@@ -30,7 +30,6 @@ namespace Warehouse_Prj.DAL.CRUD
                 // Create and save a new Warehouse
                 var newWarehouse = new DataModel.Warehouse();
 
-                newWarehouse.Warehouse_ID = warehouse_in.Warehouse_ID;
                 newWarehouse.Warehouse_Name = warehouse_in.Warehouse_Name;
                 newWarehouse.Street = warehouse_in.Street;
                 newWarehouse.City = warehouse_in.City;
@@ -129,8 +128,8 @@ namespace Warehouse_Prj.DAL.CRUD
             return ret;
         }
 
-        //Given an ID, delete Warehouse from Warehouses table
-        //Returns a boolean
+        //Given an ID, get Warehouse from Warehouses table
+        //Returns a Warehouse object
         public DataModel.Warehouse Get_Warehouse_By_ID(int warehouse_ID)
         {
             //Create Warehouse object
@@ -144,34 +143,6 @@ namespace Warehouse_Prj.DAL.CRUD
 
                 //Translate query result to Warehouse object
                 if(warehouse_Qs != null)
-                {
-                    warehouse.Warehouse_ID = warehouse_Qs.Warehouse_ID;
-                    warehouse.Warehouse_Name = warehouse_Qs.Warehouse_Name;
-                    warehouse.Street = warehouse_Qs.Street;
-                    warehouse.City = warehouse_Qs.City;
-                    warehouse.State = warehouse_Qs.State;
-                    warehouse.Zipcode = warehouse_Qs.Zipcode;
-
-                    return warehouse;
-                }
-            }
-
-            return warehouse;
-        }
-
-        public DataModel.Warehouse Get_Warehouse_By_Name(string warehouse_name)
-        {
-            //Create Warehouse object
-            DataModel.Warehouse warehouse = new DataModel.Warehouse();
-            warehouse = null;
-
-            using (var context = new DataModel.WarehouseContext())
-            {
-                //Get Warehouse from database
-                var warehouse_Qs = context.Warehouses.SingleOrDefault(w => w.Warehouse_Name == warehouse_name);
-
-                //Translate query result to Warehouse object
-                if (warehouse_Qs != null)
                 {
                     warehouse.Warehouse_ID = warehouse_Qs.Warehouse_ID;
                     warehouse.Warehouse_Name = warehouse_Qs.Warehouse_Name;

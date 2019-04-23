@@ -36,6 +36,36 @@ namespace Warehouse_Prj.DAL
                 warehouse_BDO.Warehouse_Name = warehouse_DTO_Result.Warehouse_Name;
                 warehouse_BDO.Street = warehouse_DTO_Result.Street;
                 warehouse_BDO.City = warehouse_DTO_Result.City;
+                warehouse_BDO.State = warehouse_DTO_Result.State;
+                warehouse_BDO.Zipcode = warehouse_DTO_Result.Zipcode;
+            }
+
+            return warehouse_BDO;
+        }
+
+        //Given a name, fetch Warehouse from Warehouses table
+        //Returns a Warehouse_BDO object
+        public Warehouse_BDO Get_Warehouse_By_Name(string warehouse_Name)
+        {
+            //Create Warehouse_BDO object
+            Warehouse_BDO warehouse_BDO = null;
+
+            //Create new DTO for Warehouse query result
+            DataModel.Warehouse warehouse_DTO_Result = new DataModel.Warehouse();
+
+            //Call Warehouse_Qs.Get_Warehouse_By_Name
+            Warehouse_Qs warehouse_Query = new Warehouse_Qs();
+            warehouse_DTO_Result = warehouse_Query.Get_Warehouse_By_Name(warehouse_Name);
+
+            //If Warehouse is found, tranlsate to BDO object
+            if (warehouse_DTO_Result != null)
+            {
+                warehouse_BDO.Warehouse_ID = warehouse_DTO_Result.Warehouse_ID;
+                warehouse_BDO.Warehouse_Name = warehouse_DTO_Result.Warehouse_Name;
+                warehouse_BDO.Street = warehouse_DTO_Result.Street;
+                warehouse_BDO.City = warehouse_DTO_Result.City;
+                warehouse_BDO.State = warehouse_DTO_Result.State;
+                warehouse_BDO.Zipcode = warehouse_DTO_Result.Zipcode;
             }
 
             return warehouse_BDO;
@@ -77,7 +107,6 @@ namespace Warehouse_Prj.DAL
             DataModel.Warehouse warehouse_DTO = new DataModel.Warehouse();
 
             //Translate BDO to DTO for Warehouse_Qs
-            warehouse_DTO.Warehouse_ID = warehouse_BDO.Warehouse_ID;
             warehouse_DTO.Warehouse_Name = warehouse_BDO.Warehouse_Name;
             warehouse_DTO.Street = warehouse_BDO.Street;
             warehouse_DTO.City = warehouse_BDO.City;
