@@ -67,7 +67,7 @@ namespace Warehouse_Prj.DAL
 
         //Given an ID, fetch Product from Products table
         //Returns a Product_BDO object
-        public Product_BDO Get_Product_By_ID(int product_ID, ref string message)
+        public Product_BDO Get_Product_By_ID(int product_ID)
         {
             //Create Product_BDO object
             Product_BDO product_BDO = null;
@@ -77,7 +77,7 @@ namespace Warehouse_Prj.DAL
 
             //Call Product_Qs.Get_Product_By_ID
             Product_Qs product_Query = new Product_Qs();
-            product_DTO_Result = product_Query.Get_Product_By_ID(product_ID, ref message);
+            product_DTO_Result = product_Query.Get_Product_By_ID(product_ID);
 
             //If Product is found, translate to BDO object
             if(product_DTO_Result != null)
@@ -95,7 +95,7 @@ namespace Warehouse_Prj.DAL
 
         //Given a UPC code, fetch Product from Products table
         //Returns a Product_BDO object
-        public Product_BDO Get_Product_By_UPC(long product_UPC, ref string message)
+        public Product_BDO Get_Product_By_UPC(long product_UPC)
         {
             //Create Product_BDO object
             Product_BDO product_BDO = null;
@@ -105,7 +105,7 @@ namespace Warehouse_Prj.DAL
 
             //Call Product_Qs.Get_Product_By_UPC
             Product_Qs product_Query = new Product_Qs();
-            product_DTO_Result = product_Query.Get_Product_By_UPC(product_UPC, ref message);
+            product_DTO_Result = product_Query.Get_Product_By_UPC(product_UPC);
 
             //If Product is found, translate to BDO object
             if (product_DTO_Result != null)

@@ -164,7 +164,7 @@ namespace Warehouse_Prj.DAL.CRUD
 
         //Given a UPC code, get Product from Products table
         //Returns Product object
-        public DataModel.Product Get_Product_By_UPC(long product_UPC, ref string msg)
+        public DataModel.Product Get_Product_By_UPC(long product_UPC)
         {
             //Create Product object
             DataModel.Product product = new DataModel.Product();
@@ -176,17 +176,12 @@ namespace Warehouse_Prj.DAL.CRUD
                 var product_Qs = context.Products.SingleOrDefault(p => p.Product_UPC == product_UPC);
                 if (product_Qs != null)
                 {
-                    msg = "Found product";
                     product.Product_ID = product_Qs.Product_ID;
                     product.Product_Name = product_Qs.Product_Name;
                     product.Product_Price = product_Qs.Product_Price;
                     product.Product_UPC = product_Qs.Product_UPC;
 
                     return product;
-                }
-                else
-                {
-                    msg = "No product found";
                 }
             }
 
@@ -195,7 +190,7 @@ namespace Warehouse_Prj.DAL.CRUD
 
         //Given an ID, get Product from Products table
         //Returns Product object
-        public DataModel.Product Get_Product_By_ID(int product_ID, ref string msg)
+        public DataModel.Product Get_Product_By_ID(int product_ID)
         {
             //Create Product object
             DataModel.Product product = new DataModel.Product();
@@ -207,17 +202,12 @@ namespace Warehouse_Prj.DAL.CRUD
                 var product_Qs = context.Products.SingleOrDefault(p => p.Product_ID == product_ID);
                 if (product_Qs != null)
                 {
-                    msg = "Found product";
                     product.Product_ID = product_Qs.Product_ID;
                     product.Product_Name = product_Qs.Product_Name;
                     product.Product_Price = product_Qs.Product_Price;
                     product.Product_UPC = product_Qs.Product_UPC;
 
                     return product;
-                }
-                else
-                {
-                    msg = "No product found";
                 }
             }
 

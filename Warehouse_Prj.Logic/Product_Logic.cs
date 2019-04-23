@@ -18,21 +18,21 @@ namespace Warehouse_Prj.Logic
         Product_DAO product_DAO = new Product_DAO();
 
         //Returns a Product given an ID
-        public Product_BDO Get_Product_By_ID(int product_ID, ref string message)
+        public Product_BDO Get_Product_By_ID(int product_ID)
         {
-            return product_DAO.Get_Product_By_ID(product_ID, ref message);    
+            return product_DAO.Get_Product_By_ID(product_ID);    
         }
 
         //Returns a Product given a UPC code
-        public Product_BDO Get_Product_By_UPC(long product_UPC, ref string message)
+        public Product_BDO Get_Product_By_UPC(long product_UPC)
         {
-            return product_DAO.Get_Product_By_UPC(product_UPC, ref message);
+            return product_DAO.Get_Product_By_UPC(product_UPC);
         }
 
         //Given a Product_BDO, returns true/false depending on the success of the update
         public bool Update_Product(ref Product_BDO product_BDO,  ref string message)
         {
-            var product = Get_Product_By_ID(product_BDO.Product_ID, ref message);
+            var product = Get_Product_By_ID(product_BDO.Product_ID);
             if(product == null)
             {
                 message = "Product not in database";
