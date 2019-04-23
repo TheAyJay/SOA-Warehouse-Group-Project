@@ -41,6 +41,32 @@ namespace Warehouse_Prj.DAL
             return warehouse_BDO;
         }
 
+        //Given an ID, fetch Warehouse from Warehouses table
+        //Returns a Warehouse_BDO object
+        public Warehouse_BDO Get_Warehouse_By_Name(string warehouse_name)
+        {
+            //Create Warehouse_BDO object
+            Warehouse_BDO warehouse_BDO = null;
+
+            //Create new DTO for Warehouse query result
+            DataModel.Warehouse warehouse_DTO_Result = new DataModel.Warehouse();
+
+            //Call Warehouse_Qs.Get_Warehouse_By_ID
+            Warehouse_Qs warehouse_Query = new Warehouse_Qs();
+            warehouse_DTO_Result = warehouse_Query.Get_Warehouse_By_Name(warehouse_name);
+
+            //If Warehouse is found, tranlsate to BDO object
+            if (warehouse_DTO_Result != null)
+            {
+                warehouse_BDO.Warehouse_ID = warehouse_DTO_Result.Warehouse_ID;
+                warehouse_BDO.Warehouse_Name = warehouse_DTO_Result.Warehouse_Name;
+                warehouse_BDO.Street = warehouse_DTO_Result.Street;
+                warehouse_BDO.City = warehouse_DTO_Result.City;
+            }
+
+            return warehouse_BDO;
+        }
+
         //Given a Warehouse_BDO object, add to Warehouses table
         //Returns a boolean
         public bool Create_Warehouse(ref Warehouse_BDO warehouse_BDO, ref string message)

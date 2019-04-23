@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Product_DAO.cs" />
     <Compile Include="Queries\Inventory_Qs.cs" />
     <Compile Include="Queries\Category_Qs.cs" />

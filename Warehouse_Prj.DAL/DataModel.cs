@@ -37,17 +37,16 @@ namespace Warehouse_Prj.DAL
         public class Category
         {
             [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Category_ID { get; set; }
             public string Category_Name { get; set; }
-            public string Category_Description { get; set; }
-
-            public virtual ICollection<Product> Products { get; set; }
-            
+            public string Category_Description { get; set; }          
         }
 
         public class Product
         {
             [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Product_ID { get; set; }
             public string Product_Name { get; set; }
             public long Product_UPC { get; set; }
@@ -59,26 +58,26 @@ namespace Warehouse_Prj.DAL
         public class Warehouse
         {
             [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Warehouse_ID { get; set; }
+            [Index(IsUnique = true)]
             public string Warehouse_Name { get; set; }
             public string Street { get; set; }
             public string City { get; set; }
             public string State { get; set; }
             public string Zipcode { get; set; }
 
-            public virtual ICollection<Product> Products { get; set; }
 
             [NotMapped]
             public virtual ICollection<Warehouse> Warehouses { get; set; }
-
         }
 
         public class Inventory
         {
             [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Inventory_ID { get; set; }
             public int Product_Quantity { get; set; }
-
             public virtual Product Products { get; set; }
             public virtual Warehouse Warehouse { get; set; }
 
@@ -88,7 +87,7 @@ namespace Warehouse_Prj.DAL
         {
             public WarehouseContext() : base("WarehouseContext")
             {
-
+                Database.SetInitializer(new MigrateDatabaseToLatestVersion<WarehouseContext, Warehouse_Prj.DAL.Migrations.Configuration>());
             }
             public virtual DbSet<Category> Categories { get; set; }
             public virtual DbSet<Product> Products { get; set; }
