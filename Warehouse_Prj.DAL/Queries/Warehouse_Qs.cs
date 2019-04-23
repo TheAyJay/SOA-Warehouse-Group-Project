@@ -13,7 +13,7 @@ namespace Warehouse_Prj.DAL.CRUD
         /// MSCS 701-702 Topics in Math Sts, & Comp Sci
         /// Service Oriented Architecture (SOA)
         /// Spring 2019
-        /// Omar Waller
+        /// Omar Waller, Andrew Jacobson
         /// 
         /// Description: This class contains CRUD and Get queries to the Warehouse table in the Warehouse database configured 
         /// in the app.config file.
