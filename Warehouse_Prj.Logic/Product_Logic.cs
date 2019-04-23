@@ -48,7 +48,17 @@ namespace Warehouse_Prj.Logic
         //Given a Product_BDO, returns true/false depending on the success of the create
         public bool Create_Product(ref Product_BDO product_BDO, ref string message)
         {
-            return product_DAO.Create_Product(ref product_BDO, ref message);
+            var product = Get_Product_By_UPC(product_BDO.Product_UPC);
+            if(product != null)
+            {
+                message = "Product already exists!";
+                return false;
+            }
+            else
+            {
+                message = "Product created";
+                return product_DAO.Create_Product(ref product_BDO, ref message);
+            }
         }
 
         //Given a Product ID, returns true/false depending on the success of the delete
