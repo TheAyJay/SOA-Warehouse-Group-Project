@@ -29,7 +29,7 @@ namespace Warehouse_Prj.Service
         [DataMember]
         public int ProductID { get; set; }
         [DataMember]
-        public string UPC { get; set; }
+        public long UPC { get; set; }
         [DataMember]
         public string ProductName { get; set; }
         [DataMember]
