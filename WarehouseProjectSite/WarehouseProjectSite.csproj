@@ -83,17 +83,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Product_Prj.Service\Product_Prj.Service.csproj">
       <Project>{5eabb1af-3fcc-4c3c-a4a4-f8ed7b13caba}</Project>
       <Name>Product_Prj.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Warehouse_Prj.Service\Warehouse_Prj.Service.csproj">
-      <Project>{bead451b-fe3b-4df5-95fe-a0d2fc7c2944}</Project>
-      <Name>Warehouse_Prj.Service</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

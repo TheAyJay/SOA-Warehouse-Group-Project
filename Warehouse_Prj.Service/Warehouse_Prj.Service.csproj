@@ -49,9 +49,6 @@
     <Compile Include="WarehouseService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Warehouse_Prj.BDO\Warehouse_Prj.BDO.csproj">
       <Project>{a95fa38f-9315-42a7-8d01-2ce7927481ff}</Project>
       <Name>Warehouse_Prj.BDO</Name>
