@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
-//using CreateUpdate.ProductServiceRef;
+using CreateUpdate.ProductServiceRef;
 // TODO
 // add service reference
 
