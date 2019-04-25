@@ -19,19 +19,21 @@ namespace Warehouse_Prj.DAL
                 // Create and save a new Students
                 
 
-                var p = new Product
+                var w = new Warehouse
                 {
-                    Product_ID = 12,
-                    Product_Name = "Chips",
-                    Product_UPC = 125565,
-                    Product_Price = 12.0m
+                    Warehouse_ID = 1,
+                    Warehouse_Name = "GA30294",
+                    Street = "23 Street",
+                    City = "Ellenwood",
+                    State = "GA",
+                    Zipcode = "30294"
 
 
                 };
 
-                //context.Products.Add(p);
-                //context.SaveChanges();
-                //Console.WriteLine("Adding new products");
+                context.Warehouses.Add(w);
+                context.SaveChanges();
+                Console.WriteLine("Adding new products");
             }
         }
         public class Category

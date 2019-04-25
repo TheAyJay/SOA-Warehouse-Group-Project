@@ -138,21 +138,31 @@ namespace Warehouse_Prj.DAL.CRUD
 
             using(var context = new DataModel.WarehouseContext())
             {
-                //Get Warehouse from database
-                var warehouse_Qs = context.Warehouses.SingleOrDefault(w => w.Warehouse_ID == warehouse_ID);
-
-                //Translate query result to Warehouse object
-                if(warehouse_Qs != null)
+                try
                 {
-                    warehouse.Warehouse_ID = warehouse_Qs.Warehouse_ID;
-                    warehouse.Warehouse_Name = warehouse_Qs.Warehouse_Name;
-                    warehouse.Street = warehouse_Qs.Street;
-                    warehouse.City = warehouse_Qs.City;
-                    warehouse.State = warehouse_Qs.State;
-                    warehouse.Zipcode = warehouse_Qs.Zipcode;
+                    //Get Warehouse from database
+                    var warehouse_Qs = context.Warehouses.SingleOrDefault(w => w.Warehouse_ID == warehouse_ID);
 
-                    return warehouse;
+                    //Translate query result to Warehouse object
+                    if (warehouse_Qs != null)
+                    {
+                        warehouse.Warehouse_ID = warehouse_Qs.Warehouse_ID;
+                        warehouse.Warehouse_Name = warehouse_Qs.Warehouse_Name;
+                        warehouse.Street = warehouse_Qs.Street;
+                        warehouse.City = warehouse_Qs.City;
+                        warehouse.State = warehouse_Qs.State;
+                        warehouse.Zipcode = warehouse_Qs.Zipcode;
+
+                        return warehouse;
+                    }
+
                 }
+
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException("No item found", ex);
+                }
+
             }
 
             return warehouse;
@@ -168,21 +178,29 @@ namespace Warehouse_Prj.DAL.CRUD
 
             using (var context = new DataModel.WarehouseContext())
             {
-                //Get Warehouse from database
-                var warehouse_Qs = context.Warehouses.SingleOrDefault(w => w.Warehouse_Name == warehouse_name);
-
-                //Translate query result to Warehouse object
-                if (warehouse_Qs != null)
+                try
                 {
-                    warehouse.Warehouse_ID = warehouse_Qs.Warehouse_ID;
-                    warehouse.Warehouse_Name = warehouse_Qs.Warehouse_Name;
-                    warehouse.Street = warehouse_Qs.Street;
-                    warehouse.City = warehouse_Qs.City;
-                    warehouse.State = warehouse_Qs.State;
-                    warehouse.Zipcode = warehouse_Qs.Zipcode;
+                    //Get Warehouse from database
+                    var warehouse_Qs = context.Warehouses.SingleOrDefault(w => w.Warehouse_Name == warehouse_name);
 
-                    return warehouse;
+                    //Translate query result to Warehouse object
+                    if (warehouse_Qs != null)
+                    {
+                        warehouse.Warehouse_ID = warehouse_Qs.Warehouse_ID;
+                        warehouse.Warehouse_Name = warehouse_Qs.Warehouse_Name;
+                        warehouse.Street = warehouse_Qs.Street;
+                        warehouse.City = warehouse_Qs.City;
+                        warehouse.State = warehouse_Qs.State;
+                        warehouse.Zipcode = warehouse_Qs.Zipcode;
+
+                        return warehouse;
+                    }
                 }
+                catch(Exception ex)
+                {
+                    throw new InvalidOperationException("No item found", ex);
+                }
+                
             }
 
             return warehouse;
@@ -194,19 +212,26 @@ namespace Warehouse_Prj.DAL.CRUD
             List<DataModel.Warehouse> warehouse_list = null;
             using (var context = new DataModel.WarehouseContext())
             {
-                var warehouses = context.Warehouses;
-
-                if (warehouses != null)
+                try
                 {
-                    warehouse_list = warehouses.ToList();
+                    var warehouses = context.Warehouses;
 
-                    msg = "Warehouses found";
+                    if (warehouses != null)
+                    {
+                        warehouse_list = warehouses.ToList();
 
-                    return warehouse_list;
+                        msg = "Warehouses found";
+
+                        return warehouse_list;
+                    }
+                    else
+                    {
+                        msg = "Warehouse not found";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    msg = "Warehouse not found";
+                    throw new InvalidOperationException("No item found", ex);
                 }
 
             }

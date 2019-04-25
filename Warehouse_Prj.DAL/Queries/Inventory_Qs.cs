@@ -117,21 +117,31 @@ namespace Warehouse_Prj.DAL.CRUD
             List<DataModel.Inventory> warehouse_list = null;
             using (var context = new DataModel.WarehouseContext())
             {
-                List<DataModel.Inventory> warehouses = context.Inventories.Where(i => i.Products.Product_UPC == product.Product_UPC)
-                    .Select(w => new DataModel.Inventory { Warehouse = w.Warehouse }).ToList();
 
-                if (warehouses != null)
+                try
                 {
-                    warehouse_list = warehouses.ToList();
 
-                    msg = "Warehouses found";
+                    List<DataModel.Inventory> warehouses = context.Inventories.Where(i => i.Products.Product_UPC == product.Product_UPC)
+    .Select(w => new DataModel.Inventory { Warehouse = w.Warehouse }).ToList();
 
-                    return warehouse_list;
+                    if (warehouses != null)
+                    {
+                        warehouse_list = warehouses.ToList();
+
+                        msg = "Warehouses found";
+
+                        return warehouse_list;
+                    }
+                    else
+                    {
+                        msg = "Warehouse not found";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    msg = "Warehouse not found";
+                    throw new InvalidOperationException("No item found", ex);
                 }
+
 
             }
 

@@ -171,17 +171,25 @@ namespace Warehouse_Prj.DAL.CRUD
 
             using (var context = new DataModel.WarehouseContext())
             {
-                // Get Product from database
-                var product_Qs = context.Products.SingleOrDefault(p => p.Product_UPC == product_UPC);
-                if (product_Qs != null)
+                try
                 {
-                    product.Product_ID = product_Qs.Product_ID;
-                    product.Product_Name = product_Qs.Product_Name;
-                    product.Product_Price = product_Qs.Product_Price;
-                    product.Product_UPC = product_Qs.Product_UPC;
+                    // Get Product from database
+                    var product_Qs = context.Products.SingleOrDefault(p => p.Product_UPC == product_UPC);
+                    if (product_Qs != null)
+                    {
+                        product.Product_ID = product_Qs.Product_ID;
+                        product.Product_Name = product_Qs.Product_Name;
+                        product.Product_Price = product_Qs.Product_Price;
+                        product.Product_UPC = product_Qs.Product_UPC;
 
-                    return product;
+                        return product;
+                    }
                 }
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException("No item found", ex);
+                }
+
             }
 
             return product;
@@ -195,19 +203,28 @@ namespace Warehouse_Prj.DAL.CRUD
             DataModel.Product product = new DataModel.Product();
             product = null;
 
+
             using (var context = new DataModel.WarehouseContext())
             {
-                // Get Product from database
-                var product_Qs = context.Products.SingleOrDefault(p => p.Product_ID == product_ID);
-                if (product_Qs != null)
+                try
                 {
-                    product.Product_ID = product_Qs.Product_ID;
-                    product.Product_Name = product_Qs.Product_Name;
-                    product.Product_Price = product_Qs.Product_Price;
-                    product.Product_UPC = product_Qs.Product_UPC;
+                    // Get Product from database
+                    var product_Qs = context.Products.SingleOrDefault(p => p.Product_ID == product_ID);
+                    if (product_Qs != null)
+                    {
+                        product.Product_ID = product_Qs.Product_ID;
+                        product.Product_Name = product_Qs.Product_Name;
+                        product.Product_Price = product_Qs.Product_Price;
+                        product.Product_UPC = product_Qs.Product_UPC;
 
-                    return product;
+                        return product;
+                    }
                 }
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException("No item found", ex);
+                }
+
             }
 
             return product;
