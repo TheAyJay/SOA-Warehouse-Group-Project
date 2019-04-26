@@ -18,6 +18,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse_Prj.DAL", "Warehouse_Prj.DAL\Warehouse_Prj.DAL.csproj", "{6A8B8E30-6075-4041-8316-C46290E1C0B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checker", "Checker\Checker.csproj", "{43303E64-0CC5-4E15-B251-C556A7CC1370}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5EABB1AF-3FCC-4C3C-A4A4-F8ED7B13CABA} = {5EABB1AF-3FCC-4C3C-A4A4-F8ED7B13CABA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product_Prj.Service", "Product_Prj.Service\Product_Prj.Service.csproj", "{5EABB1AF-3FCC-4C3C-A4A4-F8ED7B13CABA}"
 EndProject
