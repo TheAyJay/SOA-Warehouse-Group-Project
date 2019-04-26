@@ -122,7 +122,7 @@ namespace Warehouse_Prj.DAL
 
         //Given a Product_BDO object, update the Products table on Product_ID
         //Returns a boolean
-        public bool Update_Product(ref Product_BDO product_BDO, ref string message)
+        public bool Update_Product_By_ID(ref Product_BDO product_BDO)
         { 
             var ret = false;
 
@@ -139,7 +139,7 @@ namespace Warehouse_Prj.DAL
 
             //Call Product_Qs.Update
             Product_Qs product_Update_Query = new Product_Qs();
-            ret = product_Update_Query.Update(product_DTO, ref message);
+            ret = product_Update_Query.Update_Product_By_Product_ID(product_DTO);
 
             return ret;
         }

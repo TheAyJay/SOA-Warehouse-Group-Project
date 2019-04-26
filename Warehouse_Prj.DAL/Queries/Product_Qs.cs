@@ -61,7 +61,7 @@ namespace Warehouse_Prj.DAL.CRUD
 
         //Given a Product object, update the Products table on Product_ID
         //Returns a boolean
-        public bool Update(DataModel.Product product_in, ref string msg)
+        public bool Update_Product_By_Product_ID(DataModel.Product product_in)
         {
             var ret = true;
 
@@ -84,17 +84,14 @@ namespace Warehouse_Prj.DAL.CRUD
                     var execution_result = context.SaveChanges();
                     if (execution_result != 1)
                     {
-                        msg = "Product was not updated";
+                        
                         ret = false;
                     }
-                    else
-                    {
-                        msg = "Product updated";
-                    }
+                    
                 }
                 else
                 {
-                    msg = "No product found with the provided ID";
+                    
                     ret = false;
                 }
             }

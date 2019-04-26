@@ -30,18 +30,18 @@ namespace Warehouse_Prj.Logic
         }
 
         //Given a Product_BDO, returns true/false depending on the success of the update
-        public bool Update_Product(ref Product_BDO product_BDO,  ref string message)
+        public bool Update_Product_By_ID(ref Product_BDO product_BDO)
         {
             var product = Get_Product_By_ID(product_BDO.Product_ID);
             if(product == null)
             {
-                message = "Product not in database";
+                
                 return false;
             }
             else
             {
-                message = "Product updated";
-                return product_DAO.Update_Product(ref product_BDO, ref message);
+                
+                return product_DAO.Update_Product_By_ID(ref product_BDO);
             }
         }
 

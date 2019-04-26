@@ -15,7 +15,7 @@ namespace Product_Prj.Service
         // Getting the product from the business logic layer 
         Product_Logic product_Logic = new Product_Logic();
 
-        public Product GetProduct(int id)
+        public Product GetProductByID(int id)
         {
             var product_BDO = product_Logic.Get_Product_By_ID(id);
             var product = new Product();
@@ -26,42 +26,35 @@ namespace Product_Prj.Service
             return product;
         }
 
-        public bool UpdateProduct(Product product, ref string message)
+        public bool UpdateProductByID(Product product)
         {
             var result = true;
 
             // Checking to see if price is valid 
             if (product.UnitPrice <= 0)
             {
-                message = "Price connot be less than or equal to zero.";
+                
                 result = false;
             }
 
             // UPC cannot be empty 
             else if (product.UPC <= 0)
             {
-                message = "Please enter a valid UPC value";
+                
                 result = false;
             }
 
             // Product name cannot be empty
             else if (string.IsNullOrEmpty(product.ProductName))
             {
-                message = "Product name connot be empty";
+                
                 result = false;
             }
 
             // categoryID cannot be empty 
             else if (string.IsNullOrEmpty(product.CategoryID))
             {
-                message = "CategoryID cannot be empty";
-                result = false;
-            }
-
-            // Quantity cannot be empty 
-            else if (string.IsNullOrEmpty(product.Quantity))
-            {
-                message = "Quantity connot be empty";
+                
                 result = false;
             }
 
@@ -71,10 +64,9 @@ namespace Product_Prj.Service
                 Product_BDO product_BDO = new Product_BDO();
                 TranslateProductDTOToProductBDO(product, product_BDO);
 
-                message = "Product updated successfully";
-                return product_Logic.Update_Product(ref product_BDO, ref message);
+                
+                return product_Logic.Update_Product_By_ID(ref product_BDO);
                
-              
             }
 
             return result;

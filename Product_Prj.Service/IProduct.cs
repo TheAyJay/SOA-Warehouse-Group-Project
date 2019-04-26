@@ -13,10 +13,10 @@ namespace Product_Prj.Service
     {
 
         [OperationContract]
-        Product GetProduct(int id);
+        Product GetProductByID(int id);
 
         [OperationContract]
-        bool UpdateProduct(Product product, ref string message);
+        bool UpdateProductByID(Product product);
 
     }
 
