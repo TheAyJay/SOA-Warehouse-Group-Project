@@ -20,7 +20,7 @@ namespace Warehouse_Prj.DAL
         public Warehouse_BDO Get_Warehouse_By_ID(int warehouse_ID)
         {
             //Create Warehouse_BDO object
-            Warehouse_BDO warehouse_BDO = null;
+            Warehouse_BDO warehouse_BDO = new Warehouse_BDO();
 
             //Create new DTO for Warehouse query result
             DataModel.Warehouse warehouse_DTO_Result = new DataModel.Warehouse();

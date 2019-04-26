@@ -134,7 +134,7 @@ namespace Warehouse_Prj.DAL.CRUD
         {
             //Create Warehouse object
             DataModel.Warehouse warehouse = new DataModel.Warehouse();
-            warehouse = null;
+            //warehouse = null;
 
             using(var context = new DataModel.WarehouseContext())
             {
