@@ -7,13 +7,13 @@ namespace Warehouse_Prj.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class WarehouseDBv2 : IMigrationMetadata
+    public sealed partial class second : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(WarehouseDBv2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(second));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904230237134_WarehouseDB-v2"; }
+            get { return "201904260137296_second"; }
         }
         
         string IMigrationMetadata.Source

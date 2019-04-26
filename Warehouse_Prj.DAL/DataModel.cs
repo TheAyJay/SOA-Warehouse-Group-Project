@@ -31,9 +31,9 @@ namespace Warehouse_Prj.DAL
 
                 };
 
-                context.Warehouses.Add(w);
-                context.SaveChanges();
-                Console.WriteLine("Adding new products");
+                //context.Warehouses.Add(w);
+                //context.SaveChanges();
+                //Console.WriteLine("Adding new products");
             }
         }
         public class Category
@@ -62,7 +62,7 @@ namespace Warehouse_Prj.DAL
             [Key]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Warehouse_ID { get; set; }
-            [Index(IsUnique = true)]
+            
             public string Warehouse_Name { get; set; }
             public string Street { get; set; }
             public string City { get; set; }

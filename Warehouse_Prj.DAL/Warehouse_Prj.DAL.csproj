@@ -51,9 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201904230237134_WarehouseDB-v2.cs" />
-    <Compile Include="Migrations\201904230237134_WarehouseDB-v2.Designer.cs">
-      <DependentUpon>201904230237134_WarehouseDB-v2.cs</DependentUpon>
+    <Compile Include="Migrations\201904260137296_second.cs" />
+    <Compile Include="Migrations\201904260137296_second.Designer.cs">
+      <DependentUpon>201904260137296_second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Product_DAO.cs" />
@@ -76,8 +76,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904230237134_WarehouseDB-v2.resx">
-      <DependentUpon>201904230237134_WarehouseDB-v2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904260137296_second.resx">
+      <DependentUpon>201904260137296_second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

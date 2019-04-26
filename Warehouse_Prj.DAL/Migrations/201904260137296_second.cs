@@ -3,7 +3,7 @@ namespace Warehouse_Prj.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class WarehouseDBv2 : DbMigration
+    public partial class second : DbMigration
     {
         public override void Up()
         {
@@ -57,8 +57,7 @@ namespace Warehouse_Prj.DAL.Migrations
                         State = c.String(),
                         Zipcode = c.String(),
                     })
-                .PrimaryKey(t => t.Warehouse_ID)
-                .Index(t => t.Warehouse_Name, unique: true);
+                .PrimaryKey(t => t.Warehouse_ID);
             
         }
         
@@ -67,7 +66,6 @@ namespace Warehouse_Prj.DAL.Migrations
             DropForeignKey("dbo.Inventories", "Warehouse_Warehouse_ID", "dbo.Warehouses");
             DropForeignKey("dbo.Inventories", "Products_Product_ID", "dbo.Products");
             DropForeignKey("dbo.Products", "Category_Category_ID", "dbo.Categories");
-            DropIndex("dbo.Warehouses", new[] { "Warehouse_Name" });
             DropIndex("dbo.Products", new[] { "Category_Category_ID" });
             DropIndex("dbo.Inventories", new[] { "Warehouse_Warehouse_ID" });
             DropIndex("dbo.Inventories", new[] { "Products_Product_ID" });
