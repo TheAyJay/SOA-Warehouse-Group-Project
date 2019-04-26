@@ -67,11 +67,11 @@ namespace Warehouse_Prj.DAL.CRUD
                 var warehouse = context.Warehouses.First(w => w.Warehouse_ID == warehouse_in.Warehouse_ID);
                 if(warehouse != null)
                 {
-                    warehouse.Warehouse_Name = warehouse.Warehouse_Name;
-                    warehouse.Street = warehouse.Street;
-                    warehouse.City = warehouse.City;
-                    warehouse.State = warehouse.State;
-                    warehouse.Zipcode = warehouse.Zipcode;
+                    warehouse.Warehouse_Name = warehouse_in.Warehouse_Name;
+                    warehouse.Street = warehouse_in.Street;
+                    warehouse.City = warehouse_in.City;
+                    warehouse.State = warehouse_in.State;
+                    warehouse.Zipcode = warehouse_in.Zipcode;
 
                     //Apply change
                     context.Warehouses.Attach(warehouse);
