@@ -97,7 +97,7 @@ namespace Warehouse_Prj.DAL
         public Product_BDO Get_Product_By_UPC(long product_UPC)
         {
             //Create Product_BDO object
-            Product_BDO product_BDO = null;
+            Product_BDO product_BDO = new Product_BDO();
 
             //Create new DTO object for Product query result
             DataModel.Product product_DTO_Result = new DataModel.Product();

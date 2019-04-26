@@ -201,9 +201,7 @@ namespace Warehouse_Prj.DAL.CRUD
         {
             //Create Product object
             DataModel.Product product = new DataModel.Product();
-            product = null;
-
-
+            
             using (var context = new DataModel.WarehouseContext())
             {
                 try
@@ -234,7 +232,7 @@ namespace Warehouse_Prj.DAL.CRUD
         public List<DataModel.Product> Get_All_Products_By_Warehouse_ID(ref string msg)
         {
             List<DataModel.Product> product_list = new List<DataModel.Product>();
-            product_list = null;
+            
             using (var context = new DataModel.WarehouseContext())
             {
                 // Get all products in DB

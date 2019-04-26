@@ -25,7 +25,7 @@ namespace Warehouse_Prj.DAL.CRUD
             using (var context = new DataModel.WarehouseContext())
             {
                 // Create and save a new Products
-                var newInventory = new DataModel.Inventory();
+                DataModel.Inventory newInventory = new DataModel.Inventory();
                 bool success = false;
 
                 newInventory.Product_Quantity = inventory.Product_Quantity;
@@ -122,7 +122,7 @@ namespace Warehouse_Prj.DAL.CRUD
                 {
 
                     List<DataModel.Inventory> warehouses = context.Inventories.Where(i => i.Products.Product_UPC == product.Product_UPC)
-    .Select(w => new DataModel.Inventory { Warehouse = w.Warehouse }).ToList();
+                        .Select(w => new DataModel.Inventory { Warehouse = w.Warehouse }).ToList();
 
                     if (warehouses != null)
                     {

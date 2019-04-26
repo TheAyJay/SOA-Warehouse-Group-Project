@@ -27,7 +27,7 @@ namespace Warehouse_Prj.DAL.CRUD
             {
                 // Create and save a new Category
 
-                var newCategory = new DataModel.Category();
+                DataModel.Category newCategory = new DataModel.Category();
                 bool success = false;
 
                 newCategory.Category_Description = category.Category_Description;
@@ -92,7 +92,7 @@ namespace Warehouse_Prj.DAL.CRUD
             {
                 // Delete the category using category ID
                 bool success = false;
-                var category = new DataModel.Category { Category_ID = category_id };
+                DataModel.Category category = new DataModel.Category { Category_ID = category_id };
                 context.Categories.Attach(category);
                 context.Categories.Remove(category);
                 
@@ -117,7 +117,7 @@ namespace Warehouse_Prj.DAL.CRUD
         public DataModel.Category Get_Category_By_ID(int category_id, ref string msg)
         {
             DataModel.Category category = new DataModel.Category();
-            category = null;
+            
             using (var context = new DataModel.WarehouseContext())
             {
                 // Get product
