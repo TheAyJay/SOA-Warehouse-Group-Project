@@ -96,6 +96,7 @@ namespace Product_Prj.Service
         {
             product.ProductID = product_BDO.Product_ID;
             product.ProductName = product_BDO.Product_Name;
+            product.CategoryID = product_BDO.Category_Name;
             product.UPC = product_BDO.Product_UPC;
             //product.Quantity = product_BDO.Quantity;
             product.UnitPrice = product_BDO.Product_Price;
@@ -109,6 +110,7 @@ namespace Product_Prj.Service
         {
             product_BDO.Product_ID = product.ProductID;
             product_BDO.Product_Name = product.ProductName;
+            product_BDO.Category_Name = product.CategoryID;
             product_BDO.Product_UPC = product.UPC;
             //product_BDO.Quantity = product.Quantity;
             product_BDO.Product_Price = product.UnitPrice;
