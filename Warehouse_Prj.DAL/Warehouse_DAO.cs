@@ -15,6 +15,34 @@ namespace Warehouse_Prj.DAL
 {
     public class Warehouse_DAO
     {
+        //Return list of Warehouses in a database
+        public List<Warehouse_BDO> GetWarehouses()
+        {
+            List < Warehouse_BDO > Warehouse_List = new List<Warehouse_BDO>();
+            Warehouse_BDO warehouse_BDO = new Warehouse_BDO();
+
+            List<DataModel.Warehouse> warehouses_DTO_result = new List<DataModel.Warehouse>();
+
+            Warehouse_Qs warehouse_query = new Warehouse_Qs();
+            warehouses_DTO_result = warehouse_query.Get_All_Warehouses();
+
+            if(warehouses_DTO_result != null)
+            {
+                foreach(DataModel.Warehouse w in warehouses_DTO_result)
+                {
+                    // Translate Data Model Object to Business Domain Object.
+                    Translate_DMO_to_BDO(w, warehouse_BDO);
+
+                    Warehouse_List.Add(warehouse_BDO);
+                }
+                return Warehouse_List;
+            }
+
+            return Warehouse_List;
+
+        }
+
+
         //Given an ID, fetch Warehouse from Warehouses table
         //Returns a Warehouse_BDO object
         public Warehouse_BDO Get_Warehouse_By_ID(int warehouse_ID)
@@ -23,7 +51,7 @@ namespace Warehouse_Prj.DAL
             Warehouse_BDO warehouse_BDO = new Warehouse_BDO();
 
             //Create new DTO for Warehouse query result
-            DataModel.Warehouse warehouse_DTO_Result = new DataModel.Warehouse();
+            DataModel.Warehouse warehouse_DTO_Result = new DataModel.Warehouse(); 
 
             //Call Warehouse_Qs.Get_Warehouse_By_ID
             Warehouse_Qs warehouse_Query = new Warehouse_Qs();
@@ -130,6 +158,16 @@ namespace Warehouse_Prj.DAL
             ret = warehouse_Query.Delete_Warehouse_By_ID(warehouse_ID, ref message);
 
             return ret;
+        }
+
+        private void Translate_DMO_to_BDO(DataModel.Warehouse warehouse_dmo, Warehouse_BDO warehouse_bdo)
+        {
+            warehouse_bdo.Warehouse_ID = warehouse_dmo.Warehouse_ID;
+            warehouse_bdo.Warehouse_Name = warehouse_dmo.Warehouse_Name;
+            warehouse_bdo.Street = warehouse_dmo.Street;
+            warehouse_bdo.City = warehouse_dmo.City;
+            warehouse_bdo.State = warehouse_dmo.State;
+            warehouse_bdo.Zipcode = warehouse_dmo.Zipcode;
         }
     }
 }

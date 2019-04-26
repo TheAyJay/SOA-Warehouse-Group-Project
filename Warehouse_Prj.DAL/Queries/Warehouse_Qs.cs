@@ -207,9 +207,10 @@ namespace Warehouse_Prj.DAL.CRUD
         }
 
         //Return a list of all Warehouses in the database.
-        public List<DataModel.Warehouse> Get_All_Warehouses(ref string msg)
+        public List<DataModel.Warehouse> Get_All_Warehouses()
         {
-            List<DataModel.Warehouse> warehouse_list = null;
+            List<DataModel.Warehouse> warehouse_list = new List<DataModel.Warehouse>();
+
             using (var context = new DataModel.WarehouseContext())
             {
                 try
@@ -220,14 +221,9 @@ namespace Warehouse_Prj.DAL.CRUD
                     {
                         warehouse_list = warehouses.ToList();
 
-                        msg = "Warehouses found";
-
                         return warehouse_list;
                     }
-                    else
-                    {
-                        msg = "Warehouse not found";
-                    }
+                    
                 }
                 catch (Exception ex)
                 {

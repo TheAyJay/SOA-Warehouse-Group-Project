@@ -26,14 +26,27 @@ namespace Warehouse_Prj.Service
             TranslateWarehouseBDOToWarehouseDTO(warehouse_BDO, warehouse);
 
             return warehouse;
+           
+        }
+
+        public List<Warehouse> GetAllWarehouses()
+        {
+            // TODO: call business logic to retrieve warehouse
+
+            List<Warehouse_BDO> warehouse_BDOs = warehouse_Logic.Get_All_Warehouses();
+            List<Warehouse> warehouse = new List<Warehouse>();
+            Warehouse w = new Warehouse();
+
+            foreach (Warehouse_BDO wse in warehouse_BDOs)
+            {
+                // Translating productBDO to productDTO
+                TranslateWarehouseBDOToWarehouseDTO(wse, w);
+                warehouse.Add(w);
+            }
             
-            //warehouse.WarehouseID = id;
-            //warehouse.WarehouseName = "fake warehouse name from service layer";
-            //warehouse.WarehouseAddressStreet = "fake one from service layer";
-            //warehouse.WarehouseAddressCity = "fake one from service layer";
-            //warehouse.WarehouseAddressState = "fake one from service layer";
-            //warehouse.WarehouseAddressZipcode = "fake one from service layer";
-            //return warehouse;
+
+            return warehouse;
+
         }
 
 

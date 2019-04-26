@@ -23,6 +23,12 @@ namespace Warehouse_Prj.Logic
             return warehouse_DAO.Get_Warehouse_By_ID(warehouse_ID);
         }
 
+        //Returns all Warehouses in db
+        public List<Warehouse_BDO> Get_All_Warehouses()
+        {
+            return warehouse_DAO.GetWarehouses();
+        }
+
         //Returns a Warehouse given a name
         public Warehouse_BDO Get_Warehouse_By_Name(string warehouse_Name)
         {

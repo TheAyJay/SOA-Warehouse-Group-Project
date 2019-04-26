@@ -15,6 +15,9 @@ namespace Warehouse_Prj.Service
         Warehouse GetWarehouse(int id);
 
         [OperationContract]
+        List<Warehouse> GetAllWarehouses();
+
+        [OperationContract]
         bool UpdateWarehouse(Warehouse warehouse, ref string message);
 
     }

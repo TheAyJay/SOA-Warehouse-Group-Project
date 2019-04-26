@@ -111,7 +111,7 @@ namespace Warehouse_Prj.DAL.CRUD
             using (var context = new DataModel.WarehouseContext())
             {
                 // Delete Product from the database using product UPC
-                var product = new DataModel.Product { Product_UPC = product_UPC };
+                DataModel.Product product = new DataModel.Product { Product_UPC = product_UPC };
                 context.Products.Attach(product);
                 context.Products.Remove(product);
 

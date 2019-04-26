@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-// Adding references of the logic layer to the service layer
 using Warehouse_Prj.Logic;
 using Warehouse_Prj.BDO;
 
@@ -25,15 +24,6 @@ namespace Product_Prj.Service
             TranslateProductBDOToProductDTO(product_BDO, product);
 
             return product;
-            
-
-            //product.ProductID = id;
-            //product.UPC = "fake UPC from the service layer";
-            //product.ProductName = "fake product name from service layer";
-            //product.Quantity = "fake quantity";
-            //product.CategoryID = "fake categoryID from service layer";
-            //product.UnitPrice = 50.0m;
-            //return product;
         }
 
         public bool UpdateProduct(Product product, ref string message)
@@ -43,7 +33,7 @@ namespace Product_Prj.Service
             // Checking to see if price is valid 
             if (product.UnitPrice <= 0)
             {
-                message = "Price connot be less than or equal to zero!";
+                message = "Price connot be less than or equal to zero.";
                 result = false;
             }
 
@@ -54,7 +44,7 @@ namespace Product_Prj.Service
                 result = false;
             }
 
-            // Product name connot be empty
+            // Product name cannot be empty
             else if (string.IsNullOrEmpty(product.ProductName))
             {
                 message = "Product name connot be empty";
@@ -78,12 +68,13 @@ namespace Product_Prj.Service
             else
             {
                 // TODO: call business logic layer to update product
-                var product_BDO = new Product_BDO();
+                Product_BDO product_BDO = new Product_BDO();
                 TranslateProductDTOToProductBDO(product, product_BDO);
-                // NOTE: for some reason product_BDO requireed to add ref otherwise it would give an error
+
+                message = "Product updated successfully";
                 return product_Logic.Update_Product(ref product_BDO, ref message);
-               // message = "Product updated successfully";
-               // result = true;
+               
+              
             }
 
             return result;
@@ -91,14 +82,12 @@ namespace Product_Prj.Service
 
         // Translation method from ProductBDO to ProductDTO
         private void TranslateProductBDOToProductDTO(
-            Product_BDO product_BDO,
-            Product product)
+            Product_BDO product_BDO, Product product)
         {
             product.ProductID = product_BDO.Product_ID;
             product.ProductName = product_BDO.Product_Name;
             product.CategoryID = product_BDO.Category_Name;
             product.UPC = product_BDO.Product_UPC;
-            //product.Quantity = product_BDO.Quantity;
             product.UnitPrice = product_BDO.Product_Price;
 
         }
@@ -112,7 +101,6 @@ namespace Product_Prj.Service
             product_BDO.Product_Name = product.ProductName;
             product_BDO.Category_Name = product.CategoryID;
             product_BDO.Product_UPC = product.UPC;
-            //product_BDO.Quantity = product.Quantity;
             product_BDO.Product_Price = product.UnitPrice;
 
         }
