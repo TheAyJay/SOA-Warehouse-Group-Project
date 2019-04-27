@@ -29,6 +29,53 @@ namespace Warehouse_Prj.Service
            
         }
 
+        public bool CreateWarehouse(Warehouse warehouse, ref string message)
+        {
+            var result = true;
+
+            //Warehouse name cannot be empty
+            if (string.IsNullOrEmpty(warehouse.WarehouseName))
+            {
+                message = "Warehouse name cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(warehouse.WarehouseAddressCity))
+            {
+                message = "Warehouse city cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(warehouse.WarehouseAddressState))
+            {
+                message = "Warehouse state cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(warehouse.WarehouseAddressStreet))
+            {
+                message = "Warehouse street cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(warehouse.WarehouseAddressZipcode))
+            {
+                message = "Warehouse zip code cannot be empty";
+                result = false;
+            }
+            else
+            {
+                try
+                {
+                    var warehouseBDO = new Warehouse_BDO();
+                    TranslateWarehouseDTOToWarehouseBDO(warehouse, warehouseBDO);
+                    result = warehouse_Logic.Create_Warehouse(ref warehouseBDO, ref message);
+                }
+                catch(Exception e)
+                {
+                    throw new InvalidOperationException("Unable to create warehouse", e);
+                }
+            }
+
+            return result;
+        }
+
         public List<Warehouse> GetAllWarehouses()
         {
             // TODO: call business logic to retrieve warehouse
