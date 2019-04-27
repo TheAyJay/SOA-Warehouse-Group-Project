@@ -20,6 +20,8 @@ namespace CreateUpdate
 {
     public partial class CreateUpdate : Form
     {
+        Warehouse warehouse;
+
         public CreateUpdate()
         {
             InitializeComponent();
@@ -91,44 +93,38 @@ namespace CreateUpdate
         // Try to make use of "MessageBox.show("Warehouse was add to the Database successfully"); message if true OR faild otherwise"
         private void btncreatewh_Click(object sender, EventArgs e)
         {
-            allwhbox.Text = CreateNewWarehouse(
-                warehousenamebox,
-                streetbox,
-                citybox,
-                statebox,
-                zipcodebox,
-                ref warehouse);
-        }
+            //allwhbox.Text = CreateNewWarehouse(
+            //    warehousenamebox,
+            //    streetbox,
+            //    citybox,
+            //    statebox,
+            //    zipcodebox,
+            //    ref warehouse);
 
-        Warehouse warehouse;
-        private string CreateNewWarehouse(
-            TextBox warhousenamebox,
-            TextBox streetbox,
-            TextBox citybox,
-            TextBox statebox,
-            TextBox zipcodebox,
-            ref Warehouse warehouse/*,
-            ref bool createWarehouse*/)
-        {
-            var result = "";
+            warehouse = new Warehouse();
+            var client = new WarehouseClient();
             var message = "";
+            var result = "";
+
             try
             {
-                var warehouseName = warehousenamebox.Text;
-                var warehouseStreet = streetbox.Text;
-                var warehouseCity = citybox.Text;
-                var warehouseState = statebox.Text;
-                var warehouseZipcode = zipcodebox.Text;
+                //Move text field values to object properties
+                warehouse.WarehouseName = warehousenamebox.Text;
+                warehouse.WarehouseAddressStreet = streetbox.Text;
+                warehouse.WarehouseAddressCity = citybox.Text;
+                warehouse.WarehouseAddressState = statebox.Text;
+                warehouse.WarehouseAddressZipcode = zipcodebox.Text;
 
-                var client = new WarehouseClient(); // Maybe try WarehouseClient();
-                //client.UpdateWarehouse( ref warehouse, ref message); // Or maybe client.CreateWarehouse( ref warehouse, ref message);
+                //Call service method
+                client.CreateWarehouse(warehouse, ref message);
 
                 var sb = new StringBuilder();
-                sb.Append("WarehouseName:" + warehouseName.ToString() + "\n");
-                sb.Append("WarehouseStreet:" + warehouseStreet.ToString() + "\n");
-                sb.Append("WarehouseCity:" + warehouseCity.ToString() + "\n");
-                sb.Append("WarehouseState:" + warehouseState.ToString() + "\n");
-                sb.Append("Zipcode:" + warehouseZipcode.ToString() + "\n");
+                sb.Append(message + "\r\n");
+                sb.Append("WarehouseName: " + warehouse.WarehouseName + "\r\n");
+                sb.Append("WarehouseStreet: " + warehouse.WarehouseAddressStreet + "\r\n");
+                sb.Append("WarehouseCity: " + warehouse.WarehouseAddressCity + "\r\n");
+                sb.Append("WarehouseState: " + warehouse.WarehouseAddressState + "\r\n");
+                sb.Append("WarehouseZipcode: " + warehouse.WarehouseAddressZipcode + "\r\n");
 
                 result = sb.ToString();
             }
@@ -137,9 +133,49 @@ namespace CreateUpdate
                 result = "Exception:" + ex.Message.ToString();
             }
 
-            return result;
-
+            //Set text box with output
+            allwhbox.Text = result;
         }
+
+        //private string CreateNewWarehouse(
+        //    TextBox warhousenamebox,
+        //    TextBox streetbox,
+        //    TextBox citybox,
+        //    TextBox statebox,
+        //    TextBox zipcodebox,
+        //    ref Warehouse warehouse/*,
+        //    ref bool createWarehouse*/)
+        //{
+        //    var result = "";
+        //    var message = "";
+        //    try
+        //    {
+        //        var warehouseName = warehousenamebox.Text;
+        //        var warehouseStreet = streetbox.Text;
+        //        var warehouseCity = citybox.Text;
+        //        var warehouseState = statebox.Text;
+        //        var warehouseZipcode = zipcodebox.Text;
+
+        //        var client = new WarehouseClient(); // Maybe try WarehouseClient();
+        //        //client.UpdateWarehouse( ref warehouse, ref message); // Or maybe client.CreateWarehouse( ref warehouse, ref message);
+
+        //        var sb = new StringBuilder();
+        //        sb.Append("WarehouseName:" + warehouseName.ToString() + "\n");
+        //        sb.Append("WarehouseStreet:" + warehouseStreet.ToString() + "\n");
+        //        sb.Append("WarehouseCity:" + warehouseCity.ToString() + "\n");
+        //        sb.Append("WarehouseState:" + warehouseState.ToString() + "\n");
+        //        sb.Append("Zipcode:" + warehouseZipcode.ToString() + "\n");
+
+        //        result = sb.ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        result = "Exception:" + ex.Message.ToString();
+        //    }
+
+        //    return result;
+
+        //}
 
         private void btnupdatawh_Click(object sender, EventArgs e)
         {

@@ -160,6 +160,13 @@ namespace CreateUpdateClient.WarehouseServiceProxy {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarehouse/UpdateWarehouse", ReplyAction="http://tempuri.org/IWarehouse/UpdateWarehouseResponse")]
         System.Threading.Tasks.Task<CreateUpdateClient.WarehouseServiceProxy.UpdateWarehouseResponse> UpdateWarehouseAsync(CreateUpdateClient.WarehouseServiceProxy.UpdateWarehouseRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarehouse/CreateWarehouse", ReplyAction="http://tempuri.org/IWarehouse/CreateWarehouseResponse")]
+        CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseResponse CreateWarehouse(CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarehouse/CreateWarehouse", ReplyAction="http://tempuri.org/IWarehouse/CreateWarehouseResponse")]
+        System.Threading.Tasks.Task<CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseResponse> CreateWarehouseAsync(CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -198,6 +205,46 @@ namespace CreateUpdateClient.WarehouseServiceProxy {
         
         public UpdateWarehouseResponse(bool UpdateWarehouseResult, string message) {
             this.UpdateWarehouseResult = UpdateWarehouseResult;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CreateWarehouse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CreateWarehouseRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public CreateUpdateClient.WarehouseServiceProxy.Warehouse warehouse;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public CreateWarehouseRequest() {
+        }
+        
+        public CreateWarehouseRequest(CreateUpdateClient.WarehouseServiceProxy.Warehouse warehouse, string message) {
+            this.warehouse = warehouse;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CreateWarehouseResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CreateWarehouseResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool CreateWarehouseResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public CreateWarehouseResponse() {
+        }
+        
+        public CreateWarehouseResponse(bool CreateWarehouseResult, string message) {
+            this.CreateWarehouseResult = CreateWarehouseResult;
             this.message = message;
         }
     }
@@ -261,6 +308,24 @@ namespace CreateUpdateClient.WarehouseServiceProxy {
         
         public System.Threading.Tasks.Task<CreateUpdateClient.WarehouseServiceProxy.UpdateWarehouseResponse> UpdateWarehouseAsync(CreateUpdateClient.WarehouseServiceProxy.UpdateWarehouseRequest request) {
             return base.Channel.UpdateWarehouseAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseResponse CreateUpdateClient.WarehouseServiceProxy.IWarehouse.CreateWarehouse(CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseRequest request) {
+            return base.Channel.CreateWarehouse(request);
+        }
+        
+        public bool CreateWarehouse(CreateUpdateClient.WarehouseServiceProxy.Warehouse warehouse, ref string message) {
+            CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseRequest inValue = new CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseRequest();
+            inValue.warehouse = warehouse;
+            inValue.message = message;
+            CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseResponse retVal = ((CreateUpdateClient.WarehouseServiceProxy.IWarehouse)(this)).CreateWarehouse(inValue);
+            message = retVal.message;
+            return retVal.CreateWarehouseResult;
+        }
+        
+        public System.Threading.Tasks.Task<CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseResponse> CreateWarehouseAsync(CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseRequest request) {
+            return base.Channel.CreateWarehouseAsync(request);
         }
     }
 }
