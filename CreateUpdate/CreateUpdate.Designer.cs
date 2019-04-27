@@ -181,6 +181,7 @@
             this.btnsearchupc.TabIndex = 9;
             this.btnsearchupc.Text = "Search";
             this.btnsearchupc.UseVisualStyleBackColor = true;
+            this.btnsearchupc.Click += new System.EventHandler(this.btnsearchupc_Click_1);
             // 
             // productdetail
             // 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.ServiceModel;
 //using CreateUpdate;//.ProductServiceRef; // Commented out for testing
 using CreateUpdateClient.WarehouseServiceProxy;
+using CreateUpdateClient.ProductServiceProxy;
 // needed for establishing a connection to the database
 using System.Data.SqlClient;
 // TODO
@@ -30,58 +31,6 @@ namespace CreateUpdate
         private void CreateUpdate_Load(object sender, EventArgs e)
         {
 
-        }
-
-        //search btn in the createupdate form is used to find the product 
-        //based on the upc input
-        private void btnsearchupc_Click(object sender, EventArgs e)
-        {/*
-            var client = new ProductServiceClient();
-            string result = "";
-            try
-            {
-                int productupc = Int32.Parse(searchupcbox.Text);
-                var product = client.GetProduct(productupc);
-
-                var sb = new StringBuilder();
-                sb.Append("ProductID:" +
-                product.Product_ID.ToString() + "\r\n");
-                sb.Append("ProductName:" +
-                product.Product_Name + "\r\n");
-                sb.Append("ProductUPC:" +
-                product.Product_UPC + "\r\n");
-                sb.Append("ProductPrice:" +
-                product.Product_Price.ToString() + "\r\n");
-                sb.Append("Category:" +
-                product.Category_Category_ID + "\r\n");
-                result = sb.ToString();
-            }
-            catch (TimeoutException ex)
-            {
-                result = "The service operation timed out. " +
-                ex.Message;
-            }
-            //catch (FaultException<ProductFault> ex)
-            //{
-            //    result = "ProductFault returned: " +
-            //    ex.Detail.FaultMessage;
-            //}
-            catch (FaultException ex)
-            {
-                result = "Unknown Fault: " +
-                ex.ToString();
-            }
-            catch (CommunicationException ex)
-            {
-                result = "There was a communication problem. " +
-                ex.Message + ex.StackTrace;
-            }
-            catch (Exception ex)
-            {
-                result = "Other exception: " +
-                ex.Message + ex.StackTrace;
-            }
-            productdetail.Text = result; */
         }
 
         //update upc
@@ -335,8 +284,47 @@ private string UpdateWarehouse(
             return result;
             
         }
+        //search btn in the createupdate form is used to find the product 
+        //based on the upc input
+        private void btnsearchupc_Click_1(object sender, EventArgs e)
+        {
+            var client = new ProductClient();
+            string result = "";
+            try
+            {
+                long productupc = long.Parse(searchupcbox.Text);
+                var product = client.GetProductByUPC(productupc);
 
-
+                var sb = new StringBuilder();
+                sb.Append("ProductID:" + product.ProductID.ToString() + "\r\n");
+                sb.Append("ProductName:" + product.ProductName + "\r\n");
+                sb.Append("ProductUPC:" + product.UPC + "\r\n");
+                sb.Append("ProductPrice:" + product.UnitPrice.ToString() + "\r\n");
+                //sb.Append("Category:" + product.Category_Category_ID + "\r\n");
+                result = sb.ToString();
+            }
+            catch (TimeoutException ex)
+            {
+                result = "The service operation timed out. " +
+                ex.Message;
+            }
+            catch (FaultException ex)
+            {
+                result = "Unknown Fault: " +
+                ex.ToString();
+            }
+            catch (CommunicationException ex)
+            {
+                result = "There was a communication problem. " +
+                ex.Message + ex.StackTrace;
+            }
+            catch (Exception ex)
+            {
+                result = "Other exception: " +
+                ex.Message + ex.StackTrace;
+            }
+            productdetail.Text = result;
+        }
     }
 
 

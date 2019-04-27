@@ -25,9 +25,9 @@ namespace Product_Prj.Service
 
             return product;
         }
-        public Product GetProductByUPC(long id)
+        public Product GetProductByUPC(long upc)
         {
-            var product_BDO = product_Logic.Get_Product_By_UPC(id);
+            var product_BDO = product_Logic.Get_Product_By_UPC(upc);
             var product = new Product();
 
             // Translating productBDO to productDTO
