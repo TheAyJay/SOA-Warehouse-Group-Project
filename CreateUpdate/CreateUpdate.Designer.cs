@@ -236,6 +236,7 @@
             this.btnupdateupc.TabIndex = 15;
             this.btnupdateupc.Text = "Update UPC";
             this.btnupdateupc.UseVisualStyleBackColor = true;
+            this.btnupdateupc.Click += new System.EventHandler(this.btnupdateupc_Click);
             // 
             // button4
             // 
@@ -284,7 +285,7 @@
             this.btnupdatecategory.Name = "btnupdatecategory";
             this.btnupdatecategory.Size = new System.Drawing.Size(104, 23);
             this.btnupdatecategory.TabIndex = 21;
-            this.btnupdatecategory.Text = "Updata Category";
+            this.btnupdatecategory.Text = "Update Category";
             this.btnupdatecategory.UseVisualStyleBackColor = true;
             // 
             // updateproductresult

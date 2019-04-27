@@ -20,7 +20,7 @@ namespace CreateUpdate
 {
     public partial class CreateUpdate : Form
     {
-        Warehouse warehouse;
+        Product search_update_product;
 
         public CreateUpdate()
         {
@@ -43,7 +43,7 @@ namespace CreateUpdate
             //    zipcodebox,
             //    ref warehouse);
 
-            warehouse = new Warehouse();
+            Warehouse warehouse = new Warehouse();
             var client = new WarehouseClient();
             var message = "";
             var result = "";
@@ -213,13 +213,13 @@ private string UpdateWarehouse(
             try
             {
                 long productupc = long.Parse(searchupcbox.Text);
-                var product = client.GetProductByUPC(productupc);
+                search_update_product = client.GetProductByUPC(productupc);
 
                 var sb = new StringBuilder();
-                sb.Append("ProductID:" + product.ProductID.ToString() + "\r\n");
-                sb.Append("ProductName:" + product.ProductName + "\r\n");
-                sb.Append("ProductUPC:" + product.UPC + "\r\n");
-                sb.Append("ProductPrice:" + product.UnitPrice.ToString() + "\r\n");
+                sb.Append("ProductID:" + search_update_product.ProductID.ToString() + "\r\n");
+                sb.Append("ProductName:" + search_update_product.ProductName + "\r\n");
+                sb.Append("ProductUPC:" + search_update_product.UPC + "\r\n");
+                sb.Append("ProductPrice:" + search_update_product.UnitPrice.ToString() + "\r\n");
                 //sb.Append("Category:" + product.Category_Category_ID + "\r\n");
                 result = sb.ToString();
             }
@@ -282,6 +282,58 @@ private string UpdateWarehouse(
 
             //Set text box with output
             productdetail.Text = result;
+        }
+
+        private void btnupdateupc_Click(object sender, EventArgs e)
+        {
+
+            var client = new ProductClient();
+            var result = "";
+
+            //Check if the user searched for a product and that the UPC box is populated and that the UPC is different from the existing product
+            if (search_update_product == null)
+            {
+                result = "Search for a product first!";
+            }
+            else if (string.IsNullOrEmpty(newupcbox.Text) || long.Parse(newupcbox.Text) == search_update_product.UPC)
+            {
+                result = "Enter a new UPC code!";
+            }
+            else
+            {
+                try
+                {
+                    //Create temporary product to hold updated product information
+                    var update_product = new Product();
+                    update_product = search_update_product;
+
+                    //Assign new UPC to updated product object
+                    update_product.UPC = long.Parse(newupcbox.Text);
+
+                    //Update product by ID and assign boolean to variable
+                    bool update_result = client.UpdateProductByID(update_product);
+
+                    //Check result of update
+                    var sb = new StringBuilder();
+                    if (update_result == true)
+                    {
+                        sb.Append("Product UPC was updated to " + update_product.UPC.ToString());
+                    }
+                    else
+                    {
+                        sb.Append("Error updating product UPC to " + update_product.UPC.ToString());
+                    }
+
+                    result = sb.ToString();
+
+                }
+                catch (Exception ex)
+                {
+                    result = "Exception: " + ex.Message.ToString();
+                }
+            }
+
+            updateproductresult.Text = result;
         }
     }
 
