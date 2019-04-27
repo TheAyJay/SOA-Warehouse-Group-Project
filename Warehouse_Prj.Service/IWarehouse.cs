@@ -20,6 +20,9 @@ namespace Warehouse_Prj.Service
         [OperationContract]
         bool UpdateWarehouse(Warehouse warehouse, ref string message);
 
+        [OperationContract]
+        bool CreateWarehouse(Warehouse warehouse, ref string message);
+
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

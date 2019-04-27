@@ -588,6 +588,7 @@
             this.btncheckallwh.TabIndex = 59;
             this.btncheckallwh.Text = "Check All Warehouse";
             this.btncheckallwh.UseVisualStyleBackColor = true;
+            this.btncheckallwh.Click += new System.EventHandler(this.btncheckallwh_Click);
             // 
             // allwhbox
             // 

@@ -39,7 +39,7 @@ namespace Warehouse_Prj.Logic
         public bool Create_Warehouse(ref Warehouse_BDO warehouse_BDO, ref string message)
         {
             var warehouse = Get_Warehouse_By_Name(warehouse_BDO.Warehouse_Name);
-            if (warehouse != null)
+            if (warehouse.Warehouse_Name != null && warehouse.Street != null && warehouse.City != null && warehouse.State != null && warehouse.Zipcode != null)
             {
                 message = "Warehouse exists already!";
                 return false;

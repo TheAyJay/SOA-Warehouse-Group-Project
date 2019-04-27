@@ -74,6 +74,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\WarehouseServiceProxy\CreateUpdateClient.WarehouseServiceProxy.CreateWarehouseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\WarehouseServiceProxy\CreateUpdateClient.WarehouseServiceProxy.UpdateWarehouseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

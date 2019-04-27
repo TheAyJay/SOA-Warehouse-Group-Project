@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.ServiceModel;
 //using CreateUpdate;//.ProductServiceRef; // Commented out for testing
 using CreateUpdateClient.WarehouseServiceProxy;
+// needed for establishing a connection to the database
+using System.Data.SqlClient;
 // TODO
 // add service reference
 
@@ -18,6 +20,8 @@ namespace CreateUpdate
 {
     public partial class CreateUpdate : Form
     {
+        Warehouse warehouse;
+
         public CreateUpdate()
         {
             InitializeComponent();
@@ -86,46 +90,41 @@ namespace CreateUpdate
 
         }
 
+        // Try to make use of "MessageBox.show("Warehouse was add to the Database successfully"); message if true OR faild otherwise"
         private void btncreatewh_Click(object sender, EventArgs e)
         {
-            allwhbox.Text = CreateNewWarehouse(
-                warehousenamebox,
-                streetbox,
-                citybox,
-                statebox,
-                zipcodebox,
-                ref warehouse);
-        }
+            //allwhbox.Text = CreateNewWarehouse(
+            //    warehousenamebox,
+            //    streetbox,
+            //    citybox,
+            //    statebox,
+            //    zipcodebox,
+            //    ref warehouse);
 
-        Warehouse warehouse;
-        private string CreateNewWarehouse(
-            TextBox warhousenamebox,
-            TextBox streetbox,
-            TextBox citybox,
-            TextBox statebox,
-            TextBox zipcodebox,
-            ref Warehouse warehouse/*,
-            ref bool createWarehouse*/)
-        {
-            var result = "";
+            warehouse = new Warehouse();
+            var client = new WarehouseClient();
             var message = "";
+            var result = "";
+
             try
             {
-                var warehouseName = warehousenamebox.Text;
-                var warehouseStreet = streetbox.Text;
-                var warehouseCity = citybox.Text;
-                var warehouseState = statebox.Text;
-                var warehouseZipcode = zipcodebox.Text;
+                //Move text field values to object properties
+                warehouse.WarehouseName = warehousenamebox.Text;
+                warehouse.WarehouseAddressStreet = streetbox.Text;
+                warehouse.WarehouseAddressCity = citybox.Text;
+                warehouse.WarehouseAddressState = statebox.Text;
+                warehouse.WarehouseAddressZipcode = zipcodebox.Text;
 
-                var client = new WarehouseClient(); // Maybe try WarehouseClient();
-                //client.UpdateWarehouse( ref warehouse, ref message); // Or maybe client.CreateWarehouse( ref warehouse, ref message);
+                //Call service method
+                client.CreateWarehouse(warehouse, ref message);
 
                 var sb = new StringBuilder();
-                sb.Append("WarehouseName:" + warehouseName.ToString() + "\n");
-                sb.Append("WarehouseStreet:" + warehouseStreet.ToString() + "\n");
-                sb.Append("WarehouseCity:" + warehouseCity.ToString() + "\n");
-                sb.Append("WarehouseState:" + warehouseState.ToString() + "\n");
-                sb.Append("Zipcode:" + warehouseZipcode.ToString() + "\n");
+                sb.Append(message + "\r\n");
+                sb.Append("WarehouseName: " + warehouse.WarehouseName + "\r\n");
+                sb.Append("WarehouseStreet: " + warehouse.WarehouseAddressStreet + "\r\n");
+                sb.Append("WarehouseCity: " + warehouse.WarehouseAddressCity + "\r\n");
+                sb.Append("WarehouseState: " + warehouse.WarehouseAddressState + "\r\n");
+                sb.Append("WarehouseZipcode: " + warehouse.WarehouseAddressZipcode + "\r\n");
 
                 result = sb.ToString();
             }
@@ -134,87 +133,210 @@ namespace CreateUpdate
                 result = "Exception:" + ex.Message.ToString();
             }
 
-            return result;
-
+            //Set text box with output
+            allwhbox.Text = result;
         }
+
+        //private string CreateNewWarehouse(
+        //    TextBox warhousenamebox,
+        //    TextBox streetbox,
+        //    TextBox citybox,
+        //    TextBox statebox,
+        //    TextBox zipcodebox,
+        //    ref Warehouse warehouse/*,
+        //    ref bool createWarehouse*/)
+        //{
+        //    var result = "";
+        //    var message = "";
+        //    try
+        //    {
+        //        var warehouseName = warehousenamebox.Text;
+        //        var warehouseStreet = streetbox.Text;
+        //        var warehouseCity = citybox.Text;
+        //        var warehouseState = statebox.Text;
+        //        var warehouseZipcode = zipcodebox.Text;
+
+        //        var client = new WarehouseClient(); // Maybe try WarehouseClient();
+        //        //client.UpdateWarehouse( ref warehouse, ref message); // Or maybe client.CreateWarehouse( ref warehouse, ref message);
+
+        //        var sb = new StringBuilder();
+        //        sb.Append("WarehouseName:" + warehouseName.ToString() + "\n");
+        //        sb.Append("WarehouseStreet:" + warehouseStreet.ToString() + "\n");
+        //        sb.Append("WarehouseCity:" + warehouseCity.ToString() + "\n");
+        //        sb.Append("WarehouseState:" + warehouseState.ToString() + "\n");
+        //        sb.Append("Zipcode:" + warehouseZipcode.ToString() + "\n");
+
+        //        result = sb.ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        result = "Exception:" + ex.Message.ToString();
+        //    }
+
+        //    return result;
+
+        //}
 
         private void btnupdatawh_Click(object sender, EventArgs e)
         {
 
         }
+
         /*
-        private string UpdateWarehouse(
-            TextBox whidbox,
-            TextBox newstreetbox,
-            TextBox newcitybox,
-            TextBox newstatebox,
-            TextBox newzipcodebox,
-            ref Warehouse warehouse,
-            ref bool updateWarehouse)
+private string UpdateWarehouse(
+   TextBox whidbox,
+   TextBox newstreetbox,
+   TextBox newcitybox,
+   TextBox newstatebox,
+   TextBox newzipcodebox,
+   ref Warehouse warehouse,
+   ref bool updateWarehouse)
+{
+   var result = "";
+   var message = "";
+
+   try
+   { 
+       warehouse.WarehouseID = int.Parse(whidbox.Text);
+       warehouse.WarehouseAddressStreet = newstreetbox.Text;
+       warehouse.WarehouseAddressCity = newcitybox.Text;
+       warehouse.WarehouseAddressState = newstatebox.Text;
+       warehouse.WarehouseAddressZipcode = newzipcodebox.Text;
+
+      var client = new WarehouseServiceClient(); // Maby try WarehouseClient()
+       client.UpdateWarehouse(ref warehouse, ref message);
+
+       var sb = new StringBuilder();
+
+       if (UpdateResult == true)
+       {
+           sb.Append("WarehouseID");
+           sb.Append(whidbox.Text.ToString());
+           sb.Append("\n");
+
+           sb.Append("WarehouseStreetAddress updated to ");
+           sb.Append(newstreetbox.ToString());
+           sb.Append("\n");
+
+           sb.Append("WarehouseCityAddress updated to ");
+           sb.Append(newcitybox.ToString());
+           sb.Append("\n");
+
+           sb.Append("WarehouseStateAddress updated to ");
+           sb.Append(newstatebox.ToString());
+           sb.Append("\n");
+
+           sb.Append("WarehouseZipcode updated to ");
+           sb.Append(newzipcodebox.ToString());
+           sb.Append("\n");
+
+           // Not sure if we need this or not
+           //sb.Append("Update result:");
+           //sb.Append(updateResult.ToString());
+           //sb.Append("\n");
+
+           sb.Append("Update message:");
+           sb.Append(message);
+           sb.Append("\n");
+       }
+
+       else
+       {
+           sb.Append("Warehouse update failed!");
+           //sb.Append()
+       }
+       result = sb.ToString();
+
+   }
+   catch (Exception ex)
+   {
+       result = "Exception: " + ex.Message;
+   }
+   return result;
+}
+*/
+
+        private void btncheckallwh_Click(object sender, EventArgs e)
+        {
+            // call the CheckAllWarehouses method to display the information retrieved from the databased
+            allwhbox.Text = CheckAllWarehouses();
+        }
+
+        /*
+         * CheckAllWarehouses Method
+         * This method will establish a connection to the database and retrieve 
+         * all the rocords from the dbo.Warehouses table in order to display it 
+         * on the text box
+         */
+        private string CheckAllWarehouses()
         {
             var result = "";
-            var message = "";
 
-            try
-            { 
-                warehouse.WarehouseID = int.Parse(whidbox.Text);
-                warehouse.WarehouseAddressStreet = newstreetbox.Text;
-                warehouse.WarehouseAddressCity = newcitybox.Text;
-                warehouse.WarehouseAddressState = newstatebox.Text;
-                warehouse.WarehouseAddressZipcode = newzipcodebox.Text;
+            // Establishing a connection to the database 
+            string database = @"Server=tcp:soa-server.database.windows.net,1433;Initial Catalog=SOA_Project;Persist Security Info=False;User ID=omarwaller;Password=He11oworld;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
+            SqlConnection tempCon = new SqlConnection(database);
+            
+            // Opening the connection to the database in order to execute this operation
+            tempCon.Open();
+            MessageBox.Show("Connection to the database was successful");
 
-               var client = new WarehouseServiceClient(); // Maby try WarehouseClient()
-                client.UpdateWarehouse(ref warehouse, ref message);
+            // Querying the database using a good security measurments to prevent database attacks
+            string allWarehousesQuery = "SELECT * FROM dbo.Warehouses";
+            SqlCommand sqlCom = new SqlCommand(allWarehousesQuery, tempCon);
 
-                var sb = new StringBuilder();
+            // Command used to read the output from the database 
+            SqlDataReader sqlRead = sqlCom.ExecuteReader();
 
-                if (UpdateResult == true)
-                {
-                    sb.Append("WarehouseID");
-                    sb.Append(whidbox.Text.ToString());
-                    sb.Append("\n");
+            
+            // Building a string to store the information from the database 
+            var sb = new StringBuilder();
+            sb.Append("*** List of all warehouses at the database ***");
+            sb.Append("\n");
 
-                    sb.Append("WarehouseStreetAddress updated to ");
-                    sb.Append(newstreetbox.ToString());
-                    sb.Append("\n");
-
-                    sb.Append("WarehouseCityAddress updated to ");
-                    sb.Append(newcitybox.ToString());
-                    sb.Append("\n");
-
-                    sb.Append("WarehouseStateAddress updated to ");
-                    sb.Append(newstatebox.ToString());
-                    sb.Append("\n");
-
-                    sb.Append("WarehouseZipcode updated to ");
-                    sb.Append(newzipcodebox.ToString());
-                    sb.Append("\n");
-
-                    // Not sure if we need this or not
-                    //sb.Append("Update result:");
-                    //sb.Append(updateResult.ToString());
-                    //sb.Append("\n");
-
-                    sb.Append("Update message:");
-                    sb.Append(message);
-                    sb.Append("\n");
-                }
-
-                else
-                {
-                    sb.Append("Warehouse update failed!");
-                    //sb.Append()
-                }
-                result = sb.ToString();
-                
-            }
-            catch (Exception ex)
+            // IF statement to go through all the records in the table
+            if (sqlRead.HasRows)
             {
-                result = "Exception: " + ex.Message;
+                // while reading from the table store information of warehouses into the sb string
+                while (sqlRead.Read())
+                {
+                    string whid = sqlRead["Warehouse_ID"].ToString();
+                    sb.Append(whid);
+
+                    /*
+                     * The following info of warehouses are exluded for now and can be added if needed 
+                     * 
+                    string whname = sqlRead["Warehouse_Name"].ToString();
+                    sb.Append(whname);
+
+                    string whstr = sqlRead["Street"].ToString();
+                    sb.Append(whstr);
+
+                    string whcit = sqlRead["City"].ToString();
+                    sb.Append(whcit); */
+
+                    string whst = sqlRead["State"].ToString();
+                    sb.Append(whst);
+
+                    string whzc = sqlRead["Zipcode"].ToString();
+                    sb.Append(whzc);
+                    sb.Append(" ### ");
+                    sb.Append("\n");
+
+                    // Store the information of the sb string into the result string 
+                    result = sb.ToString();
+                }
+               // else
+                 //   result = "Something went wrong";
             }
+
+            // close the connection to the database 
+            tempCon.Close();
+            
             return result;
+            
         }
-        */
+
+
     }
 
 

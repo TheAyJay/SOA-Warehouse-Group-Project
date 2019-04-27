@@ -86,7 +86,8 @@ namespace Warehouse_Prj.DAL
             warehouse_DTO_Result = warehouse_Query.Get_Warehouse_By_Name(warehouse_Name);
 
             //If Warehouse is found, tranlsate to BDO object
-            if (warehouse_DTO_Result != null)
+            if (warehouse_DTO_Result.Warehouse_Name != null && warehouse_DTO_Result.Street != null
+                && warehouse_DTO_Result.City != null && warehouse_DTO_Result.State != null && warehouse_DTO_Result.Zipcode != null)
             {
                 warehouse_BDO.Warehouse_ID = warehouse_DTO_Result.Warehouse_ID;
                 warehouse_BDO.Warehouse_Name = warehouse_DTO_Result.Warehouse_Name;
