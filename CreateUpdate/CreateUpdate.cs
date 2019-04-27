@@ -33,12 +33,6 @@ namespace CreateUpdate
 
         }
 
-        //update upc
-        private void btnupdateupc_Click(object sender, EventArgs e)
-        {
-
-        }
-
         // Try to make use of "MessageBox.show("Warehouse was add to the Database successfully"); message if true OR faild otherwise"
         private void btncreatewh_Click(object sender, EventArgs e)
         {
@@ -323,6 +317,44 @@ private string UpdateWarehouse(
                 result = "Other exception: " +
                 ex.Message + ex.StackTrace;
             }
+            productdetail.Text = result;
+        }
+        //when create product, it always says "Product already exists!" seems like nooed to fix category column.
+        private void btncreateproduct_Click(object sender, EventArgs e)
+        {
+            Product product = new Product();
+            var client = new ProductClient();
+            var message = "";
+            var result = "";
+
+            try
+            {
+                //Move text field values to object properties
+                product.ProductName = productnamebox.Text;
+                product.UPC = long.Parse(upcbox.Text);
+                product.UnitPrice = int.Parse(productpricebox.Text);
+                product.CategoryID = categorybox.Text;
+
+                //Call service method
+                client.Create_Product(product, ref message);
+
+                var sb = new StringBuilder();
+                sb.Append(message + "\r\n");
+                sb.Append("ProductID:" + product.ProductID.ToString() + "\r\n");
+                sb.Append("ProductName:" + product.ProductName + "\r\n");
+                sb.Append("ProductUPC:" + product.UPC + "\r\n");
+                sb.Append("ProductPrice:" + product.UnitPrice.ToString() + "\r\n");
+                sb.Append("Category:" + product.CategoryID + "\r\n");
+
+
+                result = sb.ToString();
+            }
+            catch (Exception ex)
+            {
+                result = "Exception:" + ex.Message.ToString();
+            }
+
+            //Set text box with output
             productdetail.Text = result;
         }
     }
