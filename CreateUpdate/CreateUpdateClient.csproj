@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{82F675B4-4A3C-4B14-BAB8-CE0B5FF0AF27}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CreateUpdate</RootNamespace>
-    <AssemblyName>CreateUpdate</AssemblyName>
+    <RootNamespace>CreateUpdateClient</RootNamespace>
+    <AssemblyName>CreateUpdateClient</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\WarehouseServiceProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="CreateUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,7 +72,24 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\WarehouseServiceProxy\CreateUpdateClient.WarehouseServiceProxy.UpdateWarehouseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WarehouseServiceProxy\CreateUpdateClient.WarehouseServiceProxy.Warehouse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WarehouseServiceProxy\service.wsdl" />
+    <None Include="Connected Services\WarehouseServiceProxy\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarehouseServiceProxy\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarehouseServiceProxy\Warehouse_Prj.Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -83,6 +105,21 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WarehouseServiceProxy\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseServiceProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseServiceProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseServiceProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -526,6 +526,7 @@
             this.btncreatewh.TabIndex = 52;
             this.btncreatewh.Text = "Create Warehouse";
             this.btncreatewh.UseVisualStyleBackColor = true;
+            this.btncreatewh.Click += new System.EventHandler(this.btncreatewh_Click);
             // 
             // lblupdatewh
             // 
@@ -642,6 +643,7 @@
             this.btnupdatawh.TabIndex = 66;
             this.btnupdatawh.Text = "Update Warehouse";
             this.btnupdatawh.UseVisualStyleBackColor = true;
+            this.btnupdatawh.Click += new System.EventHandler(this.btnupdatawh_Click);
             // 
             // updatewhresult
             // 
