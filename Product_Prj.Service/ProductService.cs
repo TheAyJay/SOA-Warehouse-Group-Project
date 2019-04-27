@@ -25,6 +25,16 @@ namespace Product_Prj.Service
 
             return product;
         }
+        public Product GetProductByUPC(long id)
+        {
+            var product_BDO = product_Logic.Get_Product_By_UPC(id);
+            var product = new Product();
+
+            // Translating productBDO to productDTO
+            TranslateProductBDOToProductDTO(product_BDO, product);
+
+            return product;
+        }
 
         public bool Create_Product(Product product_, ref string msg)
         {

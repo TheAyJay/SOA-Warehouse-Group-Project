@@ -16,6 +16,9 @@ namespace Product_Prj.Service
         Product GetProductByID(int id);
 
         [OperationContract]
+        Product GetProductByUPC(long upc);
+
+        [OperationContract]
         bool UpdateProductByID(Product product);
 
         [OperationContract]
@@ -35,8 +38,6 @@ namespace Product_Prj.Service
         public long UPC { get; set; }
         [DataMember]
         public string ProductName { get; set; }
-        [DataMember]
-        public string Quantity { get; set; }
         [DataMember]
         public decimal UnitPrice { get; set; }
         [DataMember]
