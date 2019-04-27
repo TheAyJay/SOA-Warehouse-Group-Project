@@ -13,7 +13,7 @@ using Warehouse_Prj.DAL;
 
 namespace Warehouse_Prj.Logic
 {
-    public class Product_Logic
+    public class Category_Logic
     {
         Product_DAO product_DAO = new Product_DAO();
 
@@ -46,7 +46,7 @@ namespace Warehouse_Prj.Logic
         }
 
         //Given a Product_BDO, returns true/false depending on the success of the create
-        public bool Create_Product(Product_BDO product_BDO, ref string message)
+        public bool Create_Product(ref Product_BDO product_BDO, ref string message)
         {
             var product = Get_Product_By_UPC(product_BDO.Product_UPC);
             if(product != null)

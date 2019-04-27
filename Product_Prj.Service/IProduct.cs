@@ -18,6 +18,9 @@ namespace Product_Prj.Service
         [OperationContract]
         bool UpdateProductByID(Product product);
 
+        [OperationContract]
+        bool Create_Product(Product product, ref string message);
+
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

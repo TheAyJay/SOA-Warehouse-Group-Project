@@ -26,6 +26,20 @@ namespace Product_Prj.Service
             return product;
         }
 
+        public bool Create_Product(Product product_, ref string msg)
+        {
+            bool result = false;
+            Product_BDO product_BDO = new Product_BDO();
+
+            TranslateProductDTOToProductBDO(product_, product_BDO);
+
+
+            result = product_Logic.Create_Product(product_BDO, ref msg);
+
+
+            return result;
+        }
+
         public bool UpdateProductByID(Product product)
         {
             var result = true;
@@ -96,6 +110,8 @@ namespace Product_Prj.Service
             product_BDO.Product_Price = product.UnitPrice;
 
         }
+
+
 
     }
 }
