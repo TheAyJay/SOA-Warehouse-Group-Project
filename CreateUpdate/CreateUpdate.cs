@@ -11,8 +11,7 @@ using System.ServiceModel;
 //using CreateUpdate;//.ProductServiceRef; // Commented out for testing
 using CreateUpdateClient.WarehouseServiceProxy;
 using CreateUpdateClient.ProductServiceProxy;
-// needed for establishing a connection to the database
-using System.Data.SqlClient;
+
 // TODO
 // add service reference
 
@@ -80,45 +79,7 @@ namespace CreateUpdate
             allwhbox.Text = result;
         }
 
-        //private string CreateNewWarehouse(
-        //    TextBox warhousenamebox,
-        //    TextBox streetbox,
-        //    TextBox citybox,
-        //    TextBox statebox,
-        //    TextBox zipcodebox,
-        //    ref Warehouse warehouse/*,
-        //    ref bool createWarehouse*/)
-        //{
-        //    var result = "";
-        //    var message = "";
-        //    try
-        //    {
-        //        var warehouseName = warehousenamebox.Text;
-        //        var warehouseStreet = streetbox.Text;
-        //        var warehouseCity = citybox.Text;
-        //        var warehouseState = statebox.Text;
-        //        var warehouseZipcode = zipcodebox.Text;
-
-        //        var client = new WarehouseClient(); // Maybe try WarehouseClient();
-        //        //client.UpdateWarehouse( ref warehouse, ref message); // Or maybe client.CreateWarehouse( ref warehouse, ref message);
-
-        //        var sb = new StringBuilder();
-        //        sb.Append("WarehouseName:" + warehouseName.ToString() + "\n");
-        //        sb.Append("WarehouseStreet:" + warehouseStreet.ToString() + "\n");
-        //        sb.Append("WarehouseCity:" + warehouseCity.ToString() + "\n");
-        //        sb.Append("WarehouseState:" + warehouseState.ToString() + "\n");
-        //        sb.Append("Zipcode:" + warehouseZipcode.ToString() + "\n");
-
-        //        result = sb.ToString();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        result = "Exception:" + ex.Message.ToString();
-        //    }
-
-        //    return result;
-
-        //}
+        
 
         private void btnupdatawh_Click(object sender, EventArgs e)
         {
@@ -213,71 +174,36 @@ private string UpdateWarehouse(
          */
         private string CheckAllWarehouses()
         {
+           // warehouse = new Warehouse();
+            var client = new WarehouseClient();
             var result = "";
 
-            // Establishing a connection to the database 
-            string database = @"Server=tcp:soa-server.database.windows.net,1433;Initial Catalog=SOA_Project;Persist Security Info=False;User ID=omarwaller;Password=He11oworld;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
-            SqlConnection tempCon = new SqlConnection(database);
-            
-            // Opening the connection to the database in order to execute this operation
-            tempCon.Open();
-            MessageBox.Show("Connection to the database was successful");
-
-            // Querying the database using a good security measurments to prevent database attacks
-            string allWarehousesQuery = "SELECT * FROM dbo.Warehouses";
-            SqlCommand sqlCom = new SqlCommand(allWarehousesQuery, tempCon);
-
-            // Command used to read the output from the database 
-            SqlDataReader sqlRead = sqlCom.ExecuteReader();
-
-            
-            // Building a string to store the information from the database 
-            var sb = new StringBuilder();
-            sb.Append("*** List of all warehouses at the database ***");
-            sb.Append("\n");
-
-            // IF statement to go through all the records in the table
-            if (sqlRead.HasRows)
+            try
             {
-                // while reading from the table store information of warehouses into the sb string
-                while (sqlRead.Read())
+                var alwhs = client.GetAllWarehouses();
+                var sb = new StringBuilder();
+                sb.Append("*** List of all Warehouses in the DB ***");
+                sb.Append("\n");
+                foreach (var Warehouse in alwhs)
                 {
-                    string whid = sqlRead["Warehouse_ID"].ToString();
-                    sb.Append(whid);
-
-                    /*
-                     * The following info of warehouses are exluded for now and can be added if needed 
-                     * 
-                    string whname = sqlRead["Warehouse_Name"].ToString();
-                    sb.Append(whname);
-
-                    string whstr = sqlRead["Street"].ToString();
-                    sb.Append(whstr);
-
-                    string whcit = sqlRead["City"].ToString();
-                    sb.Append(whcit); */
-
-                    string whst = sqlRead["State"].ToString();
-                    sb.Append(whst);
-
-                    string whzc = sqlRead["Zipcode"].ToString();
-                    sb.Append(whzc);
-                    sb.Append(" ### ");
-                    sb.Append("\n");
-
-                    // Store the information of the sb string into the result string 
-                    result = sb.ToString();
+                    
+                    sb.Append(Warehouse.WarehouseName);
                 }
-               // else
-                 //   result = "Something went wrong";
+                
+
+                result = sb.ToString();
+            }
+            catch (Exception ex)
+            {
+                result = "Exception: " + ex.Message.ToString();
             }
 
-            // close the connection to the database 
-            tempCon.Close();
-            
             return result;
+
+
             
         }
+
         //search btn in the createupdate form is used to find the product 
         //based on the upc input
         private void btnsearchupc_Click_1(object sender, EventArgs e)
