@@ -56,6 +56,10 @@
     <Compile Include="ProductService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Category_Prj.Service\Category_Prj.Service.csproj">
+      <Project>{9B98BF52-F484-4903-95C7-8DBEE9A3F8C2}</Project>
+      <Name>Category_Prj.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Warehouse_Prj.BDO\Warehouse_Prj.BDO.csproj">
       <Project>{a95fa38f-9315-42a7-8d01-2ce7927481ff}</Project>
       <Name>Warehouse_Prj.BDO</Name>

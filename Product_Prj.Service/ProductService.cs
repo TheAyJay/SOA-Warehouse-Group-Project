@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using Warehouse_Prj.Logic;
 using Warehouse_Prj.BDO;
+using Category_Prj.Service;
 
 namespace Product_Prj.Service
 {
@@ -76,7 +77,7 @@ namespace Product_Prj.Service
             }
 
             // categoryID cannot be empty 
-            else if (string.IsNullOrEmpty(product.CategoryID))
+            else if (product.Category.Category_ID == 0)
             {
                 
                 result = false;
@@ -97,28 +98,31 @@ namespace Product_Prj.Service
         }
 
         // Translation method from ProductBDO to ProductDTO
-        private void TranslateProductBDOToProductDTO(
-            Product_BDO product_BDO, Product product)
+        private void TranslateProductBDOToProductDTO(Product_BDO product_BDO, Product product)
         {
+            product.Category = new Category();
+
             product.ProductID = product_BDO.Product_ID;
             product.ProductName = product_BDO.Product_Name;
-            product.CategoryID = product_BDO.Category_Name;
+            product.Category.Category_ID = product_BDO.Category.Category_ID;
+            product.Category.Category_Name = product_BDO.Category.Category_Name;
+            product.Category.Category_Description = product_BDO.Category.Category_Description;
             product.UPC = product_BDO.Product_UPC;
             product.UnitPrice = product_BDO.Product_Price;
-
         }
 
         // Translation method from ProductDTO to ProductBDO 
-        private void TranslateProductDTOToProductBDO(
-            Product product,
-            Product_BDO product_BDO)
+        private void TranslateProductDTOToProductBDO(Product product,Product_BDO product_BDO)
         {
+            product_BDO.Category = new Category_BDO();
+
             product_BDO.Product_ID = product.ProductID;
             product_BDO.Product_Name = product.ProductName;
-            product_BDO.Category_Name = product.CategoryID;
+            product_BDO.Category.Category_ID = product.Category.Category_ID;
+            product_BDO.Category.Category_Name = product.Category.Category_Name;
+            product_BDO.Category.Category_Description = product.Category.Category_Description;
             product_BDO.Product_UPC = product.UPC;
             product_BDO.Product_Price = product.UnitPrice;
-
         }
 
 

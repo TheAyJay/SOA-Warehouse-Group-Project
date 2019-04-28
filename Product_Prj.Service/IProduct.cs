@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Category_Prj.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -41,6 +42,6 @@ namespace Product_Prj.Service
         [DataMember]
         public decimal UnitPrice { get; set; }
         [DataMember]
-        public string CategoryID { get; set; }
+        public Category Category { get; set; }
     }
 }

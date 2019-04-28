@@ -70,6 +70,7 @@ namespace Warehouse_Prj.DAL
         {
             //Create Product_BDO object
             Product_BDO product_BDO = new Product_BDO();
+            product_BDO.Category = new Category_BDO();
 
             //Create new DTO object for Product query result
             DataModel.Product product_DTO_Result = new DataModel.Product();
@@ -85,8 +86,9 @@ namespace Warehouse_Prj.DAL
                 product_BDO.Product_Name = product_DTO_Result.Product_Name;
                 product_BDO.Product_UPC = product_DTO_Result.Product_UPC;
                 product_BDO.Product_Price = product_DTO_Result.Product_Price;
-                //TODO
-                //product_BDO.Category = product_DTO_Result.Category;
+                product_BDO.Category.Category_ID = product_DTO_Result.Category.Category_ID;
+                product_BDO.Category.Category_Name = product_DTO_Result.Category.Category_Name;
+                product_BDO.Category.Category_Description = product_DTO_Result.Category.Category_Description;
             }
 
             return product_BDO;
@@ -98,6 +100,7 @@ namespace Warehouse_Prj.DAL
         {
             //Create Product_BDO object
             Product_BDO product_BDO = new Product_BDO();
+            product_BDO.Category = new Category_BDO();
 
             //Create new DTO object for Product query result
             DataModel.Product product_DTO_Result = new DataModel.Product();
@@ -113,8 +116,9 @@ namespace Warehouse_Prj.DAL
                 product_BDO.Product_Name = product_DTO_Result.Product_Name;
                 product_BDO.Product_UPC = product_DTO_Result.Product_UPC;
                 product_BDO.Product_Price = product_DTO_Result.Product_Price;
-                //TODO
-                //product_BDO.Category = product_DTO_Result.Category;
+                product_BDO.Category.Category_ID = product_DTO_Result.Category.Category_ID;
+                product_BDO.Category.Category_Name = product_DTO_Result.Category.Category_Name;
+                product_BDO.Category.Category_Description = product_DTO_Result.Category.Category_Description;
             }
 
             return product_BDO;
@@ -128,14 +132,16 @@ namespace Warehouse_Prj.DAL
 
             //Create new DTO object for Product query
             DataModel.Product product_DTO = new DataModel.Product();
+            product_DTO.Category = new DataModel.Category();
 
             //Translate BDO to DTO for Product_Qs
             product_DTO.Product_ID = product_BDO.Product_ID;
             product_DTO.Product_Name = product_BDO.Product_Name;
             product_DTO.Product_UPC = product_BDO.Product_UPC;
             product_DTO.Product_Price = product_BDO.Product_Price;
-            //TODO
-            //product_DTO.Category = product_BDO.Category;
+            product_DTO.Category.Category_ID = product_BDO.Category.Category_ID;
+            product_DTO.Category.Category_Name = product_BDO.Category.Category_Name;
+            product_DTO.Category.Category_Description = product_BDO.Category.Category_Description;
 
             //Call Product_Qs.Update
             Product_Qs product_Update_Query = new Product_Qs();
