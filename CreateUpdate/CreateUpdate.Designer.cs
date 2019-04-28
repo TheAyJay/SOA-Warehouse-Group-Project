@@ -240,13 +240,12 @@
             // 
             // btnupdatename
             // 
-            this.btnupdatename.Location = new System.Drawing.Point(225, 287);
-            this.btnupdatename.Name = "btnupdatename";
-            this.btnupdatename.Size = new System.Drawing.Size(104, 23);
-            this.btnupdatename.TabIndex = 16;
-            this.btnupdatename.Text = "Update Name";
-            this.btnupdatename.UseVisualStyleBackColor = true;
-            this.btnupdatename.Click += new System.EventHandler(this.btnupdatename_Click);
+            this.button4.Location = new System.Drawing.Point(225, 287);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(104, 23);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Update Name";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // newcategorybox
             // 
