@@ -28,8 +28,10 @@ namespace Warehouse_Prj.DAL
             product_DTO.Product_Name = product_BDO.Product_Name;
             product_DTO.Product_UPC = product_BDO.Product_UPC;
             product_DTO.Product_Price = product_BDO.Product_Price;
-            //TODO
-            //product_DTO.Category = product_BDO.Category;
+
+            //Look up existing category information
+            Category_Qs category_Lookup_Query = new Category_Qs();
+            product_DTO.Category = category_Lookup_Query.Get_Category_By_ID(product_BDO.Category.Category_ID);
 
             //Call Product_Qs.Create
             Product_Qs product_Create_Query = new Product_Qs();
@@ -80,7 +82,7 @@ namespace Warehouse_Prj.DAL
             product_DTO_Result = product_Query.Get_Product_By_ID(product_ID);
 
             //If Product is found, translate to BDO object
-            if(product_DTO_Result != null)
+            if(product_DTO_Result.Product_ID != 0)
             {
                 product_BDO.Product_ID = product_DTO_Result.Product_ID;
                 product_BDO.Product_Name = product_DTO_Result.Product_Name;
@@ -110,7 +112,7 @@ namespace Warehouse_Prj.DAL
             product_DTO_Result = product_Query.Get_Product_By_UPC(product_UPC);
 
             //If Product is found, translate to BDO object
-            if (product_DTO_Result != null)
+            if (product_DTO_Result.Product_ID != 0)
             {
                 product_BDO.Product_ID = product_DTO_Result.Product_ID;
                 product_BDO.Product_Name = product_DTO_Result.Product_Name;

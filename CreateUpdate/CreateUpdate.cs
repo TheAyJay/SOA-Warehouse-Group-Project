@@ -24,11 +24,12 @@ namespace CreateUpdate
         public CreateUpdate()
         {
             InitializeComponent();
+            disable_Update_Buttons();
         }
 
         private void CreateUpdate_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         // Try to make use of "MessageBox.show("Warehouse was add to the Database successfully"); message if true OR faild otherwise"
@@ -123,7 +124,7 @@ namespace CreateUpdate
                 var sb = new StringBuilder();
                 if (updateWh == true)
                 {
-                    sb.Append("***Updateing was successfull***");
+                    sb.Append("***Updating was successfull***");
                     sb.Append("\n");
                     sb.Append("WarehouseID:" + warehouse.WarehouseID);
                     sb.Append("\n");
@@ -140,7 +141,7 @@ namespace CreateUpdate
                 }
                 else
                 {
-                    sb.Append("***Updateing warehouse failed***");
+                    sb.Append("***Updating warehouse failed***");
                 }
                 result = sb.ToString();
             }
@@ -181,7 +182,6 @@ namespace CreateUpdate
                     sb.Append(Warehouse.WarehouseName);
                 }
                 
-
                 result = sb.ToString();
             }
             catch (Exception ex)
@@ -190,14 +190,11 @@ namespace CreateUpdate
             }
 
             return result;
-
-
-            
         }
 
         //search btn in the createupdate form is used to find the product 
         //based on the upc input
-        private void btnsearchupc_Click_1(object sender, EventArgs e)
+        private void btnsearchupc_Click(object sender, EventArgs e)
         {
             var client = new ProductClient();
             string result = "";
@@ -206,13 +203,22 @@ namespace CreateUpdate
                 long productupc = long.Parse(searchupcbox.Text);
                 search_update_product = client.GetProductByUPC(productupc);
 
-                var sb = new StringBuilder();
-                sb.Append("ProductID:" + search_update_product.ProductID.ToString() + "\r\n");
-                sb.Append("ProductName:" + search_update_product.ProductName + "\r\n");
-                sb.Append("ProductUPC:" + search_update_product.UPC + "\r\n");
-                sb.Append("ProductPrice:" + search_update_product.UnitPrice.ToString() + "\r\n");
-                //sb.Append("Category:" + product.Category_Category_ID + "\r\n");
-                result = sb.ToString();
+                if (search_update_product.ProductID != 0)
+                {
+                    var sb = new StringBuilder();
+                    sb.Append("ProductID:" + search_update_product.ProductID.ToString() + "\r\n");
+                    sb.Append("ProductName:" + search_update_product.ProductName + "\r\n");
+                    sb.Append("ProductUPC:" + search_update_product.UPC + "\r\n");
+                    sb.Append("ProductPrice:" + search_update_product.UnitPrice.ToString() + "\r\n");
+                    //sb.Append("Category:" + search_update_product.CategoryID);
+                    result = sb.ToString();
+                    enable_Update_Buttons();
+                }
+                else
+                {
+                    result = "No product found with that UPC";
+                    disable_Update_Buttons();
+                }
             }
             catch (TimeoutException ex)
             {
@@ -236,10 +242,13 @@ namespace CreateUpdate
             }
             productdetail.Text = result;
         }
+
         //when create product, it always says "Product already exists!" seems like nooed to fix category column.
         private void btncreateproduct_Click(object sender, EventArgs e)
         {
             Product product = new Product();
+            product.Category = new CreateUpdateClient.ProductServiceProxy.Category();
+
             var client = new ProductClient();
             var message = "";
             var result = "";
@@ -250,19 +259,24 @@ namespace CreateUpdate
                 product.ProductName = productnamebox.Text;
                 product.UPC = long.Parse(upcbox.Text);
                 product.UnitPrice = int.Parse(productpricebox.Text);
-                product.CategoryID = categorybox.Text;
+                product.Category.Category_ID = int.Parse(categorybox.Text);
 
                 //Call service method
-                client.Create_Product(product, ref message);
-
                 var sb = new StringBuilder();
-                sb.Append(message + "\r\n");
-                sb.Append("ProductID:" + product.ProductID.ToString() + "\r\n");
-                sb.Append("ProductName:" + product.ProductName + "\r\n");
-                sb.Append("ProductUPC:" + product.UPC + "\r\n");
-                sb.Append("ProductPrice:" + product.UnitPrice.ToString() + "\r\n");
-                sb.Append("Category:" + product.CategoryID + "\r\n");
 
+                if (client.Create_Product(product, ref message) == true)
+                {
+                    sb.Append(message + "\r\n");
+                    sb.Append("ProductID:" + product.ProductID.ToString() + "\r\n");
+                    sb.Append("ProductName:" + product.ProductName + "\r\n");
+                    sb.Append("ProductUPC:" + product.UPC + "\r\n");
+                    sb.Append("ProductPrice:" + product.UnitPrice.ToString() + "\r\n");
+                    sb.Append("Category:" + product.Category.Category_ID.ToString());
+                }
+                else
+                {
+                    sb.Append(message);
+                }
 
                 result = sb.ToString();
             }
@@ -325,6 +339,128 @@ namespace CreateUpdate
             }
 
             updateproductresult.Text = result;
+        }
+
+        private void btnupdatename_Click(object sender, EventArgs e)
+        {
+            var client = new ProductClient();
+            var result = "";
+
+            //Check if the user searched for a product and that the name box is populated and that the name is different from the existing product
+            if (search_update_product == null)
+            {
+                result = "Search for a product first!";
+            }
+            else if (string.IsNullOrEmpty(newnamebox.Text) || newnamebox.Text == search_update_product.ProductName)
+            {
+                result = "Enter a new product name!";
+            }
+            else
+            {
+                try
+                {
+                    //Create temporary product to hold updated product information
+                    var update_product = new Product();
+                    update_product = search_update_product;
+
+                    //Assign new name to updated product object
+                    update_product.ProductName = newnamebox.Text;
+
+                    //Update product by ID and assign boolean to variable
+                    bool update_result = client.UpdateProductByID(update_product);
+
+                    //Check result of update
+                    var sb = new StringBuilder();
+                    if (update_result == true)
+                    {
+                        sb.Append("Product name was updated to " + update_product.ProductName.ToString());
+                    }
+                    else
+                    {
+                        sb.Append("Error updating product name to " + update_product.ProductName.ToString());
+                    }
+
+                    result = sb.ToString();
+
+                }
+                catch (Exception ex)
+                {
+                    result = "Exception: " + ex.Message.ToString();
+                }
+            }
+
+            updateproductresult.Text = result;
+        }
+
+        private void btnupdatecategory_Click(object sender, EventArgs e)
+        {
+            var client = new ProductClient();
+            var result = "";
+
+            //Check if the user searched for a product and that the category box is populated and that the category is different from the existing product
+            if (search_update_product == null)
+            {
+                result = "Search for a product first!";
+            }
+            else if (string.IsNullOrEmpty(newcategorybox.Text) || int.Parse(newcategorybox.Text) == search_update_product.Category.Category_ID)
+            {
+                result = "Enter a new category!";
+            }
+            else
+            {
+                try
+                {
+                    //Create temporary product to hold updated product information
+                    var update_product = new Product();
+                    update_product = search_update_product;
+
+                    //Assign new name to updated product object
+                    update_product.Category.Category_ID= int.Parse(newcategorybox.Text);
+
+                    //Update product by ID and assign boolean to variable
+                    bool update_result = client.UpdateProductByID(update_product);
+
+                    //Check result of update
+                    var sb = new StringBuilder();
+                    if (update_result == true)
+                    {
+                        sb.Append("Category was updated to " + update_product.Category.Category_ID.ToString());
+                    }
+                    else
+                    {
+                        sb.Append("Error updating product category to " + update_product.Category.Category_ID.ToString());
+                    }
+
+                    result = sb.ToString();
+
+                }
+                catch (Exception ex)
+                {
+                    result = "Exception: " + ex.Message.ToString();
+                }
+            }
+
+            updateproductresult.Text = result;
+        }
+
+        private void disable_Update_Buttons()
+        {
+            newupcbox.Enabled = false;
+            newnamebox.Enabled = false;
+            newcategorybox.Enabled = false;
+            btnupdateupc.Enabled = false;
+            btnupdatename.Enabled = false;
+            btnupdatecategory.Enabled = false;
+        }
+
+        private void enable_Update_Buttons()
+        {
+            newupcbox.Enabled = true;
+            newnamebox.Enabled = true;
+            newcategorybox.Enabled = true;
+            btnupdateupc.Enabled = true;
+            btnupdatename.Enabled = true;
+            btnupdatecategory.Enabled = true;
         }
     }
 

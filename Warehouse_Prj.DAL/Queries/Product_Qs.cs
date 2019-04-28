@@ -44,10 +44,9 @@ namespace Warehouse_Prj.DAL.CRUD
                 context.Products.Add(newProduct);
 
                 //Check execution of transaction - we expect 1 change to have occurred
-                var execution_result = context.SaveChanges();
-                if (execution_result != 1)
+                if (context.SaveChanges() != 1)
                 {
-                    msg = "Product was not created";
+                    msg = "Issue adding product";
                     ret = false;
                 }
                 else

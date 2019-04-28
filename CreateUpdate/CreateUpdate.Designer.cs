@@ -44,7 +44,7 @@
             this.newupcbox = new System.Windows.Forms.TextBox();
             this.newnamebox = new System.Windows.Forms.TextBox();
             this.btnupdateupc = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnupdatename = new System.Windows.Forms.Button();
             this.newcategorybox = new System.Windows.Forms.TextBox();
             this.lblcategory = new System.Windows.Forms.Label();
             this.categorybox = new System.Windows.Forms.TextBox();
@@ -185,7 +185,7 @@
             this.btnsearchupc.TabIndex = 9;
             this.btnsearchupc.Text = "Search";
             this.btnsearchupc.UseVisualStyleBackColor = true;
-            this.btnsearchupc.Click += new System.EventHandler(this.btnsearchupc_Click_1);
+            this.btnsearchupc.Click += new System.EventHandler(this.btnsearchupc_Click);
             // 
             // productdetail
             // 
@@ -238,14 +238,15 @@
             this.btnupdateupc.UseVisualStyleBackColor = true;
             this.btnupdateupc.Click += new System.EventHandler(this.btnupdateupc_Click);
             // 
-            // button4
+            // btnupdatename
             // 
-            this.button4.Location = new System.Drawing.Point(225, 287);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 23);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Update Name";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnupdatename.Location = new System.Drawing.Point(225, 287);
+            this.btnupdatename.Name = "btnupdatename";
+            this.btnupdatename.Size = new System.Drawing.Size(104, 23);
+            this.btnupdatename.TabIndex = 16;
+            this.btnupdatename.Text = "Update Name";
+            this.btnupdatename.UseVisualStyleBackColor = true;
+            this.btnupdatename.Click += new System.EventHandler(this.btnupdatename_Click);
             // 
             // newcategorybox
             // 
@@ -287,6 +288,7 @@
             this.btnupdatecategory.TabIndex = 21;
             this.btnupdatecategory.Text = "Update Category";
             this.btnupdatecategory.UseVisualStyleBackColor = true;
+            this.btnupdatecategory.Click += new System.EventHandler(this.btnupdatecategory_Click);
             // 
             // updateproductresult
             // 
@@ -761,7 +763,7 @@
             this.Controls.Add(this.categorybox);
             this.Controls.Add(this.lblcategory);
             this.Controls.Add(this.newcategorybox);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnupdatename);
             this.Controls.Add(this.btnupdateupc);
             this.Controls.Add(this.newnamebox);
             this.Controls.Add(this.newupcbox);
@@ -803,7 +805,7 @@
         private System.Windows.Forms.TextBox newupcbox;
         private System.Windows.Forms.TextBox newnamebox;
         private System.Windows.Forms.Button btnupdateupc;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnupdatename;
         private System.Windows.Forms.TextBox newcategorybox;
         private System.Windows.Forms.Label lblcategory;
         private System.Windows.Forms.TextBox categorybox;

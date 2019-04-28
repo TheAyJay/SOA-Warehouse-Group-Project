@@ -49,7 +49,7 @@ namespace Warehouse_Prj.Logic
         public bool Create_Product(Product_BDO product_BDO, ref string message)
         {
             var product = Get_Product_By_UPC(product_BDO.Product_UPC);
-            if(product != null)
+            if(product.Product_ID != 0)
             {
                 message = "Product already exists!";
                 return false;
