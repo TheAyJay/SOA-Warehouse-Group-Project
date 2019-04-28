@@ -74,7 +74,7 @@ namespace Warehouse_Prj.DAL.CRUD
                     product.Product_Name = product_in.Product_Name;
                     product.Product_Price = product_in.Product_Price;
                     product.Product_UPC = product_in.Product_UPC;
-                    product.Category = product_in.Category;
+                    product.Category.Category_ID = product_in.Category.Category_ID;
 
                     //Apply change
                     context.Products.Attach(product);
@@ -164,6 +164,7 @@ namespace Warehouse_Prj.DAL.CRUD
         {
             //Create Product object
             DataModel.Product product = new DataModel.Product();
+            product.Category = new DataModel.Category();
             //product = null;
 
             using (var context = new DataModel.WarehouseContext())
@@ -178,6 +179,9 @@ namespace Warehouse_Prj.DAL.CRUD
                         product.Product_Name = product_Qs.Product_Name;
                         product.Product_Price = product_Qs.Product_Price;
                         product.Product_UPC = product_Qs.Product_UPC;
+                        product.Category.Category_ID = product_Qs.Category.Category_ID;
+                        product.Category.Category_Name = product_Qs.Category.Category_Name;
+                        product.Category.Category_Description = product_Qs.Category.Category_Description;
 
                         return product;
                     }
@@ -198,6 +202,7 @@ namespace Warehouse_Prj.DAL.CRUD
         {
             //Create Product object
             DataModel.Product product = new DataModel.Product();
+            product.Category = new DataModel.Category();
             
             using (var context = new DataModel.WarehouseContext())
             {
@@ -211,6 +216,9 @@ namespace Warehouse_Prj.DAL.CRUD
                         product.Product_Name = product_Qs.Product_Name;
                         product.Product_Price = product_Qs.Product_Price;
                         product.Product_UPC = product_Qs.Product_UPC;
+                        product.Category.Category_ID = product_Qs.Category.Category_ID;
+                        product.Category.Category_Name = product_Qs.Category.Category_Name;
+                        product.Category.Category_Description = product_Qs.Category.Category_Description;
 
                         return product;
                     }
