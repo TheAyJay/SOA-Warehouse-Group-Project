@@ -18,7 +18,7 @@ namespace Warehouse_Prj.DAL.CRUD
         /// Description: This class contains CRUD and Get queries to the Category table in the Warehouse database configured 
         /// in the app.config file.
         /// </summary>
-       
+        DataModel.Category category_dmo = new DataModel.Category();
 
         // This method creates a Category record in the Warehouse database and returns true if the operation was successful.
         public bool Create(DataModel.Category category) {
@@ -58,15 +58,18 @@ namespace Warehouse_Prj.DAL.CRUD
                 if(cat != null)
                 {
                     cat.Category_Name = category.Category_Name;
-                    cat.Category_Description = category.Category_Description;                    
-                    context.SaveChanges();
+                    cat.Category_Description = category.Category_Description;
+
+                    //Apply change
+                    context.Categories.Attach(cat);
+                    context.Entry(cat).State = System.Data.Entity.EntityState.Modified;
+                    
                 }
 
                 //Check execution of transaction - we expect 1 change to have occurred
                 var execution_result = context.SaveChanges();
                 if (execution_result != 1)
-                {
-                    
+                {                    
                     success = false;
                 }
                

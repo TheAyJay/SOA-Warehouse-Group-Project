@@ -15,6 +15,13 @@ namespace Category_Prj.Service
         Category_BDO category_BDO = new Category_BDO();
         Category_Logic category_Logic = new Category_Logic();
 
+        public bool Create_Category(Category category)
+        {
+            Translate_DTO_to_BDO(category, category_BDO);
+            
+            return category_Logic.Create_Category(category_BDO);
+        }
+
         public Category Get_Category_By_ID(int category_id)
         {
             Category category = new Category();

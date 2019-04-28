@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Category_Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Category_Prj.Service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICategory_Get_Category_By_ID_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Category_By_ID" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_Get_Category_By_ID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Category_By_IDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_Update_Category_By_ID_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update_Category_By_ID" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_Update_Category_By_ID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Update_Category_By_IDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_Create_Category_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create_Category" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_Create_Category_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Create_CategoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICategory">
+    <wsdl:operation name="Get_Category_By_ID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/Get_Category_By_ID" message="tns:ICategory_Get_Category_By_ID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/Get_Category_By_IDResponse" message="tns:ICategory_Get_Category_By_ID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Category_By_ID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/Update_Category_By_ID" message="tns:ICategory_Update_Category_By_ID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/Update_Category_By_IDResponse" message="tns:ICategory_Update_Category_By_ID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create_Category">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/Create_Category" message="tns:ICategory_Create_Category_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/Create_CategoryResponse" message="tns:ICategory_Create_Category_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICategory" type="tns:ICategory">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_Category_By_ID">
+      <soap:operation soapAction="http://tempuri.org/ICategory/Get_Category_By_ID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Category_By_ID">
+      <soap:operation soapAction="http://tempuri.org/ICategory/Update_Category_By_ID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create_Category">
+      <soap:operation soapAction="http://tempuri.org/ICategory/Create_Category" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Category_Service">
+    <wsdl:port name="BasicHttpBinding_ICategory" binding="tns:BasicHttpBinding_ICategory">
+      <soap:address location="http://localhost:8080/Category_Prj.Service/Category_Service/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

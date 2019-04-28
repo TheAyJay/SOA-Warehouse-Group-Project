@@ -16,6 +16,9 @@ namespace Category_Prj.Service
 
         [OperationContract]
         bool Update_Category_By_ID(Category category_);
+
+        [OperationContract]
+        bool Create_Category(Category category);
         
     }
 

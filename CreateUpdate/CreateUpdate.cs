@@ -11,9 +11,8 @@ using System.ServiceModel;
 //using CreateUpdate;//.ProductServiceRef; // Commented out for testing
 using CreateUpdateClient.WarehouseServiceProxy;
 using CreateUpdateClient.ProductServiceProxy;
+using CreateUpdateClient.CategoryServiceProxy;
 
-// TODO
-// add service reference
 
 
 namespace CreateUpdate
