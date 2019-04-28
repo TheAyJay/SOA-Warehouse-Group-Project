@@ -21,7 +21,7 @@ namespace Warehouse_Prj.DAL.CRUD
        
 
         // This method creates a Category record in the Warehouse database and returns true if the operation was successful.
-        public bool Create(DataModel.Category category, ref string msg) {
+        public bool Create(DataModel.Category category) {
 
             using (var context = new DataModel.WarehouseContext())
             {
@@ -37,23 +37,17 @@ namespace Warehouse_Prj.DAL.CRUD
 
                 //Check execution of transaction - we expect 1 change to have occurred
                 var execution_result = context.SaveChanges();
-                if (execution_result != 1)
+                if (execution_result == 1)
                 {
-                    msg = "Category was not created";
-                    
+                    return true;
                 }
-                else
-                {
-                    msg = "Category created";
-                    success = true;
-                }
-
+               
                 return success;
             }
         }
 
         // This method updates a Category record in the Warehouse database and returns true if the operation was successful.
-        public bool Update(DataModel.Category category, ref string msg)
+        public bool Update_Category_By_ID(DataModel.Category category)
         {
 
             using (var context = new DataModel.WarehouseContext())
@@ -72,20 +66,16 @@ namespace Warehouse_Prj.DAL.CRUD
                 var execution_result = context.SaveChanges();
                 if (execution_result != 1)
                 {
-                    msg = "Category was not updated.";
+                    
                     success = false;
                 }
-                else
-                {
-                    msg = "Category created";
-                }
-
+               
                 return success;
             }
         }
 
         // This method deletes a Category record in the Warehouse database and returns true if the operation was successful.
-        public bool Delete(int category_id, ref string msg)
+        public bool Delete_Category_By_ID(int category_id)
         {
 
             using (var context = new DataModel.WarehouseContext())
@@ -101,20 +91,16 @@ namespace Warehouse_Prj.DAL.CRUD
                 var execution_result = context.SaveChanges();
                 if (execution_result != 1)
                 {
-                    msg = "Category not deleted.";
+                    
                     success = false;
                 }
-                else
-                {
-                    msg = "Category deleted.";
-                }
-
+             
                 return success;
             }
         }
 
         // This method retrieves a Category record in the Warehouse database using the category ID.
-        public DataModel.Category Get_Category_By_ID(int category_id, ref string msg)
+        public DataModel.Category Get_Category_By_ID(int category_id)
         {
             DataModel.Category category = new DataModel.Category();
             
@@ -124,7 +110,6 @@ namespace Warehouse_Prj.DAL.CRUD
                 var cat = context.Categories.SingleOrDefault(c => c.Category_ID == category_id);
                 if (cat != null)
                 {
-                    msg = "Found categories";
                     category.Category_ID = cat.Category_ID;
                     category.Category_Name = cat.Category_Name;
                     category.Category_Description = cat.Category_Description;
@@ -132,10 +117,6 @@ namespace Warehouse_Prj.DAL.CRUD
                     return category;
                 }
 
-                else
-                {
-                    msg = "No products found";
-                }
             }
 
             return category;

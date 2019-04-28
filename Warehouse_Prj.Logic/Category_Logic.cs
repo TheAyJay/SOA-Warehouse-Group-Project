@@ -10,67 +10,71 @@ using System.Text;
 using System.Threading.Tasks;
 using Warehouse_Prj.BDO;
 using Warehouse_Prj.DAL;
+using Warehouse_Prj.DAL.CRUD;
 
 namespace Warehouse_Prj.Logic
 {
     public class Category_Logic
     {
-        Product_DAO product_DAO = new Product_DAO();
+        
+        Category_Qs category_query = new Category_Qs();
+        DataModel.Category category_dto = new DataModel.Category();
+        Category_BDO category_BDO = new Category_BDO();
 
-        //Returns a Product given an ID
-        public Product_BDO Get_Product_By_ID(int product_ID)
+        //Returns a Category given an ID
+        public Category_BDO Get_Category_By_ID(int category_ID)
         {
-            return product_DAO.Get_Product_By_ID(product_ID);    
+            category_dto = category_query.Get_Category_By_ID(category_ID);
+
+            Translate_DTO_to_BDO(category_BDO, category_dto);
+
+            return category_BDO;
         }
 
-        //Returns a Product given a UPC code
-        public Product_BDO Get_Product_By_UPC(long product_UPC)
-        {
-            return product_DAO.Get_Product_By_UPC(product_UPC);
-        }
 
-        //Given a Product_BDO, returns true/false depending on the success of the update
-        public bool Update_Product_By_ID(ref Product_BDO product_BDO)
+        //Given a Category BDO, returns true/false depending on the success of the update
+        public bool Update_Category_By_ID(Category_BDO category_)
         {
-            var product = Get_Product_By_ID(product_BDO.Product_ID);
-            if(product == null)
-            {
-                
+            var category = Get_Category_By_ID(category_.Category_ID);
+            if(category == null)
+            {                
                 return false;
             }
             else
             {
-                
-                return product_DAO.Update_Product_By_ID(ref product_BDO);
+                Translate_BDO_to_DTO(category_, category_dto);
+                category_query.Update_Category_By_ID(category_dto);
+                return category_query.Update_Category_By_ID(category_dto);
             }
         }
 
-        //Given a Product_BDO, returns true/false depending on the success of the create
-        public bool Create_Product(ref Product_BDO product_BDO, ref string message)
+        //Given a Category BDO, returns true/false depending on the success of the create
+        public bool Create_Category(Category_BDO category_BDO)
         {
-            var product = Get_Product_By_UPC(product_BDO.Product_UPC);
-            if(product != null)
-            {
-                message = "Product already exists!";
-                return false;
-            }
-            else
-            {
-                message = "Product created";
-                return product_DAO.Create_Product(ref product_BDO, ref message);
-            }
+            Translate_BDO_to_DTO(category_BDO, category_dto);
+            return category_query.Create(category_dto);
         }
 
-        //Given a Product ID, returns true/false depending on the success of the delete
-        public bool Delete_Product_By_ID(int product_ID, ref string message)
+        //Given a Category ID, returns true/false depending on the success of the delete
+        public bool Delete_Category_By_ID(int category_id)
         {
-            return product_DAO.Delete_Product_By_ID(product_ID, ref message);
+            return category_query.Delete_Category_By_ID(category_id);
         }
 
-        //Given a Product UPC, returns true/false depending on the success of the delete
-        public bool Delete_Product_By_UPC(long product_UPC, ref string message)
+        //Translate BDO to data model object
+        private void Translate_BDO_to_DTO(Category_BDO category_BDO, DataModel.Category category_dto)
         {
-            return product_DAO.Delete_Product_By_UPC(product_UPC, ref message);
+            category_dto.Category_ID = category_BDO.Category_ID;
+            category_dto.Category_Name = category_BDO.Category_Name;
+            category_dto.Category_Description = category_BDO.Category_Description;
+        }
+        
+        //Translate data model object to BDO.
+        private void Translate_DTO_to_BDO(Category_BDO category_BDO, DataModel.Category category_dto)
+        {
+            category_BDO.Category_ID = category_dto.Category_ID;
+            category_BDO.Category_Name = category_dto.Category_Name;
+            category_BDO.Category_Description = category_dto.Category_Description;
         }
     }
 }

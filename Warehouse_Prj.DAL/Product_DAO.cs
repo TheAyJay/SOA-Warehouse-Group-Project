@@ -19,7 +19,7 @@ namespace Warehouse_Prj.DAL
         //Returns a boolean
         public bool Create_Product(ref Product_BDO product_BDO, ref string message)
         {
-            var ret = false;
+            bool ret = false;
 
             //Create new DTO object for Product query
             DataModel.Product product_DTO = new DataModel.Product();
