@@ -464,6 +464,38 @@ namespace CreateUpdate
             btnupdatename.Enabled = true;
             btnupdatecategory.Enabled = true;
         }
+
+        private void btncheckallcategories_Click(object sender, EventArgs e)
+        {
+           // allcategoriesbox.Text = CheckAllCategories();
+        }
+        /*
+        private string CheckAllCategories()
+        {
+            var client = new CategoryClient();
+            var result = "";
+
+            try
+            {
+                var alcat = client.GetAllCategories();
+                var sb = new StringBuilder();
+                sb.Append("*** List of All Categories ***");
+                sb.Append("\n");
+
+                foreach (var Category in alcat)
+                {
+                    sb.Append(Category.CategoryName);
+                }
+            }
+            catch (Exception ex)
+            {
+                result = "Exception: " + ex.Message;
+            }
+
+            return result;
+
+        }
+        */
     }
 
 

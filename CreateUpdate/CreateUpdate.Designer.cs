@@ -451,6 +451,7 @@
             this.btncheckallcategories.TabIndex = 41;
             this.btncheckallcategories.Text = "Check All Categories";
             this.btncheckallcategories.UseVisualStyleBackColor = true;
+            this.btncheckallcategories.Click += new System.EventHandler(this.btncheckallcategories_Click);
             // 
             // lblcreatewh
             // 
