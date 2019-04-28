@@ -96,6 +96,9 @@
             this.updatewhresult = new System.Windows.Forms.TextBox();
             this.lblwarehousename = new System.Windows.Forms.Label();
             this.warehousenamebox = new System.Windows.Forms.TextBox();
+            this.lblsearchproduct = new System.Windows.Forms.Label();
+            this.lblproductprice = new System.Windows.Forms.Label();
+            this.productpricebox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblcreateproduct
@@ -110,7 +113,7 @@
             // lblupc
             // 
             this.lblupc.AutoSize = true;
-            this.lblupc.Location = new System.Drawing.Point(44, 62);
+            this.lblupc.Location = new System.Drawing.Point(44, 54);
             this.lblupc.Name = "lblupc";
             this.lblupc.Size = new System.Drawing.Size(29, 13);
             this.lblupc.TabIndex = 1;
@@ -119,7 +122,7 @@
             // lblproductname
             // 
             this.lblproductname.AutoSize = true;
-            this.lblproductname.Location = new System.Drawing.Point(44, 93);
+            this.lblproductname.Location = new System.Drawing.Point(44, 78);
             this.lblproductname.Name = "lblproductname";
             this.lblproductname.Size = new System.Drawing.Size(75, 13);
             this.lblproductname.TabIndex = 2;
@@ -127,14 +130,14 @@
             // 
             // upcbox
             // 
-            this.upcbox.Location = new System.Drawing.Point(119, 62);
+            this.upcbox.Location = new System.Drawing.Point(119, 50);
             this.upcbox.Name = "upcbox";
             this.upcbox.Size = new System.Drawing.Size(100, 20);
             this.upcbox.TabIndex = 3;
             // 
             // productnamebox
             // 
-            this.productnamebox.Location = new System.Drawing.Point(119, 88);
+            this.productnamebox.Location = new System.Drawing.Point(119, 73);
             this.productnamebox.Name = "productnamebox";
             this.productnamebox.Size = new System.Drawing.Size(100, 20);
             this.productnamebox.TabIndex = 4;
@@ -147,11 +150,12 @@
             this.btncreateproduct.TabIndex = 5;
             this.btncreateproduct.Text = "Create Product";
             this.btncreateproduct.UseVisualStyleBackColor = true;
+            this.btncreateproduct.Click += new System.EventHandler(this.btncreateproduct_Click);
             // 
             // lblupdateproduct
             // 
             this.lblupdateproduct.AutoSize = true;
-            this.lblupdateproduct.Location = new System.Drawing.Point(147, 150);
+            this.lblupdateproduct.Location = new System.Drawing.Point(137, 245);
             this.lblupdateproduct.Name = "lblupdateproduct";
             this.lblupdateproduct.Size = new System.Drawing.Size(82, 13);
             this.lblupdateproduct.TabIndex = 6;
@@ -160,7 +164,7 @@
             // lblsearchupc
             // 
             this.lblsearchupc.AutoSize = true;
-            this.lblsearchupc.Location = new System.Drawing.Point(44, 176);
+            this.lblsearchupc.Location = new System.Drawing.Point(44, 175);
             this.lblsearchupc.Name = "lblsearchupc";
             this.lblsearchupc.Size = new System.Drawing.Size(29, 13);
             this.lblsearchupc.TabIndex = 7;
@@ -168,14 +172,14 @@
             // 
             // searchupcbox
             // 
-            this.searchupcbox.Location = new System.Drawing.Point(119, 176);
+            this.searchupcbox.Location = new System.Drawing.Point(119, 171);
             this.searchupcbox.Name = "searchupcbox";
             this.searchupcbox.Size = new System.Drawing.Size(100, 20);
             this.searchupcbox.TabIndex = 8;
             // 
             // btnsearchupc
             // 
-            this.btnsearchupc.Location = new System.Drawing.Point(242, 176);
+            this.btnsearchupc.Location = new System.Drawing.Point(242, 169);
             this.btnsearchupc.Name = "btnsearchupc";
             this.btnsearchupc.Size = new System.Drawing.Size(87, 23);
             this.btnsearchupc.TabIndex = 9;
@@ -185,7 +189,7 @@
             // 
             // productdetail
             // 
-            this.productdetail.Location = new System.Drawing.Point(47, 202);
+            this.productdetail.Location = new System.Drawing.Point(47, 195);
             this.productdetail.Multiline = true;
             this.productdetail.Name = "productdetail";
             this.productdetail.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -195,7 +199,7 @@
             // lblnewupc
             // 
             this.lblnewupc.AutoSize = true;
-            this.lblnewupc.Location = new System.Drawing.Point(44, 258);
+            this.lblnewupc.Location = new System.Drawing.Point(44, 266);
             this.lblnewupc.Name = "lblnewupc";
             this.lblnewupc.Size = new System.Drawing.Size(54, 13);
             this.lblnewupc.TabIndex = 11;
@@ -204,7 +208,7 @@
             // lblnewname
             // 
             this.lblnewname.AutoSize = true;
-            this.lblnewname.Location = new System.Drawing.Point(44, 287);
+            this.lblnewname.Location = new System.Drawing.Point(44, 292);
             this.lblnewname.Name = "lblnewname";
             this.lblnewname.Size = new System.Drawing.Size(60, 13);
             this.lblnewname.TabIndex = 12;
@@ -212,30 +216,31 @@
             // 
             // newupcbox
             // 
-            this.newupcbox.Location = new System.Drawing.Point(119, 256);
+            this.newupcbox.Location = new System.Drawing.Point(119, 264);
             this.newupcbox.Name = "newupcbox";
             this.newupcbox.Size = new System.Drawing.Size(100, 20);
             this.newupcbox.TabIndex = 13;
             // 
             // newnamebox
             // 
-            this.newnamebox.Location = new System.Drawing.Point(119, 284);
+            this.newnamebox.Location = new System.Drawing.Point(119, 289);
             this.newnamebox.Name = "newnamebox";
             this.newnamebox.Size = new System.Drawing.Size(100, 20);
             this.newnamebox.TabIndex = 14;
             // 
             // btnupdateupc
             // 
-            this.btnupdateupc.Location = new System.Drawing.Point(225, 253);
+            this.btnupdateupc.Location = new System.Drawing.Point(225, 261);
             this.btnupdateupc.Name = "btnupdateupc";
             this.btnupdateupc.Size = new System.Drawing.Size(104, 23);
             this.btnupdateupc.TabIndex = 15;
             this.btnupdateupc.Text = "Update UPC";
             this.btnupdateupc.UseVisualStyleBackColor = true;
+            this.btnupdateupc.Click += new System.EventHandler(this.btnupdateupc_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(225, 282);
+            this.button4.Location = new System.Drawing.Point(225, 287);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(104, 23);
             this.button4.TabIndex = 16;
@@ -252,7 +257,7 @@
             // lblcategory
             // 
             this.lblcategory.AutoSize = true;
-            this.lblcategory.Location = new System.Drawing.Point(44, 118);
+            this.lblcategory.Location = new System.Drawing.Point(44, 123);
             this.lblcategory.Name = "lblcategory";
             this.lblcategory.Size = new System.Drawing.Size(49, 13);
             this.lblcategory.TabIndex = 18;
@@ -260,7 +265,7 @@
             // 
             // categorybox
             // 
-            this.categorybox.Location = new System.Drawing.Point(119, 115);
+            this.categorybox.Location = new System.Drawing.Point(119, 120);
             this.categorybox.Name = "categorybox";
             this.categorybox.Size = new System.Drawing.Size(100, 20);
             this.categorybox.TabIndex = 19;
@@ -280,7 +285,7 @@
             this.btnupdatecategory.Name = "btnupdatecategory";
             this.btnupdatecategory.Size = new System.Drawing.Size(104, 23);
             this.btnupdatecategory.TabIndex = 21;
-            this.btnupdatecategory.Text = "Updata Category";
+            this.btnupdatecategory.Text = "Update Category";
             this.btnupdatecategory.UseVisualStyleBackColor = true;
             // 
             // updateproductresult
@@ -672,11 +677,39 @@
             this.warehousenamebox.Size = new System.Drawing.Size(197, 20);
             this.warehousenamebox.TabIndex = 69;
             // 
+            // lblsearchproduct
+            // 
+            this.lblsearchproduct.AutoSize = true;
+            this.lblsearchproduct.Location = new System.Drawing.Point(140, 156);
+            this.lblsearchproduct.Name = "lblsearchproduct";
+            this.lblsearchproduct.Size = new System.Drawing.Size(80, 13);
+            this.lblsearchproduct.TabIndex = 70;
+            this.lblsearchproduct.Text = "Search product";
+            // 
+            // lblproductprice
+            // 
+            this.lblproductprice.AutoSize = true;
+            this.lblproductprice.Location = new System.Drawing.Point(44, 101);
+            this.lblproductprice.Name = "lblproductprice";
+            this.lblproductprice.Size = new System.Drawing.Size(71, 13);
+            this.lblproductprice.TabIndex = 71;
+            this.lblproductprice.Text = "Product Price";
+            // 
+            // productpricebox
+            // 
+            this.productpricebox.Location = new System.Drawing.Point(119, 97);
+            this.productpricebox.Name = "productpricebox";
+            this.productpricebox.Size = new System.Drawing.Size(100, 20);
+            this.productpricebox.TabIndex = 72;
+            // 
             // CreateUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 450);
+            this.Controls.Add(this.productpricebox);
+            this.Controls.Add(this.lblproductprice);
+            this.Controls.Add(this.lblsearchproduct);
             this.Controls.Add(this.warehousenamebox);
             this.Controls.Add(this.lblwarehousename);
             this.Controls.Add(this.updatewhresult);
@@ -822,6 +855,9 @@
         private System.Windows.Forms.TextBox updatewhresult;
         private System.Windows.Forms.Label lblwarehousename;
         private System.Windows.Forms.TextBox warehousenamebox;
+        private System.Windows.Forms.Label lblsearchproduct;
+        private System.Windows.Forms.Label lblproductprice;
+        private System.Windows.Forms.TextBox productpricebox;
     }
 }
 

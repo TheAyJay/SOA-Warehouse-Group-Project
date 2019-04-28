@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CheckerClient.ProductServiceRef {
+namespace InboundClient.ProductServiceInbound {
     using System.Runtime.Serialization;
     using System;
     
@@ -30,9 +30,6 @@ namespace CheckerClient.ProductServiceRef {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProductNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string QuantityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long UPCField;
@@ -90,19 +87,6 @@ namespace CheckerClient.ProductServiceRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Quantity {
-            get {
-                return this.QuantityField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.QuantityField, value) != true)) {
-                    this.QuantityField = value;
-                    this.RaisePropertyChanged("Quantity");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public long UPC {
             get {
                 return this.UPCField;
@@ -139,38 +123,50 @@ namespace CheckerClient.ProductServiceRef {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProductServiceRef.IProduct")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProductServiceInbound.IProduct")]
     public interface IProduct {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProduct", ReplyAction="http://tempuri.org/IProduct/GetProductResponse")]
-        CheckerClient.ProductServiceRef.Product GetProduct(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProductByID", ReplyAction="http://tempuri.org/IProduct/GetProductByIDResponse")]
+        InboundClient.ProductServiceInbound.Product GetProductByID(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProduct", ReplyAction="http://tempuri.org/IProduct/GetProductResponse")]
-        System.Threading.Tasks.Task<CheckerClient.ProductServiceRef.Product> GetProductAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProductByID", ReplyAction="http://tempuri.org/IProduct/GetProductByIDResponse")]
+        System.Threading.Tasks.Task<InboundClient.ProductServiceInbound.Product> GetProductByIDAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/UpdateProduct", ReplyAction="http://tempuri.org/IProduct/UpdateProductResponse")]
-        CheckerClient.ProductServiceRef.UpdateProductResponse UpdateProduct(CheckerClient.ProductServiceRef.UpdateProductRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProductByUPC", ReplyAction="http://tempuri.org/IProduct/GetProductByUPCResponse")]
+        InboundClient.ProductServiceInbound.Product GetProductByUPC(long upc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProductByUPC", ReplyAction="http://tempuri.org/IProduct/GetProductByUPCResponse")]
+        System.Threading.Tasks.Task<InboundClient.ProductServiceInbound.Product> GetProductByUPCAsync(long upc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/UpdateProductByID", ReplyAction="http://tempuri.org/IProduct/UpdateProductByIDResponse")]
+        bool UpdateProductByID(InboundClient.ProductServiceInbound.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/UpdateProductByID", ReplyAction="http://tempuri.org/IProduct/UpdateProductByIDResponse")]
+        System.Threading.Tasks.Task<bool> UpdateProductByIDAsync(InboundClient.ProductServiceInbound.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Create_Product", ReplyAction="http://tempuri.org/IProduct/Create_ProductResponse")]
+        InboundClient.ProductServiceInbound.Create_ProductResponse Create_Product(InboundClient.ProductServiceInbound.Create_ProductRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/UpdateProduct", ReplyAction="http://tempuri.org/IProduct/UpdateProductResponse")]
-        System.Threading.Tasks.Task<CheckerClient.ProductServiceRef.UpdateProductResponse> UpdateProductAsync(CheckerClient.ProductServiceRef.UpdateProductRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Create_Product", ReplyAction="http://tempuri.org/IProduct/Create_ProductResponse")]
+        System.Threading.Tasks.Task<InboundClient.ProductServiceInbound.Create_ProductResponse> Create_ProductAsync(InboundClient.ProductServiceInbound.Create_ProductRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateProduct", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateProductRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Create_Product", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Create_ProductRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public CheckerClient.ProductServiceRef.Product product;
+        public InboundClient.ProductServiceInbound.Product product;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
         
-        public UpdateProductRequest() {
+        public Create_ProductRequest() {
         }
         
-        public UpdateProductRequest(CheckerClient.ProductServiceRef.Product product, string message) {
+        public Create_ProductRequest(InboundClient.ProductServiceInbound.Product product, string message) {
             this.product = product;
             this.message = message;
         }
@@ -178,31 +174,31 @@ namespace CheckerClient.ProductServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateProductResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateProductResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Create_ProductResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Create_ProductResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool UpdateProductResult;
+        public bool Create_ProductResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
         
-        public UpdateProductResponse() {
+        public Create_ProductResponse() {
         }
         
-        public UpdateProductResponse(bool UpdateProductResult, string message) {
-            this.UpdateProductResult = UpdateProductResult;
+        public Create_ProductResponse(bool Create_ProductResult, string message) {
+            this.Create_ProductResult = Create_ProductResult;
             this.message = message;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IProductChannel : CheckerClient.ProductServiceRef.IProduct, System.ServiceModel.IClientChannel {
+    public interface IProductChannel : InboundClient.ProductServiceInbound.IProduct, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProductClient : System.ServiceModel.ClientBase<CheckerClient.ProductServiceRef.IProduct>, CheckerClient.ProductServiceRef.IProduct {
+    public partial class ProductClient : System.ServiceModel.ClientBase<InboundClient.ProductServiceInbound.IProduct>, InboundClient.ProductServiceInbound.IProduct {
         
         public ProductClient() {
         }
@@ -223,30 +219,46 @@ namespace CheckerClient.ProductServiceRef {
                 base(binding, remoteAddress) {
         }
         
-        public CheckerClient.ProductServiceRef.Product GetProduct(int id) {
-            return base.Channel.GetProduct(id);
+        public InboundClient.ProductServiceInbound.Product GetProductByID(int id) {
+            return base.Channel.GetProductByID(id);
         }
         
-        public System.Threading.Tasks.Task<CheckerClient.ProductServiceRef.Product> GetProductAsync(int id) {
-            return base.Channel.GetProductAsync(id);
+        public System.Threading.Tasks.Task<InboundClient.ProductServiceInbound.Product> GetProductByIDAsync(int id) {
+            return base.Channel.GetProductByIDAsync(id);
+        }
+        
+        public InboundClient.ProductServiceInbound.Product GetProductByUPC(long upc) {
+            return base.Channel.GetProductByUPC(upc);
+        }
+        
+        public System.Threading.Tasks.Task<InboundClient.ProductServiceInbound.Product> GetProductByUPCAsync(long upc) {
+            return base.Channel.GetProductByUPCAsync(upc);
+        }
+        
+        public bool UpdateProductByID(InboundClient.ProductServiceInbound.Product product) {
+            return base.Channel.UpdateProductByID(product);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateProductByIDAsync(InboundClient.ProductServiceInbound.Product product) {
+            return base.Channel.UpdateProductByIDAsync(product);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CheckerClient.ProductServiceRef.UpdateProductResponse CheckerClient.ProductServiceRef.IProduct.UpdateProduct(CheckerClient.ProductServiceRef.UpdateProductRequest request) {
-            return base.Channel.UpdateProduct(request);
+        InboundClient.ProductServiceInbound.Create_ProductResponse InboundClient.ProductServiceInbound.IProduct.Create_Product(InboundClient.ProductServiceInbound.Create_ProductRequest request) {
+            return base.Channel.Create_Product(request);
         }
         
-        public bool UpdateProduct(CheckerClient.ProductServiceRef.Product product, ref string message) {
-            CheckerClient.ProductServiceRef.UpdateProductRequest inValue = new CheckerClient.ProductServiceRef.UpdateProductRequest();
+        public bool Create_Product(InboundClient.ProductServiceInbound.Product product, ref string message) {
+            InboundClient.ProductServiceInbound.Create_ProductRequest inValue = new InboundClient.ProductServiceInbound.Create_ProductRequest();
             inValue.product = product;
             inValue.message = message;
-            CheckerClient.ProductServiceRef.UpdateProductResponse retVal = ((CheckerClient.ProductServiceRef.IProduct)(this)).UpdateProduct(inValue);
+            InboundClient.ProductServiceInbound.Create_ProductResponse retVal = ((InboundClient.ProductServiceInbound.IProduct)(this)).Create_Product(inValue);
             message = retVal.message;
-            return retVal.UpdateProductResult;
+            return retVal.Create_ProductResult;
         }
         
-        public System.Threading.Tasks.Task<CheckerClient.ProductServiceRef.UpdateProductResponse> UpdateProductAsync(CheckerClient.ProductServiceRef.UpdateProductRequest request) {
-            return base.Channel.UpdateProductAsync(request);
+        public System.Threading.Tasks.Task<InboundClient.ProductServiceInbound.Create_ProductResponse> Create_ProductAsync(InboundClient.ProductServiceInbound.Create_ProductRequest request) {
+            return base.Channel.Create_ProductAsync(request);
         }
     }
 }

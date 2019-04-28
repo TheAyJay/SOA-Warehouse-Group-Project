@@ -9,19 +9,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse_Prj.Logic", "Ware
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse_Prj.Service", "Warehouse_Prj.Service\Warehouse_Prj.Service.csproj", "{BEAD451B-FE3B-4DF5-95FE-A0D2FC7C2944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inbound", "WarehouseProject\Inbound.csproj", "{1272B0C3-58E1-4D0D-BE5F-909C636DF513}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InboundClient", "WarehouseProject\InboundClient.csproj", "{1272B0C3-58E1-4D0D-BE5F-909C636DF513}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5EABB1AF-3FCC-4C3C-A4A4-F8ED7B13CABA} = {5EABB1AF-3FCC-4C3C-A4A4-F8ED7B13CABA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateUpdateClient", "CreateUpdate\CreateUpdateClient.csproj", "{82F675B4-4A3C-4B14-BAB8-CE0B5FF0AF27}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BEAD451B-FE3B-4DF5-95FE-A0D2FC7C2944} = {BEAD451B-FE3B-4DF5-95FE-A0D2FC7C2944}
-		{5EABB1AF-3FCC-4C3C-A4A4-F8ED7B13CABA} = {5EABB1AF-3FCC-4C3C-A4A4-F8ED7B13CABA}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order", "Order\Order.csproj", "{090F6D77-A703-4237-B667-7E6344761C14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderClient", "Order\OrderClient.csproj", "{090F6D77-A703-4237-B667-7E6344761C14}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse_Prj.DAL", "Warehouse_Prj.DAL\Warehouse_Prj.DAL.csproj", "{6A8B8E30-6075-4041-8316-C46290E1C0B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checker", "Checker\Checker.csproj", "{43303E64-0CC5-4E15-B251-C556A7CC1370}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckerClient", "Checker\CheckerClient.csproj", "{43303E64-0CC5-4E15-B251-C556A7CC1370}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product_Prj.Service", "Product_Prj.Service\Product_Prj.Service.csproj", "{5EABB1AF-3FCC-4C3C-A4A4-F8ED7B13CABA}"
 EndProject

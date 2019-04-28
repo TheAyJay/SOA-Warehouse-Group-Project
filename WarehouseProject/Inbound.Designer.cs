@@ -107,6 +107,7 @@
             this.getproduct.TabIndex = 8;
             this.getproduct.Text = "GetProduct";
             this.getproduct.UseVisualStyleBackColor = true;
+            this.getproduct.Click += new System.EventHandler(this.getproduct_Click);
             // 
             // productbox
             // 
