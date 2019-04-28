@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{090F6D77-A703-4237-B667-7E6344761C14}</ProjectGuid>
+    <ProjectGuid>{43303E64-0CC5-4E15-B251-C556A7CC1370}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Order</RootNamespace>
-    <AssemblyName>Order</AssemblyName>
+    <RootNamespace>CheckerClient</RootNamespace>
+    <AssemblyName>CheckerClient</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,16 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="order.cs">
+    <Compile Include="Checker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="order.Designer.cs">
-      <DependentUpon>order.cs</DependentUpon>
+    <Compile Include="Checker.Designer.cs">
+      <DependentUpon>Checker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProductServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="order.resx">
-      <DependentUpon>order.cs</DependentUpon>
+    <EmbeddedResource Include="Checker.resx">
+      <DependentUpon>Checker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,7 +72,24 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\ProductServiceRef\CheckerClient.ProductServiceRef.Product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductServiceRef\CheckerClient.ProductServiceRef.UpdateProductResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductServiceRef\Product_Prj.Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceRef\service.wsdl" />
+    <None Include="Connected Services\ProductServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +102,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ProductServiceRef\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
