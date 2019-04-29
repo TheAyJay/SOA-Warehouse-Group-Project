@@ -21,50 +21,50 @@ namespace Warehouse_Prj.Logic
         DataModel.Inventory inventory_dto = new DataModel.Inventory();
         Inventory_BDO inventory_BDO = new Inventory_BDO();
 
-        public List<Inventory_BDO> GetInventory_BDOs()
-        {
-            List<Inventory_BDO> inventory_BDOs = new List<Inventory_BDO>();
-            List<DataModel.Inventory> inventory_dtos = new List<DataModel.Inventory>();
+        //public List<Inventory_BDO> GetInventory_BDOs()
+        //{
+        //    List<Inventory_BDO> inventory_BDOs = new List<Inventory_BDO>();
+        //    List<DataModel.Inventory> inventory_dtos = new List<DataModel.Inventory>();
 
-            inventory_dtos = inventory_query.Get_All_Inventories();
+        //    inventory_dtos = inventory_query.Get_All_Inventories();
 
-            foreach(DataModel.Inventory c in inventory_dtos)
-            {
-                Inventory_BDO inventory_BDO_ = new Inventory_BDO();
-                Translate_DTO_to_BDO(inventory_BDO_, c);
-                inventory_BDOs.Add(inventory_BDO_);                
-            }
+        //    foreach(DataModel.Inventory c in inventory_dtos)
+        //    {
+        //        Inventory_BDO inventory_BDO_ = new Inventory_BDO();
+        //        Translate_DTO_to_BDO(inventory_BDO_, c);
+        //        inventory_BDOs.Add(inventory_BDO_);                
+        //    }
 
-            return inventory_BDOs;
+        //    return inventory_BDOs;
 
-        }
+        //}
 
         //Returns a Inventory given an ID
-        public Inventory_BDO Get_Inventory_By_ID(int inventory_ID)
-        {
-            inventory_dto = inventory_query.Get_Inventory_By_ID(inventory_ID);
+        //public Inventory_BDO Get_Inventory_By_ID(int inventory_ID)
+        //{
+        //    inventory_dto = inventory_query.Get_Inventory_By_ID(inventory_ID);
 
-            Translate_DTO_to_BDO(inventory_BDO, inventory_dto);
+        //    Translate_DTO_to_BDO(inventory_BDO, inventory_dto);
 
-            return inventory_BDO;
-        }
+        //    return inventory_BDO;
+        //}
 
 
         //Given a Inventory BDO, returns true/false depending on the success of the update
-        public bool Update_Inventory_By_ID(Inventory_BDO inventory_)
-        {
-            var inventory = Get_Inventory_By_ID(inventory_.Inventory_ID);
-            if(inventory == null)
-            {                
-                return false;
-            }
-            else
-            {
-                Translate_BDO_to_DTO(inventory_, inventory_dto);
-                inventory_query.Update_Inventory_By_ID(inventory_dto);
-                return inventory_query.Update_Inventory_By_ID(inventory_dto);
-            }
-        }
+        //public bool Update_Inventory_By_ID(Inventory_BDO inventory_)
+        //{
+        //    var inventory = Get_Inventory_By_ID(inventory_.Inventory_ID);
+        //    if(inventory == null)
+        //    {                
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        Translate_BDO_to_DTO(inventory_, inventory_dto);
+        //        inventory_query.Update_Inventory_By_ID(inventory_dto);
+        //        return inventory_query.Update_Inventory_By_ID(inventory_dto);
+        //    }
+        //}
 
         //Given a Inventory BDO, returns true/false depending on the success of the create
         public bool Create_Inventory(Inventory_BDO inventory_BDO)
@@ -74,10 +74,10 @@ namespace Warehouse_Prj.Logic
         }
 
         //Given a Inventory ID, returns true/false depending on the success of the delete
-        public bool Delete_Inventory_By_ID(int inventory_id)
-        {
-            return inventory_query.Delete_Inventory_By_ID(inventory_id);
-        }
+        //public bool Delete_Inventory_By_ID(int inventory_id)
+        //{
+        //    return inventory_query.Delete_Inventory_By_ID(inventory_id);
+        //}
 
         //Translate BDO to data model object
         private void Translate_BDO_to_DTO(Inventory_BDO inventory_BDO, DataModel.Inventory inventory_dto)

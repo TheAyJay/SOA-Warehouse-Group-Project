@@ -20,7 +20,7 @@ namespace Warehouse_Prj.DAL.CRUD
         /// </summary>
 
         // This method creates a Inventory record in the Warehouse database and returns true if the operation was successful.
-        public bool Create(DataModel.Inventory inventory, ref string msg) {
+        public bool Create(DataModel.Inventory inventory) {
 
             using (var context = new DataModel.WarehouseContext())
             {
@@ -29,21 +29,17 @@ namespace Warehouse_Prj.DAL.CRUD
                 bool success = false;
 
                 newInventory.Product_Quantity = inventory.Product_Quantity;
-                newInventory.Product_ID = inventory.;
-                newInventory.Warehouse = inventory.Warehouse;
+                newInventory.Inventory_ID = inventory.Inventory_ID;
+                newInventory.Product_ID = inventory.Product_ID;
+                newInventory.Warehouse_ID = inventory.Warehouse_ID;
                 
                 //Check execution of transaction - we expect 1 change to have occurred
                 var execution_result = context.SaveChanges();
-                if (execution_result != 1)
+                if (execution_result == 1)
                 {
-                    msg = "Inventory was not created";
-                }
-                else
-                {
-                    msg = "Inventory created";
                     success = true;
                 }
-
+                
                 return success;
             }
         }
@@ -112,40 +108,40 @@ namespace Warehouse_Prj.DAL.CRUD
         //}
 
         //This method returns a list of warehouses given a UPC number.
-        public List<DataModel.Inventory> Get_Warehouses_By_Product_UPC(DataModel.Product product, ref string msg)
-        {
-            List<DataModel.Inventory> warehouse_list = null;
-            using (var context = new DataModel.WarehouseContext())
-            {
+        //public List<DataModel.Inventory> Get_Warehouses_By_Product_UPC(DataModel.Product product, ref string msg)
+        //{
+        //    List<DataModel.Inventory> warehouse_list = null;
+        //    using (var context = new DataModel.WarehouseContext())
+        //    {
 
-                try
-                {
+        //        try
+        //        {
 
-                    List<DataModel.Inventory> warehouses = context.Inventories.Where(i => i.Products.Product_UPC == product.Product_UPC)
-                        .Select(w => new DataModel.Inventory { Warehouse = w.Warehouse }).ToList();
+        //            List<DataModel.Inventory> warehouses = context.Inventories.Where(i => i.Products.Product_UPC == product.Product_UPC)
+        //                .Select(w => new DataModel.Inventory { Warehouse = w.Warehouse }).ToList();
 
-                    if (warehouses != null)
-                    {
-                        warehouse_list = warehouses.ToList();
+        //            if (warehouses != null)
+        //            {
+        //                warehouse_list = warehouses.ToList();
 
-                        msg = "Warehouses found";
+        //                msg = "Warehouses found";
 
-                        return warehouse_list;
-                    }
-                    else
-                    {
-                        msg = "Warehouse not found";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new InvalidOperationException("No item found", ex);
-                }
+        //                return warehouse_list;
+        //            }
+        //            else
+        //            {
+        //                msg = "Warehouse not found";
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw new InvalidOperationException("No item found", ex);
+        //        }
 
 
-            }
+        //    }
 
-            return warehouse_list;
-        }
+        //    return warehouse_list;
+        //}
     }
 }

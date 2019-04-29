@@ -43,9 +43,6 @@ namespace Warehouse_Prj.DAL
             public int Category_ID { get; set; }
             public string Category_Name { get; set; }
             public string Category_Description { get; set; } 
-
-            [ForeignKey("CategoryRefID")]
-            public ICollection<Product> Products { get; set; }
         }
 
         public class Product
@@ -56,10 +53,10 @@ namespace Warehouse_Prj.DAL
             public string Product_Name { get; set; }
             public long Product_UPC { get; set; }
             public decimal Product_Price { get; set; }
-
-            //[ForeignKey("Category")]
+                        
+            [ForeignKey("ProductCategory")]
             public int CategoryRefID { get; set; }
-            public Category ProductCategory { get; set; }
+            public virtual Category ProductCategory { get; set; }
         }
 
         public class Warehouse
@@ -86,11 +83,13 @@ namespace Warehouse_Prj.DAL
             public int Inventory_ID { get; set; }
             public int Product_Quantity { get; set; }
 
-            [ForeignKey("Product")]
+            [ForeignKey("ProductID")]
             public int Product_ID { get; set; }
-            [ForeignKey("Warehouse")]
-            public int Warehouse_ID { get; set; }
+            public virtual Product ProductID { get; set; }
 
+            [ForeignKey("WarehouseID")]
+            public int Warehouse_ID { get; set; }
+            public virtual Warehouse WarehouseID { get; set; }
         }
 
         public class WarehouseContext : DbContext
