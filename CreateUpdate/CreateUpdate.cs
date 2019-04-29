@@ -175,11 +175,12 @@ namespace CreateUpdate
                 var alwhs = client.GetAllWarehouses();
                 var sb = new StringBuilder();
                 sb.Append("*** List of all Warehouses in the DB ***");
-                sb.Append("\n");
+                sb.Append("\r\n");
                 foreach (var Warehouse in alwhs)
                 {
-                    
-                    sb.Append(Warehouse.WarehouseName);
+                    sb.Append("ID# " + Warehouse.WarehouseID + " ");
+                    sb.Append("Name: " + Warehouse.WarehouseName);
+                    sb.Append("\r\n");
 
                 }
                 
@@ -249,7 +250,6 @@ namespace CreateUpdate
         private void btncreateproduct_Click(object sender, EventArgs e)
         {
             Product product = new Product();
-            product.Category = new CreateUpdateClient.ProductServiceProxy.Category();
 
             var client = new ProductClient();
             var message = "";
@@ -261,7 +261,7 @@ namespace CreateUpdate
                 product.ProductName = productnamebox.Text;
                 product.UPC = long.Parse(upcbox.Text);
                 product.UnitPrice = int.Parse(productpricebox.Text);
-                product.Category.Category_ID = int.Parse(categorybox.Text);
+                product.Category_ID = int.Parse(categorybox.Text);
 
                 //Call service method
                 var sb = new StringBuilder();
@@ -273,7 +273,7 @@ namespace CreateUpdate
                     sb.Append("ProductName:" + product.ProductName + "\r\n");
                     sb.Append("ProductUPC:" + product.UPC + "\r\n");
                     sb.Append("ProductPrice:" + product.UnitPrice.ToString() + "\r\n");
-                    sb.Append("Category:" + product.Category.Category_ID.ToString());
+                    sb.Append("Category:" + product.Category_ID.ToString());
                 }
                 else
                 {
@@ -404,7 +404,7 @@ namespace CreateUpdate
             {
                 result = "Search for a product first!";
             }
-            else if (string.IsNullOrEmpty(newcategorybox.Text) || int.Parse(newcategorybox.Text) == search_update_product.Category.Category_ID)
+            else if (string.IsNullOrEmpty(newcategorybox.Text) || int.Parse(newcategorybox.Text) == search_update_product.Category_ID)
             {
                 result = "Enter a new category!";
             }
@@ -417,7 +417,7 @@ namespace CreateUpdate
                     update_product = search_update_product;
 
                     //Assign new name to updated product object
-                    update_product.Category.Category_ID= int.Parse(newcategorybox.Text);
+                    update_product.Category_ID= int.Parse(newcategorybox.Text);
 
                     //Update product by ID and assign boolean to variable
                     bool update_result = client.UpdateProductByID(update_product);
@@ -426,11 +426,11 @@ namespace CreateUpdate
                     var sb = new StringBuilder();
                     if (update_result == true)
                     {
-                        sb.Append("Category was updated to " + update_product.Category.Category_ID.ToString());
+                        sb.Append("Category was updated to " + update_product.Category_ID.ToString());
                     }
                     else
                     {
-                        sb.Append("Error updating product category to " + update_product.Category.Category_ID.ToString());
+                        sb.Append("Error updating product category to " + update_product.Category_ID.ToString());
                     }
 
                     result = sb.ToString();
@@ -467,9 +467,15 @@ namespace CreateUpdate
 
         private void btncheckallcategories_Click(object sender, EventArgs e)
         {
-           // allcategoriesbox.Text = CheckAllCategories();
+            // Calling GetAllCategories method to display all categories in the DB
+            allcategoriesbox.Text = CheckAllCategories();
+            
         }
-        /*
+        
+        /* CheckAllCategorie Method
+         * This method will get all categories at hte database, store it in a string 
+         * and return it as a string when invoked 
+         */
         private string CheckAllCategories()
         {
             var client = new CategoryClient();
@@ -477,15 +483,18 @@ namespace CreateUpdate
 
             try
             {
-                var alcat = client.GetAllCategories();
+                var alcat = client.GetCategories();
                 var sb = new StringBuilder();
                 sb.Append("*** List of All Categories ***");
-                sb.Append("\n");
+                sb.Append("\r\n");
 
                 foreach (var Category in alcat)
                 {
-                    sb.Append(Category.CategoryName);
+                    sb.Append("ID# " + Category.Category_ID + " ");
+                    sb.Append("Category: " + Category.Category_Name);
+                    sb.Append("\r\n");
                 }
+                result = sb.ToString();
             }
             catch (Exception ex)
             {
@@ -495,7 +504,7 @@ namespace CreateUpdate
             return result;
 
         }
-        */
+      
     }
 
 

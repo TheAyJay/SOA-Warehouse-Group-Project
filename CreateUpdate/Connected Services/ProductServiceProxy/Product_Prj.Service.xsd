@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Product_Prj.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Product_Prj.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/Category_Prj.Service" />
   <xs:complexType name="Product">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Category_Prj.Service" minOccurs="0" name="Category" nillable="true" type="q1:Category" />
+      <xs:element minOccurs="0" name="Category_ID" type="xs:int" />
       <xs:element minOccurs="0" name="ProductID" type="xs:int" />
       <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UPC" type="xs:long" />

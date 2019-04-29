@@ -20,7 +20,6 @@ namespace Product_Prj.Service
         {
             var product_BDO = product_Logic.Get_Product_By_ID(id);
             var product = new Product();
-            product.Category = new Category();
             
             // Translating productBDO to productDTO
             TranslateProductBDOToProductDTO(product_BDO, product);
@@ -31,7 +30,6 @@ namespace Product_Prj.Service
         {
             var product_BDO = product_Logic.Get_Product_By_UPC(upc);
             var product = new Product();
-            product.Category = new Category();
 
             // Translating productBDO to productDTO
             TranslateProductBDOToProductDTO(product_BDO, product);
@@ -43,7 +41,6 @@ namespace Product_Prj.Service
         {
             bool result = false;
             Product_BDO product_BDO = new Product_BDO();
-            product_BDO.Category = new Category_BDO();
 
             TranslateProductDTOToProductBDO(product_, product_BDO);
 
@@ -78,7 +75,7 @@ namespace Product_Prj.Service
             }
 
             // categoryID cannot be empty 
-            else if (product.Category.Category_ID == 0)
+            else if (product.CategoryRefID == 0)
             {
                 
                 result = false;
@@ -88,7 +85,6 @@ namespace Product_Prj.Service
             {
                 // TODO: call business logic layer to update product
                 Product_BDO product_BDO = new Product_BDO();
-                product_BDO.Category = new Category_BDO();
 
                 TranslateProductDTOToProductBDO(product, product_BDO);
 
@@ -100,26 +96,6 @@ namespace Product_Prj.Service
             return result;
         }
 
-        /*
-        // GetAllCategories Method 
-        // Creating a service for geting a list of all available categories of products at the DB
-
-        public List<Category> GetAllCategories()
-        {
-            // Calling the business-layer to retrieve category
-            List<Category_BDO> category_BDOs = Category_Logic.Get_All_Categories();
-            List<Category> category = new List<Category>();
-            Category c = new Category();
-
-            foreach (Category_BDO cat in category_BDOs)
-            {
-                // Translating categoryBDO to categoryDTO
-                TranslateCategoryBDOToCAtegoryDTO(cat, c);
-                category.Add(c);
-            }
-            return category;
-        }
-        */
 
 
 
@@ -128,9 +104,7 @@ namespace Product_Prj.Service
         {
             product.ProductID = product_BDO.Product_ID;
             product.ProductName = product_BDO.Product_Name;
-            product.Category.Category_ID = product_BDO.Category.Category_ID;
-            product.Category.Category_Name = product_BDO.Category.Category_Name;
-            product.Category.Category_Description = product_BDO.Category.Category_Description;
+            product.CategoryRefID = product_BDO.CategoryRefID;
             product.UPC = product_BDO.Product_UPC;
             product.UnitPrice = product_BDO.Product_Price;
         }
@@ -140,9 +114,7 @@ namespace Product_Prj.Service
         {
             product_BDO.Product_ID = product.ProductID;
             product_BDO.Product_Name = product.ProductName;
-            product_BDO.Category.Category_ID = product.Category.Category_ID;
-            product_BDO.Category.Category_Name = product.Category.Category_Name;
-            product_BDO.Category.Category_Description = product.Category.Category_Description;
+            product_BDO.CategoryRefID = product.CategoryRefID;
             product_BDO.Product_UPC = product.UPC;
             product_BDO.Product_Price = product.UnitPrice;
         }
