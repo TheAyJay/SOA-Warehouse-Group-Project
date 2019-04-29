@@ -97,6 +97,9 @@
     <None Include="Connected Services\CategoryServiceProxy\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ProductServiceProxy\Category_Prj.Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ProductServiceProxy\CreateUpdateClient.ProductServiceProxy.Create_ProductResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
