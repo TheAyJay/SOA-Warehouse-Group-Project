@@ -119,5 +119,55 @@ namespace Inbound
             inboundhistory.Text = result;
 
         }
+
+        private void checkinbound_Click(object sender, EventArgs e)
+        {
+            //Inventory inventory = new Inventory();
+            var client = new Inventory_ServiceClient();
+            var message = "";
+            var result = "";
+
+            //Check if the user searched for a product and that the UPC box is populated and that the UPC is different from the existing product
+            if (string.IsNullOrEmpty(whnamebox.Text))
+            {
+                result = "Enter a Warehouse Name!";
+            }
+
+            else
+            {
+                try
+                {
+                    string whname = whnamebox.Text;
+                    //call service mrthod
+                    var whinventory = client.Get_Inventories_By_Warehouse_Name(whname, ref message);
+                    //show result
+                    var sb = new StringBuilder();
+                    sb.Append("*** List of all Inbound of Warehouse" + whname + "***");
+                    sb.Append("\r\n");
+
+                    foreach (var Inventory in whinventory)
+                    {
+                        //for each inventory record, using product id to find product name and upc
+                        var pclient = new ProductClient();
+                        var inventory_product = pclient.GetProductByID(Inventory.Product_ID);
+                        //show the result
+                        sb.Append("Product Name: " + inventory_product.ProductName + "\r\n");
+                        sb.Append("UPC: " + inventory_product.UPC + "\r\n");
+                        sb.Append("Quentity: " + Inventory.Product_Quantity + "\r\n");
+                        sb.Append("\r\n");
+                    }
+
+                    result = sb.ToString();
+
+                }
+                catch (Exception ex)
+                {
+                    result = "Exception: " + ex.Message.ToString();
+                }
+            }
+
+            inboundhistory.Text = result;
+
+        }
     }
 }

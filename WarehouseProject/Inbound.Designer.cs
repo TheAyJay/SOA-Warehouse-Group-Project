@@ -149,6 +149,7 @@
             this.checkinbound.TabIndex = 13;
             this.checkinbound.Text = "Check Inbound History";
             this.checkinbound.UseVisualStyleBackColor = true;
+            this.checkinbound.Click += new System.EventHandler(this.checkinbound_Click);
             // 
             // Inbound
             // 
