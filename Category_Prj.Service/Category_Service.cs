@@ -12,14 +12,31 @@ namespace Category_Prj.Service
     
     public class Category_Service : ICategory
     {
-        Category_BDO category_BDO = new Category_BDO();
+        Category_BDO category_BDO = new Category_BDO();        
         Category_Logic category_Logic = new Category_Logic();
+        Category category = new Category();
+
 
         public bool Create_Category(Category category)
         {
             Translate_DTO_to_BDO(category, category_BDO);
             
             return category_Logic.Create_Category(category_BDO);
+        }
+
+        public List<Category> GetCategories()
+        {
+            List<Category_BDO> category_BDOs = category_Logic.GetCategory_BDOs();
+            List<Category> categories = new List<Category>();            
+
+            foreach (Category_BDO c in category_BDOs)
+            {
+                Translate_BDO_to_DTO(category, c);
+                categories.Add(category);
+            }
+                
+
+            return categories;
         }
 
         public Category Get_Category_By_ID(int category_id)

@@ -124,5 +124,26 @@ namespace Warehouse_Prj.DAL.CRUD
 
             return category;
         }
+
+        public List<DataModel.Category> Get_All_Categories()
+        {
+            List<DataModel.Category> all_categories = new List<DataModel.Category>();
+
+            using (var context = new DataModel.WarehouseContext())
+            {
+                // Get product
+                var all_cat = context.Categories;
+                if (all_cat != null)
+                {
+                    all_categories = all_cat.ToList();
+
+                    return all_categories;
+                }
+
+            }
+
+
+            return all_categories;
+        }
     }
 }

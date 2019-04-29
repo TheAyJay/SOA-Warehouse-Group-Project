@@ -19,7 +19,6 @@ namespace Warehouse_Prj.DAL
         public List<Warehouse_BDO> GetWarehouses()
         {
             List < Warehouse_BDO > Warehouse_List = new List<Warehouse_BDO>();
-            Warehouse_BDO warehouse_BDO = new Warehouse_BDO();
 
             List<DataModel.Warehouse> warehouses_DTO_result = new List<DataModel.Warehouse>();
 
@@ -30,10 +29,11 @@ namespace Warehouse_Prj.DAL
             {
                 foreach(DataModel.Warehouse w in warehouses_DTO_result)
                 {
+                    Warehouse_BDO warehouse_BDO_ = new Warehouse_BDO();
                     // Translate Data Model Object to Business Domain Object.
-                    Translate_DMO_to_BDO(w, warehouse_BDO);
+                    Translate_DMO_to_BDO(w, warehouse_BDO_);
 
-                    Warehouse_List.Add(warehouse_BDO);
+                    Warehouse_List.Add(warehouse_BDO_);
                 }
                 return Warehouse_List;
             }

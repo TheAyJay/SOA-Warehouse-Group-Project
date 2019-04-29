@@ -21,6 +21,23 @@ namespace Warehouse_Prj.Logic
         DataModel.Category category_dto = new DataModel.Category();
         Category_BDO category_BDO = new Category_BDO();
 
+        public List<Category_BDO> GetCategory_BDOs()
+        {
+            List<Category_BDO> category_BDOs = new List<Category_BDO>();
+            List<DataModel.Category> category_dtos = new List<DataModel.Category>();
+
+            category_dtos = category_query.Get_All_Categories();
+
+            foreach(DataModel.Category c in category_dtos)
+            {
+                Translate_DTO_to_BDO(category_BDO, c);
+                category_BDOs.Add(category_BDO);                
+            }
+
+            return category_BDOs.ToList();
+
+        }
+
         //Returns a Category given an ID
         public Category_BDO Get_Category_By_ID(int category_ID)
         {

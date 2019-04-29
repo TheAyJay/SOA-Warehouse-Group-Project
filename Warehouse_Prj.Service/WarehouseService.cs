@@ -82,10 +82,11 @@ namespace Warehouse_Prj.Service
 
             List<Warehouse_BDO> warehouse_BDOs = warehouse_Logic.Get_All_Warehouses();
             List<Warehouse> warehouse = new List<Warehouse>();
-            Warehouse w = new Warehouse();
+            
 
             foreach (Warehouse_BDO wse in warehouse_BDOs)
             {
+                Warehouse w = new Warehouse();
                 // Translating productBDO to productDTO
                 TranslateWarehouseBDOToWarehouseDTO(wse, w);
                 warehouse.Add(w);

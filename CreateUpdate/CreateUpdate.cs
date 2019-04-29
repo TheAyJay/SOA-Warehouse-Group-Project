@@ -31,6 +31,44 @@ namespace CreateUpdate
 
         }
 
+        private void btncreate_category(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            var client = new CategoryClient();
+            var message = "";
+            var result = "";
+
+            try
+            {
+                //Move text field values to object properties
+                category.Category_Name = categorynamebox.Text;
+                category.Category_Description = categorydescriptionbox.Text;
+
+                //Call service method
+                bool success = client.Create_Category(category);
+
+                if (success)
+                {
+                    var sb = new StringBuilder();
+                    message = "Category created successfully.";
+                    sb.Append(message + "\r\n");
+
+                result = sb.ToString();
+
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                result = "Exception:" + ex.Message.ToString();
+            }
+
+            //Set text box with output
+            allcategoriesbox.Text = result;
+        }
+
         // Try to make use of "MessageBox.show("Warehouse was add to the Database successfully"); message if true OR faild otherwise"
         private void btncreatewh_Click(object sender, EventArgs e)
         {
@@ -325,6 +363,11 @@ namespace CreateUpdate
             }
 
             updateproductresult.Text = result;
+        }
+
+        private void allcategoriesbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

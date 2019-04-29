@@ -19,6 +19,9 @@ namespace Category_Prj.Service
 
         [OperationContract]
         bool Create_Category(Category category);
+
+        [OperationContract]
+        List<Category> GetCategories();
         
     }
 
