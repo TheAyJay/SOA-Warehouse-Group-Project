@@ -175,11 +175,12 @@ namespace CreateUpdate
                 var alwhs = client.GetAllWarehouses();
                 var sb = new StringBuilder();
                 sb.Append("*** List of all Warehouses in the DB ***");
-                sb.Append("\n");
+                sb.Append("\r\n");
                 foreach (var Warehouse in alwhs)
                 {
-                    
-                    sb.Append(Warehouse.WarehouseName);
+                    sb.Append("ID# " + Warehouse.WarehouseID + " ");
+                    sb.Append("Name: " + Warehouse.WarehouseName);
+                    sb.Append("\r\n");
 
                 }
                 
@@ -467,9 +468,15 @@ namespace CreateUpdate
 
         private void btncheckallcategories_Click(object sender, EventArgs e)
         {
-           // allcategoriesbox.Text = CheckAllCategories();
+            // Calling GetAllCategories method to display all categories in the DB
+            allcategoriesbox.Text = CheckAllCategories();
+            
         }
-        /*
+        
+        /* CheckAllCategorie Method
+         * This method will get all categories at hte database, store it in a string 
+         * and return it as a string when invoked 
+         */
         private string CheckAllCategories()
         {
             var client = new CategoryClient();
@@ -477,15 +484,18 @@ namespace CreateUpdate
 
             try
             {
-                var alcat = client.GetAllCategories();
+                var alcat = client.GetCategories();
                 var sb = new StringBuilder();
                 sb.Append("*** List of All Categories ***");
-                sb.Append("\n");
+                sb.Append("\r\n");
 
                 foreach (var Category in alcat)
                 {
-                    sb.Append(Category.CategoryName);
+                    sb.Append("ID# " + Category.Category_ID + " ");
+                    sb.Append("Category: " + Category.Category_Name);
+                    sb.Append("\r\n");
                 }
+                result = sb.ToString();
             }
             catch (Exception ex)
             {
@@ -495,7 +505,7 @@ namespace CreateUpdate
             return result;
 
         }
-        */
+      
     }
 
 

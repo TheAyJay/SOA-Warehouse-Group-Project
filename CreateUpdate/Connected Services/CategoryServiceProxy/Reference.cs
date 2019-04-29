@@ -111,6 +111,12 @@ namespace CreateUpdateClient.CategoryServiceProxy {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Create_Category", ReplyAction="http://tempuri.org/ICategory/Create_CategoryResponse")]
         System.Threading.Tasks.Task<bool> Create_CategoryAsync(CreateUpdateClient.CategoryServiceProxy.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/GetCategories", ReplyAction="http://tempuri.org/ICategory/GetCategoriesResponse")]
+        CreateUpdateClient.CategoryServiceProxy.Category[] GetCategories();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/GetCategories", ReplyAction="http://tempuri.org/ICategory/GetCategoriesResponse")]
+        System.Threading.Tasks.Task<CreateUpdateClient.CategoryServiceProxy.Category[]> GetCategoriesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -162,6 +168,14 @@ namespace CreateUpdateClient.CategoryServiceProxy {
         
         public System.Threading.Tasks.Task<bool> Create_CategoryAsync(CreateUpdateClient.CategoryServiceProxy.Category category) {
             return base.Channel.Create_CategoryAsync(category);
+        }
+        
+        public CreateUpdateClient.CategoryServiceProxy.Category[] GetCategories() {
+            return base.Channel.GetCategories();
+        }
+        
+        public System.Threading.Tasks.Task<CreateUpdateClient.CategoryServiceProxy.Category[]> GetCategoriesAsync() {
+            return base.Channel.GetCategoriesAsync();
         }
     }
 }

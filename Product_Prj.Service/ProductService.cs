@@ -100,26 +100,6 @@ namespace Product_Prj.Service
             return result;
         }
 
-        /*
-        // GetAllCategories Method 
-        // Creating a service for geting a list of all available categories of products at the DB
-
-        public List<Category> GetAllCategories()
-        {
-            // Calling the business-layer to retrieve category
-            List<Category_BDO> category_BDOs = Category_Logic.Get_All_Categories();
-            List<Category> category = new List<Category>();
-            Category c = new Category();
-
-            foreach (Category_BDO cat in category_BDOs)
-            {
-                // Translating categoryBDO to categoryDTO
-                TranslateCategoryBDOToCAtegoryDTO(cat, c);
-                category.Add(c);
-            }
-            return category;
-        }
-        */
 
 
 
