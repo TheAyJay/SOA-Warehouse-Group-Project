@@ -15,6 +15,9 @@ namespace Warehouse_Prj.Service
         Warehouse GetWarehouse(int id);
 
         [OperationContract]
+        Warehouse GetWarehouseByName(string warehouse_Name);
+
+        [OperationContract]
         List<Warehouse> GetAllWarehouses();
 
         [OperationContract]

@@ -28,6 +28,18 @@ namespace Warehouse_Prj.Service
             return warehouse;
            
         }
+        public Warehouse GetWarehouseByName(string warehouse_Name)
+        {
+            // TODO: call business logic to retrieve warehouse
+
+            var warehouse_BDO = warehouse_Logic.Get_Warehouse_By_Name(warehouse_Name);
+            var warehouse = new Warehouse();
+
+            // Translating productBDO to productDTO
+            TranslateWarehouseBDOToWarehouseDTO(warehouse_BDO, warehouse);
+
+            return warehouse;
+        }
 
         public bool CreateWarehouse(Warehouse warehouse, ref string message)
         {

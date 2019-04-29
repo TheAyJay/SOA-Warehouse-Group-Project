@@ -32,8 +32,8 @@
             this.warehousename = new System.Windows.Forms.Label();
             this.Quantity = new System.Windows.Forms.Label();
             this.Submit = new System.Windows.Forms.Button();
-            this.Zipcodebox = new System.Windows.Forms.TextBox();
-            this.Statebox = new System.Windows.Forms.TextBox();
+            this.whnamebox = new System.Windows.Forms.TextBox();
+            this.qtybox = new System.Windows.Forms.TextBox();
             this.upcbox = new System.Windows.Forms.TextBox();
             this.getproduct = new System.Windows.Forms.Button();
             this.productbox = new System.Windows.Forms.TextBox();
@@ -77,20 +77,21 @@
             this.Submit.TabIndex = 4;
             this.Submit.Text = "Submit";
             this.Submit.UseVisualStyleBackColor = true;
+            this.Submit.Click += new System.EventHandler(this.Submit_Click);
             // 
-            // Zipcodebox
+            // whnamebox
             // 
-            this.Zipcodebox.Location = new System.Drawing.Point(177, 147);
-            this.Zipcodebox.Name = "Zipcodebox";
-            this.Zipcodebox.Size = new System.Drawing.Size(90, 20);
-            this.Zipcodebox.TabIndex = 5;
+            this.whnamebox.Location = new System.Drawing.Point(177, 147);
+            this.whnamebox.Name = "whnamebox";
+            this.whnamebox.Size = new System.Drawing.Size(90, 20);
+            this.whnamebox.TabIndex = 5;
             // 
-            // Statebox
+            // qtybox
             // 
-            this.Statebox.Location = new System.Drawing.Point(177, 174);
-            this.Statebox.Name = "Statebox";
-            this.Statebox.Size = new System.Drawing.Size(90, 20);
-            this.Statebox.TabIndex = 6;
+            this.qtybox.Location = new System.Drawing.Point(177, 174);
+            this.qtybox.Name = "qtybox";
+            this.qtybox.Size = new System.Drawing.Size(90, 20);
+            this.qtybox.TabIndex = 6;
             // 
             // upcbox
             // 
@@ -160,8 +161,8 @@
             this.Controls.Add(this.productbox);
             this.Controls.Add(this.getproduct);
             this.Controls.Add(this.upcbox);
-            this.Controls.Add(this.Statebox);
-            this.Controls.Add(this.Zipcodebox);
+            this.Controls.Add(this.qtybox);
+            this.Controls.Add(this.whnamebox);
             this.Controls.Add(this.Submit);
             this.Controls.Add(this.Quantity);
             this.Controls.Add(this.warehousename);
@@ -179,8 +180,8 @@
         private System.Windows.Forms.Label warehousename;
         private System.Windows.Forms.Label Quantity;
         private System.Windows.Forms.Button Submit;
-        private System.Windows.Forms.TextBox Zipcodebox;
-        private System.Windows.Forms.TextBox Statebox;
+        private System.Windows.Forms.TextBox whnamebox;
+        private System.Windows.Forms.TextBox qtybox;
         private System.Windows.Forms.TextBox upcbox;
         private System.Windows.Forms.Button getproduct;
         public System.Windows.Forms.TextBox productbox;

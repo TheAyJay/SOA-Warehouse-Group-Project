@@ -63,7 +63,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\InventoryServiceInbound\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProductServiceInbound\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WarehouseServiceInbound\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -89,6 +99,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\InventoryServiceInbound\InboundClient.InventoryServiceInbound.Create_InventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryServiceInbound\InboundClient.InventoryServiceInbound.Get_Inventories_By_Warehouse_NameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryServiceInbound\InboundClient.InventoryServiceInbound.Inventory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryServiceInbound\Inventory_Prj.Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\InventoryServiceInbound\service.wsdl" />
+    <None Include="Connected Services\InventoryServiceInbound\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\InventoryServiceInbound\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ProductServiceInbound\InboundClient.ProductServiceInbound.Create_ProductResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -103,6 +132,25 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProductServiceInbound\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarehouseServiceInbound\InboundClient.WarehouseServiceInbound.CreateWarehouseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WarehouseServiceInbound\InboundClient.WarehouseServiceInbound.UpdateWarehouseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WarehouseServiceInbound\InboundClient.WarehouseServiceInbound.Warehouse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WarehouseServiceInbound\service.wsdl" />
+    <None Include="Connected Services\WarehouseServiceInbound\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarehouseServiceInbound\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarehouseServiceInbound\Warehouse_Prj.Service.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -136,7 +184,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\InventoryServiceInbound\" />
     <WCFMetadataStorage Include="Connected Services\ProductServiceInbound\" />
+    <WCFMetadataStorage Include="Connected Services\WarehouseServiceInbound\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ProductServiceInbound\configuration91.svcinfo" />
@@ -146,6 +196,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ProductServiceInbound\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\InventoryServiceInbound\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\InventoryServiceInbound\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\InventoryServiceInbound\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseServiceInbound\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseServiceInbound\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseServiceInbound\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
