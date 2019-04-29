@@ -23,7 +23,7 @@ namespace CreateUpdateClient.ProductServiceProxy {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Category_IDField;
+        private int CategoryRefIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ProductIDField;
@@ -48,14 +48,14 @@ namespace CreateUpdateClient.ProductServiceProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Category_ID {
+        public int CategoryRefID {
             get {
-                return this.Category_IDField;
+                return this.CategoryRefIDField;
             }
             set {
-                if ((this.Category_IDField.Equals(value) != true)) {
-                    this.Category_IDField = value;
-                    this.RaisePropertyChanged("Category_ID");
+                if ((this.CategoryRefIDField.Equals(value) != true)) {
+                    this.CategoryRefIDField = value;
+                    this.RaisePropertyChanged("CategoryRefID");
                 }
             }
         }
