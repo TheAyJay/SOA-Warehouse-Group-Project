@@ -358,7 +358,7 @@
             this.allcategoriesbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.allcategoriesbox.Size = new System.Drawing.Size(318, 49);
             this.allcategoriesbox.TabIndex = 30;
-            this.allcategoriesbox.TextChanged += new System.EventHandler(this.allcategoriesbox_TextChanged);
+            //this.allcategoriesbox.TextChanged += new System.EventHandler(this.allcategoriesbox_TextChanged);
             // 
             // lblupdatecategory
             // 

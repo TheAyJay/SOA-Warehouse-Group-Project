@@ -30,11 +30,12 @@ namespace Warehouse_Prj.Logic
 
             foreach(DataModel.Category c in category_dtos)
             {
-                Translate_DTO_to_BDO(category_BDO, c);
-                category_BDOs.Add(category_BDO);                
+                Category_BDO category_BDO_ = new Category_BDO();
+                Translate_DTO_to_BDO(category_BDO_, c);
+                category_BDOs.Add(category_BDO_);                
             }
 
-            return category_BDOs.ToList();
+            return category_BDOs;
 
         }
 

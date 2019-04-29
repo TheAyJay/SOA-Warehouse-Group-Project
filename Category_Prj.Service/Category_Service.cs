@@ -31,8 +31,9 @@ namespace Category_Prj.Service
 
             foreach (Category_BDO c in category_BDOs)
             {
-                Translate_BDO_to_DTO(category, c);
-                categories.Add(category);
+                Category category_ = new Category();
+                Translate_BDO_to_DTO(category_, c);
+                categories.Add(category_);
             }
                 
 
