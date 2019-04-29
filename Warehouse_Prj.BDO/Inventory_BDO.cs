@@ -12,9 +12,9 @@ namespace Warehouse_Prj.BDO
         public int ID { get; set; }        
         public int Quantity { get; set; }
 
-        public virtual Product_BDO Products { get; set; }
+        public int Products_ID { get; set; }
 
-        public Warehouse_BDO Warehouse { get; set; }
+        public int Warehouse_ID { get; set; }
 
     }
 }

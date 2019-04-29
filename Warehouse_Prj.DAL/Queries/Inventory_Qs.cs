@@ -29,7 +29,7 @@ namespace Warehouse_Prj.DAL.CRUD
                 bool success = false;
 
                 newInventory.Product_Quantity = inventory.Product_Quantity;
-                newInventory.Products = inventory.Products;
+                newInventory.Product_ID = inventory.;
                 newInventory.Warehouse = inventory.Warehouse;
                 
                 //Check execution of transaction - we expect 1 change to have occurred

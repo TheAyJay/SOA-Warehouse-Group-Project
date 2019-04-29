@@ -80,8 +80,11 @@ namespace Warehouse_Prj.DAL
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Inventory_ID { get; set; }
             public int Product_Quantity { get; set; }
-            public virtual Product Products { get; set; }
-            public virtual Warehouse Warehouse { get; set; }
+
+            [ForeignKey("Product")]
+            public int Product_ID { get; set; }
+            [ForeignKey("Warehouse")]
+            public int Warehouse_ID { get; set; }
 
         }
 
