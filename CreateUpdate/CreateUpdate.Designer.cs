@@ -246,6 +246,7 @@
             this.btnupdatename.TabIndex = 16;
             this.btnupdatename.Text = "Update Name";
             this.btnupdatename.UseVisualStyleBackColor = true;
+            this.btnupdatename.Click += new System.EventHandler(this.btnupdatename_Click);
             // 
             // newcategorybox
             // 

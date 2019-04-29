@@ -213,7 +213,7 @@ namespace CreateUpdate
                     sb.Append("ProductName:" + search_update_product.ProductName + "\r\n");
                     sb.Append("ProductUPC:" + search_update_product.UPC + "\r\n");
                     sb.Append("ProductPrice:" + search_update_product.UnitPrice.ToString() + "\r\n");
-                    //sb.Append("Category:" + search_update_product.CategoryID);
+                    sb.Append("Category:" + search_update_product.CategoryRefID.ToString());
                     result = sb.ToString();
                     enable_Update_Buttons();
                 }
@@ -261,7 +261,7 @@ namespace CreateUpdate
                 product.ProductName = productnamebox.Text;
                 product.UPC = long.Parse(upcbox.Text);
                 product.UnitPrice = int.Parse(productpricebox.Text);
-                product.Category_ID = int.Parse(categorybox.Text);
+                product.CategoryRefID = int.Parse(categorybox.Text);
 
                 //Call service method
                 var sb = new StringBuilder();
@@ -269,11 +269,10 @@ namespace CreateUpdate
                 if (client.Create_Product(product, ref message) == true)
                 {
                     sb.Append(message + "\r\n");
-                    sb.Append("ProductID:" + product.ProductID.ToString() + "\r\n");
                     sb.Append("ProductName:" + product.ProductName + "\r\n");
                     sb.Append("ProductUPC:" + product.UPC + "\r\n");
                     sb.Append("ProductPrice:" + product.UnitPrice.ToString() + "\r\n");
-                    sb.Append("Category:" + product.Category_ID.ToString());
+                    sb.Append("Category:" + product.CategoryRefID.ToString());
                 }
                 else
                 {
@@ -404,7 +403,7 @@ namespace CreateUpdate
             {
                 result = "Search for a product first!";
             }
-            else if (string.IsNullOrEmpty(newcategorybox.Text) || int.Parse(newcategorybox.Text) == search_update_product.Category_ID)
+            else if (string.IsNullOrEmpty(newcategorybox.Text) || int.Parse(newcategorybox.Text) == search_update_product.CategoryRefID)
             {
                 result = "Enter a new category!";
             }
@@ -417,7 +416,7 @@ namespace CreateUpdate
                     update_product = search_update_product;
 
                     //Assign new name to updated product object
-                    update_product.Category_ID= int.Parse(newcategorybox.Text);
+                    update_product.CategoryRefID= int.Parse(newcategorybox.Text);
 
                     //Update product by ID and assign boolean to variable
                     bool update_result = client.UpdateProductByID(update_product);
@@ -426,11 +425,11 @@ namespace CreateUpdate
                     var sb = new StringBuilder();
                     if (update_result == true)
                     {
-                        sb.Append("Category was updated to " + update_product.Category_ID.ToString());
+                        sb.Append("Category was updated to " + update_product.CategoryRefID.ToString());
                     }
                     else
                     {
-                        sb.Append("Error updating product category to " + update_product.Category_ID.ToString());
+                        sb.Append("Error updating product category to " + update_product.CategoryRefID.ToString());
                     }
 
                     result = sb.ToString();
@@ -536,6 +535,7 @@ namespace CreateUpdate
             //Set text box with output
             allcategoriesbox.Text = result;
         }
+
     }
 
 
