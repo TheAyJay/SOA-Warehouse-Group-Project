@@ -25,6 +25,12 @@
   <wsdl:message name="ICategory_Create_Category_OutputMessage">
     <wsdl:part name="parameters" element="tns:Create_CategoryResponse" />
   </wsdl:message>
+  <wsdl:message name="ICategory_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICategory">
     <wsdl:operation name="Get_Category_By_ID">
       <wsdl:input wsaw:Action="http://tempuri.org/ICategory/Get_Category_By_ID" message="tns:ICategory_Get_Category_By_ID_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="Create_Category">
       <wsdl:input wsaw:Action="http://tempuri.org/ICategory/Create_Category" message="tns:ICategory_Create_Category_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICategory/Create_CategoryResponse" message="tns:ICategory_Create_Category_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/GetCategories" message="tns:ICategory_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/GetCategoriesResponse" message="tns:ICategory_GetCategories_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICategory" type="tns:ICategory">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="Create_Category">
       <soap:operation soapAction="http://tempuri.org/ICategory/Create_Category" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/ICategory/GetCategories" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
