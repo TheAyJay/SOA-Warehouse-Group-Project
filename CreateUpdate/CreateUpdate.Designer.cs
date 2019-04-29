@@ -333,6 +333,7 @@
             this.btncreatecategory.TabIndex = 26;
             this.btncreatecategory.Text = "Create Category";
             this.btncreatecategory.UseVisualStyleBackColor = true;
+            this.btncreatecategory.Click += new System.EventHandler(this.btncreatecategory_Click);
             // 
             // categorynamebox
             // 
@@ -358,7 +359,6 @@
             this.allcategoriesbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.allcategoriesbox.Size = new System.Drawing.Size(318, 49);
             this.allcategoriesbox.TabIndex = 30;
-            //this.allcategoriesbox.TextChanged += new System.EventHandler(this.allcategoriesbox_TextChanged);
             // 
             // lblupdatecategory
             // 

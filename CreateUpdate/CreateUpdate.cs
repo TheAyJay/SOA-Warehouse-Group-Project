@@ -504,7 +504,38 @@ namespace CreateUpdate
             return result;
 
         }
-      
+
+        private void btncreatecategory_Click(object sender, EventArgs e)
+        {
+            CreateUpdateClient.CategoryServiceProxy.Category category = new CreateUpdateClient.CategoryServiceProxy.Category();
+            //Category category = new Category();
+            var client = new CategoryClient(); 
+            var result = "";
+
+            try
+            {
+                //Move text field values to object properties
+                category.Category_Name = categorynamebox.Text;
+                category.Category_Description = categorydescriptionbox.Text;
+
+                //Call service method
+                client.Create_Category(category);
+
+                var sb = new StringBuilder();
+                sb.Append("New Category is created successfully" + "\r\n");
+                sb.Append("Category_Name: " + category.Category_Name + "\r\n");
+                sb.Append("Category_Description: " + category.Category_Description + "\r\n");
+
+                result = sb.ToString();
+            }
+            catch (Exception ex)
+            {
+                result = "Exception:" + ex.Message.ToString();
+            }
+
+            //Set text box with output
+            allcategoriesbox.Text = result;
+        }
     }
 
 
