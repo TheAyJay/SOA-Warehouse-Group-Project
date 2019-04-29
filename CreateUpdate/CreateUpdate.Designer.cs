@@ -381,7 +381,7 @@
             // lblnewcategoryname
             // 
             this.lblnewcategoryname.AutoSize = true;
-            this.lblnewcategoryname.Location = new System.Drawing.Point(404, 291);
+            this.lblnewcategoryname.Location = new System.Drawing.Point(404, 279);
             this.lblnewcategoryname.Name = "lblnewcategoryname";
             this.lblnewcategoryname.Size = new System.Drawing.Size(105, 13);
             this.lblnewcategoryname.TabIndex = 33;
@@ -390,7 +390,7 @@
             // lblnewcategorydescription
             // 
             this.lblnewcategorydescription.AutoSize = true;
-            this.lblnewcategorydescription.Location = new System.Drawing.Point(404, 322);
+            this.lblnewcategorydescription.Location = new System.Drawing.Point(404, 305);
             this.lblnewcategorydescription.Name = "lblnewcategorydescription";
             this.lblnewcategorydescription.Size = new System.Drawing.Size(85, 13);
             this.lblnewcategorydescription.TabIndex = 34;
@@ -405,43 +405,45 @@
             // 
             // newcategorynamebox
             // 
-            this.newcategorynamebox.Location = new System.Drawing.Point(517, 288);
+            this.newcategorynamebox.Location = new System.Drawing.Point(517, 276);
             this.newcategorynamebox.Name = "newcategorynamebox";
-            this.newcategorynamebox.Size = new System.Drawing.Size(91, 20);
+            this.newcategorynamebox.Size = new System.Drawing.Size(111, 20);
             this.newcategorynamebox.TabIndex = 36;
             // 
             // newdescriptionbox
             // 
-            this.newdescriptionbox.Location = new System.Drawing.Point(517, 322);
+            this.newdescriptionbox.Location = new System.Drawing.Point(517, 305);
+            this.newdescriptionbox.Multiline = true;
             this.newdescriptionbox.Name = "newdescriptionbox";
-            this.newdescriptionbox.Size = new System.Drawing.Size(91, 20);
+            this.newdescriptionbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.newdescriptionbox.Size = new System.Drawing.Size(134, 52);
             this.newdescriptionbox.TabIndex = 37;
             // 
             // btnupdatecategoryname
             // 
-            this.btnupdatecategoryname.Location = new System.Drawing.Point(614, 288);
+            this.btnupdatecategoryname.Location = new System.Drawing.Point(634, 274);
             this.btnupdatecategoryname.Name = "btnupdatecategoryname";
-            this.btnupdatecategoryname.Size = new System.Drawing.Size(111, 23);
+            this.btnupdatecategoryname.Size = new System.Drawing.Size(91, 23);
             this.btnupdatecategoryname.TabIndex = 38;
             this.btnupdatecategoryname.Text = "Update Name";
             this.btnupdatecategoryname.UseVisualStyleBackColor = true;
             // 
             // btnupdatedescription
             // 
-            this.btnupdatedescription.Location = new System.Drawing.Point(614, 320);
+            this.btnupdatedescription.Location = new System.Drawing.Point(657, 305);
             this.btnupdatedescription.Name = "btnupdatedescription";
-            this.btnupdatedescription.Size = new System.Drawing.Size(111, 23);
+            this.btnupdatedescription.Size = new System.Drawing.Size(68, 52);
             this.btnupdatedescription.TabIndex = 39;
             this.btnupdatedescription.Text = "Update Description";
             this.btnupdatedescription.UseVisualStyleBackColor = true;
             // 
             // updatecategoryresult
             // 
-            this.updatecategoryresult.Location = new System.Drawing.Point(407, 351);
+            this.updatecategoryresult.Location = new System.Drawing.Point(407, 363);
             this.updatecategoryresult.Multiline = true;
             this.updatecategoryresult.Name = "updatecategoryresult";
             this.updatecategoryresult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.updatecategoryresult.Size = new System.Drawing.Size(318, 75);
+            this.updatecategoryresult.Size = new System.Drawing.Size(318, 63);
             this.updatecategoryresult.TabIndex = 40;
             // 
             // btncheckallcategories
