@@ -23,7 +23,7 @@ namespace CreateUpdateClient.ProductServiceProxy {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CreateUpdateClient.ProductServiceProxy.Category CategoryField;
+        private int Category_IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ProductIDField;
@@ -48,14 +48,14 @@ namespace CreateUpdateClient.ProductServiceProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CreateUpdateClient.ProductServiceProxy.Category Category {
+        public int Category_ID {
             get {
-                return this.CategoryField;
+                return this.Category_IDField;
             }
             set {
-                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
-                    this.CategoryField = value;
-                    this.RaisePropertyChanged("Category");
+                if ((this.Category_IDField.Equals(value) != true)) {
+                    this.Category_IDField = value;
+                    this.RaisePropertyChanged("Category_ID");
                 }
             }
         }
@@ -108,83 +108,6 @@ namespace CreateUpdateClient.ProductServiceProxy {
                 if ((this.UnitPriceField.Equals(value) != true)) {
                     this.UnitPriceField = value;
                     this.RaisePropertyChanged("UnitPrice");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/Category_Prj.Service")]
-    [System.SerializableAttribute()]
-    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Category_DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Category_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Category_NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Category_Description {
-            get {
-                return this.Category_DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Category_DescriptionField, value) != true)) {
-                    this.Category_DescriptionField = value;
-                    this.RaisePropertyChanged("Category_Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Category_ID {
-            get {
-                return this.Category_IDField;
-            }
-            set {
-                if ((this.Category_IDField.Equals(value) != true)) {
-                    this.Category_IDField = value;
-                    this.RaisePropertyChanged("Category_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Category_Name {
-            get {
-                return this.Category_NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Category_NameField, value) != true)) {
-                    this.Category_NameField = value;
-                    this.RaisePropertyChanged("Category_Name");
                 }
             }
         }

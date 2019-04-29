@@ -12,6 +12,6 @@ namespace Warehouse_Prj.BDO
         public string Product_Name { get; set; }
         public long Product_UPC { get; set; }
         public decimal Product_Price { get; set; }
-        public Category_BDO Category { get; set; }
+        public int CategoryRefID { get; set; }
     }
 }
