@@ -81,6 +81,7 @@ namespace Warehouse_Prj.DAL
             [Key]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Inventory_ID { get; set; }
+
             public int Product_Quantity { get; set; }
 
             [ForeignKey("ProductID")]

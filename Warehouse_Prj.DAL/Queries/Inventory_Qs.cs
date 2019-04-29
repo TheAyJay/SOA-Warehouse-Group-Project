@@ -20,7 +20,7 @@ namespace Warehouse_Prj.DAL.CRUD
         /// </summary>
 
         // This method creates a Inventory record in the Warehouse database and returns true if the operation was successful.
-        public bool Create(DataModel.Inventory inventory) {
+        public bool Create(DataModel.Inventory inventory, ref string msg) {
 
             using (var context = new DataModel.WarehouseContext())
             {
@@ -32,11 +32,19 @@ namespace Warehouse_Prj.DAL.CRUD
                 newInventory.Inventory_ID = inventory.Inventory_ID;
                 newInventory.Product_ID = inventory.Product_ID;
                 newInventory.Warehouse_ID = inventory.Warehouse_ID;
+
+                context.Inventories.Add(newInventory);
                 
                 //Check execution of transaction - we expect 1 change to have occurred
                 var execution_result = context.SaveChanges();
-                if (execution_result == 1)
+                if (execution_result != 1)
                 {
+                    msg = "Inventory not created in DB - DAL";
+                    
+                }
+                else
+                {
+                    msg = "Inventory object successfully created.";
                     success = true;
                 }
                 
@@ -44,104 +52,42 @@ namespace Warehouse_Prj.DAL.CRUD
             }
         }
 
-        //TODO - Might not be needed as there is no UI for updating inventory
-        //This method updates a Inventory record in the Warehouse database and returns true if the operation was successful.
-        //public bool Update(DataModel.Inventory inventory, ref string msg)
-        //{
-        //    using (var context = new DataModel.WarehouseContext())
-        //    {
-        //        // Get and update product
-        //        var inventory_ = context.Inventories.SingleOrDefault(i => i.Inventory_ID == inventory.Inventory_ID);
-        //        bool success = false;
-        //        if(inventory_ != null)
-        //        {
-        //            inventory_.Inventory_ID = inventory.Inventory_ID;
-        //            inventory_.Products = inventory.Products;
-        //            inventory_.Product_Quantity = inventory.Product_Quantity;
-        //            inventory_.Warehouse = inventory.Warehouse;
-        //        }
-        //        //Check execution of transaction - we expect 1 change to have occurred
-        //        var execution_result = context.SaveChanges();
-        //        if (execution_result != 1)
-        //        {
-        //            msg = "Inventory was not created";
-        //        }
-        //        else
-        //        {
-        //            msg = "Category created";
-        //            success = true;
-        //        }
-
-        //        return success;
-        //    }
-        //}
-
-        //TODO - Might not be needed as there is no UI for deleting inventory
-        // This method deletes a Inventory record in the Warehouse database and returns true if the operation was successful.
-        //public bool Delete(int category_id, ref string msg)
-        //{
-
-        //    using (var context = new DataModel.WarehouseContext())
-        //    {
-        //        // Delete the product using product ID
-
-        //        var category = new DataModel.Category { Category_ID = category_id };
-        //        bool success = false;
-        //        context.Categories.Attach(category);
-        //        context.Categories.Remove(category);
-        //        context.SaveChanges();
-
-        //        //Check execution of transaction - we expect 1 change to have occurred
-        //        var execution_result = context.SaveChanges();
-        //        if (execution_result != 1)
-        //        {
-        //            msg = "Category not deleted.";
-        //            success = false;
-        //        }
-        //        else
-        //        {
-        //            msg = "Category deleted.";
-        //        }
-
-        //        return success;
-        //    }
-        //}
 
         //This method returns a list of warehouses given a UPC number.
-        //public List<DataModel.Inventory> Get_Warehouses_By_Product_UPC(DataModel.Product product, ref string msg)
-        //{
-        //    List<DataModel.Inventory> warehouse_list = null;
-        //    using (var context = new DataModel.WarehouseContext())
-        //    {
+        public List<DataModel.Inventory> Get_Inventories_By_Warehouse_Name(string warehouse_name , ref string msg)
+        {
+            List<DataModel.Inventory> inventory_list = new List<DataModel.Inventory>();
 
-        //        try
-        //        {
+            using (var context = new DataModel.WarehouseContext())
+            {
 
-        //            List<DataModel.Inventory> warehouses = context.Inventories.Where(i => i.Products.Product_UPC == product.Product_UPC)
-        //                .Select(w => new DataModel.Inventory { Warehouse = w.Warehouse }).ToList();
+                try
+                {
 
-        //            if (warehouses != null)
-        //            {
-        //                warehouse_list = warehouses.ToList();
+                    var inventories = context.Inventories.Where(i => i.WarehouseID.Warehouse_Name == warehouse_name);
 
-        //                msg = "Warehouses found";
+                    if (inventories != null)
+                    {
+                        inventory_list = inventories.ToList();
 
-        //                return warehouse_list;
-        //            }
-        //            else
-        //            {
-        //                msg = "Warehouse not found";
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw new InvalidOperationException("No item found", ex);
-        //        }
+                        msg = "Inventories found - DAL";
+
+                        return inventory_list;
+                    }
+                    else
+                    {
+                        msg = "Warehouse not found";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException("No item found", ex);
+                }
 
 
-        //    }
+            }
 
-        //    return warehouse_list;
-        //}
+            return inventory_list;
+        }
     }
 }
