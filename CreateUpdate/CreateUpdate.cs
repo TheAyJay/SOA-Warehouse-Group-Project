@@ -29,7 +29,7 @@ namespace CreateUpdate
 
         private void CreateUpdate_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         // Try to make use of "MessageBox.show("Warehouse was add to the Database successfully"); message if true OR faild otherwise"
@@ -79,12 +79,12 @@ namespace CreateUpdate
             allwhbox.Text = result;
         }
 
-        
+
 
         private void btnupdatawh_Click(object sender, EventArgs e)
         {
             updatewhresult.Text = UpdateWarehouse();
-            
+
         }
 
         /*
@@ -166,7 +166,7 @@ namespace CreateUpdate
          */
         private string CheckAllWarehouses()
         {
-           // warehouse = new Warehouse();
+            // warehouse = new Warehouse();
             var client = new WarehouseClient();
             var result = "";
 
@@ -183,7 +183,7 @@ namespace CreateUpdate
                     sb.Append("\r\n");
 
                 }
-                
+
 
                 result = sb.ToString();
             }
@@ -416,7 +416,7 @@ namespace CreateUpdate
                     update_product = search_update_product;
 
                     //Assign new name to updated product object
-                    update_product.CategoryRefID= int.Parse(newcategorybox.Text);
+                    update_product.CategoryRefID = int.Parse(newcategorybox.Text);
 
                     //Update product by ID and assign boolean to variable
                     bool update_result = client.UpdateProductByID(update_product);
@@ -468,9 +468,9 @@ namespace CreateUpdate
         {
             // Calling GetAllCategories method to display all categories in the DB
             allcategoriesbox.Text = CheckAllCategories();
-            
+
         }
-        
+
         /* CheckAllCategorie Method
          * This method will get all categories at hte database, store it in a string 
          * and return it as a string when invoked 
@@ -508,7 +508,7 @@ namespace CreateUpdate
         {
             CreateUpdateClient.CategoryServiceProxy.Category category = new CreateUpdateClient.CategoryServiceProxy.Category();
             //Category category = new Category();
-            var client = new CategoryClient(); 
+            var client = new CategoryClient();
             var result = "";
 
             try
@@ -536,8 +536,102 @@ namespace CreateUpdate
             allcategoriesbox.Text = result;
         }
 
-    }
+        private void btnupdatecategoryname_Click(object sender, EventArgs e)
+        {
+            var client = new CategoryClient();
+            var result = "";
+            //Check if the user searched for a product and that the UPC box is populated and that the UPC is different from the existing product
+            if (string.IsNullOrEmpty(categoryidbox.Text))
+            {
+                result = "Enter a Category ID for update first!";
+            }
+            else
+            {
+                
+                var category = client.Get_Category_By_ID(int.Parse(categoryidbox.Text));
+                if(category.Category_ID == 0)
+                {
+                    result = "Category ID not exsit!";
+                }
+                else if(string.IsNullOrEmpty(newcategorynamebox.Text))
+                {
+                    result = "Enter a new Category Name!";
+                }
+                else
+                {
+                    try
+                    {
+                        //Assign new category name to updated category object
+                        category.Category_Name = newcategorynamebox.Text;
+
+                        //Update product by ID and assign boolean to variable
+                        var update_category_name = client.Update_Category_By_ID(category);
+
+                        //Check result of update
+                        var sb = new StringBuilder();
+                        sb.Append("Category name was updated to " + category.Category_Name.ToString());
+                        
+
+                        result = sb.ToString();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        result = "Exception: " + ex.Message.ToString();
+                    }
+                }
+            }
+            updatecategoryresult.Text = result;
+        }
+
+        private void btnupdatedescription_Click(object sender, EventArgs e)
+        {
+            var client = new CategoryClient();
+            var result = "";
+            //Check if the user searched for a product and that the UPC box is populated and that the UPC is different from the existing product
+            if (string.IsNullOrEmpty(categoryidbox.Text))
+            {
+                result = "Enter a Category ID for update first!";
+            }
+            else
+            {
+
+                var category = client.Get_Category_By_ID(int.Parse(categoryidbox.Text));
+                if (category.Category_ID == 0)
+                {
+                    result = "Category ID not exsit!";
+                }
+                else if (string.IsNullOrEmpty(newdescriptionbox.Text))
+                {
+                    result = "Enter a new Category Description!";
+                }
+                else
+                {
+                    try
+                    {
+                        //Assign new category name to updated category object
+                        category.Category_Description = newdescriptionbox.Text;
+
+                        //Update product by ID and assign boolean to variable
+                        var update_category_description = client.Update_Category_By_ID(category);
+
+                        //Check result of update
+                        var sb = new StringBuilder();
+                        sb.Append("Category description was updated to: " + "\r\n" + category.Category_Description.ToString());
 
 
+                        result = sb.ToString();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        result = "Exception: " + ex.Message.ToString();
+                    }
+                }
+            }
+            updatecategoryresult.Text = result;
+        }
     }
+
+}
 

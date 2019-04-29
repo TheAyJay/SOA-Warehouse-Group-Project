@@ -428,6 +428,7 @@
             this.btnupdatecategoryname.TabIndex = 38;
             this.btnupdatecategoryname.Text = "Update Name";
             this.btnupdatecategoryname.UseVisualStyleBackColor = true;
+            this.btnupdatecategoryname.Click += new System.EventHandler(this.btnupdatecategoryname_Click);
             // 
             // btnupdatedescription
             // 
@@ -437,6 +438,7 @@
             this.btnupdatedescription.TabIndex = 39;
             this.btnupdatedescription.Text = "Update Description";
             this.btnupdatedescription.UseVisualStyleBackColor = true;
+            this.btnupdatedescription.Click += new System.EventHandler(this.btnupdatedescription_Click);
             // 
             // updatecategoryresult
             // 
