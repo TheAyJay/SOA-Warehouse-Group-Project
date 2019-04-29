@@ -42,6 +42,6 @@ namespace Product_Prj.Service
         [DataMember]
         public decimal UnitPrice { get; set; }
         [DataMember]
-        public Category Category { get; set; }
+        public int CategoryRefID { get; set; }
     }
 }

@@ -42,7 +42,10 @@ namespace Warehouse_Prj.DAL
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Category_ID { get; set; }
             public string Category_Name { get; set; }
-            public string Category_Description { get; set; }          
+            public string Category_Description { get; set; } 
+
+            [ForeignKey("CategoryRefID")]
+            public ICollection<Product> Products { get; set; }
         }
 
         public class Product
@@ -54,7 +57,9 @@ namespace Warehouse_Prj.DAL
             public long Product_UPC { get; set; }
             public decimal Product_Price { get; set; }
 
-            public virtual Category Category { get; set; }
+            //[ForeignKey("Category")]
+            public int CategoryRefID { get; set; }
+            public Category ProductCategory { get; set; }
         }
 
         public class Warehouse

@@ -250,7 +250,6 @@ namespace CreateUpdate
         private void btncreateproduct_Click(object sender, EventArgs e)
         {
             Product product = new Product();
-            product.Category = new CreateUpdateClient.ProductServiceProxy.Category();
 
             var client = new ProductClient();
             var message = "";
@@ -262,7 +261,7 @@ namespace CreateUpdate
                 product.ProductName = productnamebox.Text;
                 product.UPC = long.Parse(upcbox.Text);
                 product.UnitPrice = int.Parse(productpricebox.Text);
-                product.Category.Category_ID = int.Parse(categorybox.Text);
+                product.Category_ID = int.Parse(categorybox.Text);
 
                 //Call service method
                 var sb = new StringBuilder();
@@ -274,7 +273,7 @@ namespace CreateUpdate
                     sb.Append("ProductName:" + product.ProductName + "\r\n");
                     sb.Append("ProductUPC:" + product.UPC + "\r\n");
                     sb.Append("ProductPrice:" + product.UnitPrice.ToString() + "\r\n");
-                    sb.Append("Category:" + product.Category.Category_ID.ToString());
+                    sb.Append("Category:" + product.Category_ID.ToString());
                 }
                 else
                 {
@@ -405,7 +404,7 @@ namespace CreateUpdate
             {
                 result = "Search for a product first!";
             }
-            else if (string.IsNullOrEmpty(newcategorybox.Text) || int.Parse(newcategorybox.Text) == search_update_product.Category.Category_ID)
+            else if (string.IsNullOrEmpty(newcategorybox.Text) || int.Parse(newcategorybox.Text) == search_update_product.Category_ID)
             {
                 result = "Enter a new category!";
             }
@@ -418,7 +417,7 @@ namespace CreateUpdate
                     update_product = search_update_product;
 
                     //Assign new name to updated product object
-                    update_product.Category.Category_ID= int.Parse(newcategorybox.Text);
+                    update_product.Category_ID= int.Parse(newcategorybox.Text);
 
                     //Update product by ID and assign boolean to variable
                     bool update_result = client.UpdateProductByID(update_product);
@@ -427,11 +426,11 @@ namespace CreateUpdate
                     var sb = new StringBuilder();
                     if (update_result == true)
                     {
-                        sb.Append("Category was updated to " + update_product.Category.Category_ID.ToString());
+                        sb.Append("Category was updated to " + update_product.Category_ID.ToString());
                     }
                     else
                     {
-                        sb.Append("Error updating product category to " + update_product.Category.Category_ID.ToString());
+                        sb.Append("Error updating product category to " + update_product.Category_ID.ToString());
                     }
 
                     result = sb.ToString();

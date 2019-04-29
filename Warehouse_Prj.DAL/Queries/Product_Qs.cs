@@ -38,7 +38,7 @@ namespace Warehouse_Prj.DAL.CRUD
                 newProduct.Product_Name = product_in.Product_Name;
                 newProduct.Product_Price = product_in.Product_Price;
                 newProduct.Product_UPC = product_in.Product_UPC;
-                newProduct.Category = product_in.Category;
+                newProduct.CategoryRefID = product_in.CategoryRefID;
 
                 //Add the Product
                 context.Products.Add(newProduct);
@@ -73,7 +73,7 @@ namespace Warehouse_Prj.DAL.CRUD
                     product.Product_Name = product_in.Product_Name;
                     product.Product_Price = product_in.Product_Price;
                     product.Product_UPC = product_in.Product_UPC;
-                    product.Category.Category_ID = product_in.Category.Category_ID;
+                    product.CategoryRefID = product_in.CategoryRefID;
 
                     //Apply change
                     context.Products.Attach(product);
@@ -163,8 +163,6 @@ namespace Warehouse_Prj.DAL.CRUD
         {
             //Create Product object
             DataModel.Product product = new DataModel.Product();
-            product.Category = new DataModel.Category();
-            //product = null;
 
             using (var context = new DataModel.WarehouseContext())
             {
@@ -178,10 +176,8 @@ namespace Warehouse_Prj.DAL.CRUD
                         product.Product_Name = product_Qs.Product_Name;
                         product.Product_Price = product_Qs.Product_Price;
                         product.Product_UPC = product_Qs.Product_UPC;
-                        product.Category.Category_ID = product_Qs.Category.Category_ID;
-                        product.Category.Category_Name = product_Qs.Category.Category_Name;
-                        product.Category.Category_Description = product_Qs.Category.Category_Description;
-
+                        product.CategoryRefID = product_Qs.CategoryRefID;
+                        
                         return product;
                     }
                 }
@@ -201,7 +197,6 @@ namespace Warehouse_Prj.DAL.CRUD
         {
             //Create Product object
             DataModel.Product product = new DataModel.Product();
-            product.Category = new DataModel.Category();
             
             using (var context = new DataModel.WarehouseContext())
             {
@@ -215,9 +210,7 @@ namespace Warehouse_Prj.DAL.CRUD
                         product.Product_Name = product_Qs.Product_Name;
                         product.Product_Price = product_Qs.Product_Price;
                         product.Product_UPC = product_Qs.Product_UPC;
-                        product.Category.Category_ID = product_Qs.Category.Category_ID;
-                        product.Category.Category_Name = product_Qs.Category.Category_Name;
-                        product.Category.Category_Description = product_Qs.Category.Category_Description;
+                        product.CategoryRefID = product_Qs.CategoryRefID;
 
                         return product;
                     }
