@@ -9,32 +9,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Warehouse_Prj.DAL
 {
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Omar Waller, Andrew Jacobson
+    /// 
+    /// Description: This class contains the data model for the Warehouse context. This is a code first
+    /// implementation.
+    /// </summary>
     public class DataModel
     {
         static void Main(string[] args)
         {
-
-            using (var context = new WarehouseContext())
-            {
-                // Create and save a new Students
-                
-
-                var w = new Warehouse
-                {
-                    Warehouse_ID = 1,
-                    Warehouse_Name = "GA30294",
-                    Street = "23 Street",
-                    City = "Ellenwood",
-                    State = "GA",
-                    Zipcode = "30294"
-
-
-                };
-
-                //context.Warehouses.Add(w);
-                //context.SaveChanges();
-                //Console.WriteLine("Adding new products");
-            }
+            
+            
         }
         public class Category
         {

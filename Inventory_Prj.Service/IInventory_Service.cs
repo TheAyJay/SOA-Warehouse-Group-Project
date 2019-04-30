@@ -8,8 +8,15 @@ using System.Text;
 
 namespace Inventory_Prj.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Eyad Aldawod, Omar Waller, Andrew Jacobson
+    /// 
+    /// Description: Interface for Inventory service. This file contains Operation Contract and Data Contract.
+    /// </summary>
+   [ServiceContract]
     public interface IInventory_Service
     {
         [OperationContract]

@@ -225,7 +225,7 @@ namespace Warehouse_Prj.DAL.CRUD
             return product;
         }
 
-        //TODO
+        
         public List<DataModel.Product> Get_All_Products_By_Warehouse_ID(ref string msg)
         {
             List<DataModel.Product> product_list = new List<DataModel.Product>();

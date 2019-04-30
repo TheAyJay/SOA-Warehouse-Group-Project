@@ -7,7 +7,14 @@ using System.Text;
 
 namespace Warehouse_Prj.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Eyad Aldawod, Omar Waller, Andrew Jacobson
+    /// 
+    /// Description: Interface for Warehouse service. This file contains Operation Contract and Data Contract.
+    /// </summary>
     [ServiceContract]
     public interface IWarehouse
     {
@@ -28,8 +35,6 @@ namespace Warehouse_Prj.Service
 
     }
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "Warehouse_Prj.Service.ContractType".
     [DataContract]
     public class Warehouse
     {

@@ -7,6 +7,14 @@ using System.Threading.Tasks;
 
 namespace Warehouse_Prj.BDO
 {
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Omar Waller, Andrew Jacobson
+    /// 
+    /// Description: Business Domain Object class for Inventory object.
+    /// </summary>
     public class Inventory_BDO
     {
         public int ID { get; set; }

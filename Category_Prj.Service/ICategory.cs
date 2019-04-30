@@ -7,7 +7,15 @@ using System.Text;
 
 namespace Category_Prj.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Omar Waller
+    /// 
+    /// Description: Interface for Category service. This file contains Operation Contract and Data Contract.
+    /// </summary>
+
     [ServiceContract]
     public interface ICategory
     {

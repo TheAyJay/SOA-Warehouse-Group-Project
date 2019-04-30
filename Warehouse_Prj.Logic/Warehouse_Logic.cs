@@ -1,9 +1,4 @@
-﻿///
-/// Project: MSCS 6931 SOA Group Project
-/// Created: 4/19/2019
-/// Description: Business logic class for Warehouse
-///
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +8,14 @@ using Warehouse_Prj.DAL;
 
 namespace Warehouse_Prj.Logic
 {
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Omar Waller
+    /// 
+    /// Description: Business logic class for Warehouse
+    /// </summary>
     public class Warehouse_Logic
     {
         Warehouse_DAO warehouse_DAO = new Warehouse_DAO();

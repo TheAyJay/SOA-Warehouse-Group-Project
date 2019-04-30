@@ -10,7 +10,14 @@ using Category_Prj.Service;
 
 namespace Product_Prj.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Omar Waller, Andrew Jacobson
+    /// 
+    /// Description: Discoverable service class that implements IProduct.
+    /// </summary>
     public class ProductService : IProduct
     {
         // Getting the product from the business logic layer 
@@ -83,7 +90,6 @@ namespace Product_Prj.Service
 
             else
             {
-                // TODO: call business logic layer to update product
                 Product_BDO product_BDO = new Product_BDO();
 
                 TranslateProductDTOToProductBDO(product, product_BDO);

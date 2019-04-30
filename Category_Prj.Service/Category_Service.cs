@@ -9,7 +9,15 @@ using Warehouse_Prj.Logic;
 
 namespace Category_Prj.Service
 {
-    
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Omar Waller, Andrew Jacobson
+    /// 
+    /// Description: Discoverable service class that implements ICategory.
+    /// </summary>
+
     public class Category_Service : ICategory
     {
         Category_BDO category_BDO = new Category_BDO();        

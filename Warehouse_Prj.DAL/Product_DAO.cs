@@ -1,9 +1,4 @@
-﻿///
-/// Project: MSCS 6931 SOA Group Project
-/// Created: 4/19/2019
-/// Description: Data Access Object class for Products
-///
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +8,14 @@ using Warehouse_Prj.DAL.CRUD;
 
 namespace Warehouse_Prj.DAL
 {
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Andrew Jacobson
+    /// 
+    /// Description: Data Access Object class for Products
+    /// </summary>
     public class Product_DAO
     {
         //Given a Product_BDO object, add to Products table

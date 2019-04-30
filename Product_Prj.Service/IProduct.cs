@@ -8,7 +8,15 @@ using System.Text;
 
 namespace Product_Prj.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Eyad Aldawod, Omar Waller, Andrew Jacobson
+    /// 
+    /// Description: Interface for Product service. This file contains Operation Contract and Data Contract.
+    /// </summary>
+    
     [ServiceContract]
     public interface IProduct
     {

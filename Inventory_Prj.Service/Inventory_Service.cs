@@ -9,7 +9,15 @@ using Warehouse_Prj.Logic;
 
 namespace Inventory_Prj.Service
 {
-    
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Omar Waller
+    /// 
+    /// Description: Discoverable inventory service class that implements IInventory_Service.
+    /// </summary>
+
     public class Inventory_Service : IInventory_Service
     {
         Inventory_Logic inventory_Logic = new Inventory_Logic();

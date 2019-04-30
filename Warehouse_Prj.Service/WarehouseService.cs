@@ -4,20 +4,26 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-// Adding references of the logic layer to the service layer
 using Warehouse_Prj.Logic;
 using Warehouse_Prj.BDO;
 
 namespace Warehouse_Prj.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
+    /// <summary>
+    /// MSCS 6931 Topics in Math Sts, & Comp Sci
+    /// Service Oriented Architecture (SOA)
+    /// Spring 2019
+    /// Eyad Aldawod, Omar Waller, Andrew Jacobson
+    /// 
+    /// Description: Service class library for warehouse functions, implements IWarehouse.
+    /// </summary>
+
     public class WarehouseService : IWarehouse
     {
         Warehouse_Logic warehouse_Logic = new Warehouse_Logic();
 
         public Warehouse GetWarehouse(int id)
         {
-            // TODO: call business logic to retrieve warehouse
 
             var warehouse_BDO = warehouse_Logic.Get_Warehouse_By_ID(id);
             var warehouse = new Warehouse();
@@ -30,7 +36,6 @@ namespace Warehouse_Prj.Service
         }
         public Warehouse GetWarehouseByName(string warehouse_Name)
         {
-            // TODO: call business logic to retrieve warehouse
 
             var warehouse_BDO = warehouse_Logic.Get_Warehouse_By_Name(warehouse_Name);
             var warehouse = new Warehouse();
@@ -90,7 +95,6 @@ namespace Warehouse_Prj.Service
 
         public List<Warehouse> GetAllWarehouses()
         {
-            // TODO: call business logic to retrieve warehouse
 
             List<Warehouse_BDO> warehouse_BDOs = warehouse_Logic.Get_All_Warehouses();
             List<Warehouse> warehouse = new List<Warehouse>();
