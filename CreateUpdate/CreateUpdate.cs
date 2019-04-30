@@ -659,6 +659,42 @@ namespace CreateUpdate
                 btnsearchupc.Enabled = true;
             }
         }
+
+        private void newcategorynamebox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(newcategorynamebox.Text))
+            {
+                btnupdatecategoryname.Enabled = false;
+            }
+            else
+            {
+                btnupdatecategoryname.Enabled = true;
+            }
+        }
+
+        private void newdescriptionbox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(newdescriptionbox.Text))
+            {
+                btnupdatedescription.Enabled = false;
+            }
+            else
+            {
+                btnupdatedescription.Enabled = true;
+            }
+        }
+
+        private void categorynamebox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(categorynamebox.Text))
+            {
+                btncreatecategory.Enabled = false;
+            }
+            else
+            {
+                btncreatecategory.Enabled = true;
+            }
+        }
     }
 
 }

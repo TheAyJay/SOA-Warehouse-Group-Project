@@ -104,9 +104,10 @@
             // lblcreateproduct
             // 
             this.lblcreateproduct.AutoSize = true;
+            this.lblcreateproduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcreateproduct.Location = new System.Drawing.Point(131, 33);
             this.lblcreateproduct.Name = "lblcreateproduct";
-            this.lblcreateproduct.Size = new System.Drawing.Size(78, 13);
+            this.lblcreateproduct.Size = new System.Drawing.Size(92, 13);
             this.lblcreateproduct.TabIndex = 0;
             this.lblcreateproduct.Text = "Create Product";
             // 
@@ -155,9 +156,10 @@
             // lblupdateproduct
             // 
             this.lblupdateproduct.AutoSize = true;
-            this.lblupdateproduct.Location = new System.Drawing.Point(128, 246);
+            this.lblupdateproduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblupdateproduct.Location = new System.Drawing.Point(128, 280);
             this.lblupdateproduct.Name = "lblupdateproduct";
-            this.lblupdateproduct.Size = new System.Drawing.Size(82, 13);
+            this.lblupdateproduct.Size = new System.Drawing.Size(96, 13);
             this.lblupdateproduct.TabIndex = 6;
             this.lblupdateproduct.Text = "Update Product";
             // 
@@ -192,18 +194,18 @@
             // productdetail
             // 
             this.productdetail.BackColor = System.Drawing.SystemColors.Window;
-            this.productdetail.Location = new System.Drawing.Point(47, 195);
+            this.productdetail.Location = new System.Drawing.Point(47, 198);
             this.productdetail.Multiline = true;
             this.productdetail.Name = "productdetail";
             this.productdetail.ReadOnly = true;
             this.productdetail.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.productdetail.Size = new System.Drawing.Size(282, 45);
+            this.productdetail.Size = new System.Drawing.Size(282, 68);
             this.productdetail.TabIndex = 10;
             // 
             // lblnewupc
             // 
             this.lblnewupc.AutoSize = true;
-            this.lblnewupc.Location = new System.Drawing.Point(44, 266);
+            this.lblnewupc.Location = new System.Drawing.Point(44, 300);
             this.lblnewupc.Name = "lblnewupc";
             this.lblnewupc.Size = new System.Drawing.Size(54, 13);
             this.lblnewupc.TabIndex = 11;
@@ -212,7 +214,7 @@
             // lblnewname
             // 
             this.lblnewname.AutoSize = true;
-            this.lblnewname.Location = new System.Drawing.Point(44, 292);
+            this.lblnewname.Location = new System.Drawing.Point(44, 326);
             this.lblnewname.Name = "lblnewname";
             this.lblnewname.Size = new System.Drawing.Size(60, 13);
             this.lblnewname.TabIndex = 12;
@@ -220,21 +222,21 @@
             // 
             // newupcbox
             // 
-            this.newupcbox.Location = new System.Drawing.Point(119, 264);
+            this.newupcbox.Location = new System.Drawing.Point(119, 298);
             this.newupcbox.Name = "newupcbox";
             this.newupcbox.Size = new System.Drawing.Size(100, 20);
             this.newupcbox.TabIndex = 13;
             // 
             // newnamebox
             // 
-            this.newnamebox.Location = new System.Drawing.Point(119, 289);
+            this.newnamebox.Location = new System.Drawing.Point(119, 323);
             this.newnamebox.Name = "newnamebox";
             this.newnamebox.Size = new System.Drawing.Size(100, 20);
             this.newnamebox.TabIndex = 14;
             // 
             // btnupdateupc
             // 
-            this.btnupdateupc.Location = new System.Drawing.Point(225, 261);
+            this.btnupdateupc.Location = new System.Drawing.Point(225, 295);
             this.btnupdateupc.Name = "btnupdateupc";
             this.btnupdateupc.Size = new System.Drawing.Size(104, 23);
             this.btnupdateupc.TabIndex = 15;
@@ -244,7 +246,7 @@
             // 
             // btnupdatename
             // 
-            this.btnupdatename.Location = new System.Drawing.Point(225, 287);
+            this.btnupdatename.Location = new System.Drawing.Point(225, 321);
             this.btnupdatename.Name = "btnupdatename";
             this.btnupdatename.Size = new System.Drawing.Size(104, 23);
             this.btnupdatename.TabIndex = 16;
@@ -254,7 +256,7 @@
             // 
             // newcategorybox
             // 
-            this.newcategorybox.Location = new System.Drawing.Point(119, 313);
+            this.newcategorybox.Location = new System.Drawing.Point(119, 347);
             this.newcategorybox.Name = "newcategorybox";
             this.newcategorybox.Size = new System.Drawing.Size(100, 20);
             this.newcategorybox.TabIndex = 17;
@@ -278,7 +280,7 @@
             // lblnewcategory
             // 
             this.lblnewcategory.AutoSize = true;
-            this.lblnewcategory.Location = new System.Drawing.Point(44, 317);
+            this.lblnewcategory.Location = new System.Drawing.Point(44, 351);
             this.lblnewcategory.Name = "lblnewcategory";
             this.lblnewcategory.Size = new System.Drawing.Size(74, 13);
             this.lblnewcategory.TabIndex = 20;
@@ -286,7 +288,7 @@
             // 
             // btnupdatecategory
             // 
-            this.btnupdatecategory.Location = new System.Drawing.Point(225, 312);
+            this.btnupdatecategory.Location = new System.Drawing.Point(225, 346);
             this.btnupdatecategory.Name = "btnupdatecategory";
             this.btnupdatecategory.Size = new System.Drawing.Size(104, 23);
             this.btnupdatecategory.TabIndex = 21;
@@ -297,20 +299,21 @@
             // updateproductresult
             // 
             this.updateproductresult.BackColor = System.Drawing.SystemColors.Window;
-            this.updateproductresult.Location = new System.Drawing.Point(44, 339);
+            this.updateproductresult.Location = new System.Drawing.Point(44, 377);
             this.updateproductresult.Multiline = true;
             this.updateproductresult.Name = "updateproductresult";
             this.updateproductresult.ReadOnly = true;
             this.updateproductresult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.updateproductresult.Size = new System.Drawing.Size(285, 87);
+            this.updateproductresult.Size = new System.Drawing.Size(285, 63);
             this.updateproductresult.TabIndex = 22;
             // 
             // lblcreatecategory
             // 
             this.lblcreatecategory.AutoSize = true;
+            this.lblcreatecategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcreatecategory.Location = new System.Drawing.Point(525, 33);
             this.lblcreatecategory.Name = "lblcreatecategory";
-            this.lblcreatecategory.Size = new System.Drawing.Size(83, 13);
+            this.lblcreatecategory.Size = new System.Drawing.Size(98, 13);
             this.lblcreatecategory.TabIndex = 23;
             this.lblcreatecategory.Text = "Create Category";
             // 
@@ -334,6 +337,7 @@
             // 
             // btncreatecategory
             // 
+            this.btncreatecategory.Enabled = false;
             this.btncreatecategory.Location = new System.Drawing.Point(623, 56);
             this.btncreatecategory.Name = "btncreatecategory";
             this.btncreatecategory.Size = new System.Drawing.Size(102, 23);
@@ -348,6 +352,7 @@
             this.categorynamebox.Name = "categorynamebox";
             this.categorynamebox.Size = new System.Drawing.Size(146, 20);
             this.categorynamebox.TabIndex = 27;
+            this.categorynamebox.TextChanged += new System.EventHandler(this.categorynamebox_TextChanged);
             // 
             // categorydescriptionbox
             // 
@@ -366,22 +371,23 @@
             this.allcategoriesbox.Name = "allcategoriesbox";
             this.allcategoriesbox.ReadOnly = true;
             this.allcategoriesbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.allcategoriesbox.Size = new System.Drawing.Size(318, 49);
+            this.allcategoriesbox.Size = new System.Drawing.Size(318, 88);
             this.allcategoriesbox.TabIndex = 30;
             // 
             // lblupdatecategory
             // 
             this.lblupdatecategory.AutoSize = true;
-            this.lblupdatecategory.Location = new System.Drawing.Point(525, 218);
+            this.lblupdatecategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblupdatecategory.Location = new System.Drawing.Point(521, 244);
             this.lblupdatecategory.Name = "lblupdatecategory";
-            this.lblupdatecategory.Size = new System.Drawing.Size(87, 13);
+            this.lblupdatecategory.Size = new System.Drawing.Size(102, 13);
             this.lblupdatecategory.TabIndex = 31;
             this.lblupdatecategory.Text = "Update Category";
             // 
             // lblcategoryid
             // 
             this.lblcategoryid.AutoSize = true;
-            this.lblcategoryid.Location = new System.Drawing.Point(404, 253);
+            this.lblcategoryid.Location = new System.Drawing.Point(404, 267);
             this.lblcategoryid.Name = "lblcategoryid";
             this.lblcategoryid.Size = new System.Drawing.Size(60, 13);
             this.lblcategoryid.TabIndex = 32;
@@ -390,7 +396,7 @@
             // lblnewcategoryname
             // 
             this.lblnewcategoryname.AutoSize = true;
-            this.lblnewcategoryname.Location = new System.Drawing.Point(404, 279);
+            this.lblnewcategoryname.Location = new System.Drawing.Point(404, 293);
             this.lblnewcategoryname.Name = "lblnewcategoryname";
             this.lblnewcategoryname.Size = new System.Drawing.Size(105, 13);
             this.lblnewcategoryname.TabIndex = 33;
@@ -399,7 +405,7 @@
             // lblnewcategorydescription
             // 
             this.lblnewcategorydescription.AutoSize = true;
-            this.lblnewcategorydescription.Location = new System.Drawing.Point(404, 305);
+            this.lblnewcategorydescription.Location = new System.Drawing.Point(404, 319);
             this.lblnewcategorydescription.Name = "lblnewcategorydescription";
             this.lblnewcategorydescription.Size = new System.Drawing.Size(85, 13);
             this.lblnewcategorydescription.TabIndex = 34;
@@ -407,30 +413,33 @@
             // 
             // categoryidbox
             // 
-            this.categoryidbox.Location = new System.Drawing.Point(517, 250);
+            this.categoryidbox.Location = new System.Drawing.Point(517, 264);
             this.categoryidbox.Name = "categoryidbox";
             this.categoryidbox.Size = new System.Drawing.Size(91, 20);
             this.categoryidbox.TabIndex = 35;
             // 
             // newcategorynamebox
             // 
-            this.newcategorynamebox.Location = new System.Drawing.Point(517, 276);
+            this.newcategorynamebox.Location = new System.Drawing.Point(517, 290);
             this.newcategorynamebox.Name = "newcategorynamebox";
             this.newcategorynamebox.Size = new System.Drawing.Size(111, 20);
             this.newcategorynamebox.TabIndex = 36;
+            this.newcategorynamebox.TextChanged += new System.EventHandler(this.newcategorynamebox_TextChanged);
             // 
             // newdescriptionbox
             // 
-            this.newdescriptionbox.Location = new System.Drawing.Point(517, 305);
+            this.newdescriptionbox.Location = new System.Drawing.Point(517, 319);
             this.newdescriptionbox.Multiline = true;
             this.newdescriptionbox.Name = "newdescriptionbox";
             this.newdescriptionbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.newdescriptionbox.Size = new System.Drawing.Size(134, 52);
             this.newdescriptionbox.TabIndex = 37;
+            this.newdescriptionbox.TextChanged += new System.EventHandler(this.newdescriptionbox_TextChanged);
             // 
             // btnupdatecategoryname
             // 
-            this.btnupdatecategoryname.Location = new System.Drawing.Point(634, 274);
+            this.btnupdatecategoryname.Enabled = false;
+            this.btnupdatecategoryname.Location = new System.Drawing.Point(634, 288);
             this.btnupdatecategoryname.Name = "btnupdatecategoryname";
             this.btnupdatecategoryname.Size = new System.Drawing.Size(91, 23);
             this.btnupdatecategoryname.TabIndex = 38;
@@ -440,7 +449,8 @@
             // 
             // btnupdatedescription
             // 
-            this.btnupdatedescription.Location = new System.Drawing.Point(657, 305);
+            this.btnupdatedescription.Enabled = false;
+            this.btnupdatedescription.Location = new System.Drawing.Point(657, 319);
             this.btnupdatedescription.Name = "btnupdatedescription";
             this.btnupdatedescription.Size = new System.Drawing.Size(68, 52);
             this.btnupdatedescription.TabIndex = 39;
@@ -451,7 +461,7 @@
             // updatecategoryresult
             // 
             this.updatecategoryresult.BackColor = System.Drawing.SystemColors.Window;
-            this.updatecategoryresult.Location = new System.Drawing.Point(407, 363);
+            this.updatecategoryresult.Location = new System.Drawing.Point(407, 377);
             this.updatecategoryresult.Multiline = true;
             this.updatecategoryresult.Name = "updatecategoryresult";
             this.updatecategoryresult.ReadOnly = true;
@@ -472,16 +482,17 @@
             // lblcreatewh
             // 
             this.lblcreatewh.AutoSize = true;
+            this.lblcreatewh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcreatewh.Location = new System.Drawing.Point(906, 33);
             this.lblcreatewh.Name = "lblcreatewh";
-            this.lblcreatewh.Size = new System.Drawing.Size(96, 13);
+            this.lblcreatewh.Size = new System.Drawing.Size(112, 13);
             this.lblcreatewh.TabIndex = 42;
             this.lblcreatewh.Text = "Create Warehouse";
             // 
             // lblstreet
             // 
             this.lblstreet.AutoSize = true;
-            this.lblstreet.Location = new System.Drawing.Point(803, 82);
+            this.lblstreet.Location = new System.Drawing.Point(805, 80);
             this.lblstreet.Name = "lblstreet";
             this.lblstreet.Size = new System.Drawing.Size(35, 13);
             this.lblstreet.TabIndex = 43;
@@ -490,7 +501,7 @@
             // lblcity
             // 
             this.lblcity.AutoSize = true;
-            this.lblcity.Location = new System.Drawing.Point(804, 102);
+            this.lblcity.Location = new System.Drawing.Point(805, 102);
             this.lblcity.Name = "lblcity";
             this.lblcity.Size = new System.Drawing.Size(24, 13);
             this.lblcity.TabIndex = 44;
@@ -499,7 +510,7 @@
             // lblstate
             // 
             this.lblstate.AutoSize = true;
-            this.lblstate.Location = new System.Drawing.Point(804, 123);
+            this.lblstate.Location = new System.Drawing.Point(805, 123);
             this.lblstate.Name = "lblstate";
             this.lblstate.Size = new System.Drawing.Size(32, 13);
             this.lblstate.TabIndex = 46;
@@ -516,7 +527,7 @@
             // 
             // streetbox
             // 
-            this.streetbox.Location = new System.Drawing.Point(897, 78);
+            this.streetbox.Location = new System.Drawing.Point(897, 77);
             this.streetbox.Name = "streetbox";
             this.streetbox.Size = new System.Drawing.Size(199, 20);
             this.streetbox.TabIndex = 48;
@@ -555,16 +566,17 @@
             // lblupdatewh
             // 
             this.lblupdatewh.AutoSize = true;
-            this.lblupdatewh.Location = new System.Drawing.Point(930, 250);
+            this.lblupdatewh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblupdatewh.Location = new System.Drawing.Point(907, 264);
             this.lblupdatewh.Name = "lblupdatewh";
-            this.lblupdatewh.Size = new System.Drawing.Size(100, 13);
+            this.lblupdatewh.Size = new System.Drawing.Size(116, 13);
             this.lblupdatewh.TabIndex = 53;
             this.lblupdatewh.Text = "Update Warehouse";
             // 
             // lblwhid
             // 
             this.lblwhid.AutoSize = true;
-            this.lblwhid.Location = new System.Drawing.Point(807, 271);
+            this.lblwhid.Location = new System.Drawing.Point(805, 285);
             this.lblwhid.Name = "lblwhid";
             this.lblwhid.Size = new System.Drawing.Size(73, 13);
             this.lblwhid.TabIndex = 54;
@@ -572,7 +584,7 @@
             // 
             // whidbox
             // 
-            this.whidbox.Location = new System.Drawing.Point(909, 268);
+            this.whidbox.Location = new System.Drawing.Point(907, 282);
             this.whidbox.Name = "whidbox";
             this.whidbox.Size = new System.Drawing.Size(100, 20);
             this.whidbox.TabIndex = 55;
@@ -580,7 +592,7 @@
             // lblnewstreet
             // 
             this.lblnewstreet.AutoSize = true;
-            this.lblnewstreet.Location = new System.Drawing.Point(808, 295);
+            this.lblnewstreet.Location = new System.Drawing.Point(806, 309);
             this.lblnewstreet.Name = "lblnewstreet";
             this.lblnewstreet.Size = new System.Drawing.Size(60, 13);
             this.lblnewstreet.TabIndex = 56;
@@ -589,7 +601,7 @@
             // lblnewcity
             // 
             this.lblnewcity.AutoSize = true;
-            this.lblnewcity.Location = new System.Drawing.Point(808, 316);
+            this.lblnewcity.Location = new System.Drawing.Point(806, 330);
             this.lblnewcity.Name = "lblnewcity";
             this.lblnewcity.Size = new System.Drawing.Size(46, 13);
             this.lblnewcity.TabIndex = 57;
@@ -598,7 +610,7 @@
             // lblnewstate
             // 
             this.lblnewstate.AutoSize = true;
-            this.lblnewstate.Location = new System.Drawing.Point(808, 339);
+            this.lblnewstate.Location = new System.Drawing.Point(806, 353);
             this.lblnewstate.Name = "lblnewstate";
             this.lblnewstate.Size = new System.Drawing.Size(57, 13);
             this.lblnewstate.TabIndex = 58;
@@ -606,7 +618,7 @@
             // 
             // btncheckallwh
             // 
-            this.btncheckallwh.Location = new System.Drawing.Point(897, 166);
+            this.btncheckallwh.Location = new System.Drawing.Point(897, 170);
             this.btncheckallwh.Name = "btncheckallwh";
             this.btncheckallwh.Size = new System.Drawing.Size(133, 23);
             this.btncheckallwh.TabIndex = 59;
@@ -622,13 +634,13 @@
             this.allwhbox.Name = "allwhbox";
             this.allwhbox.ReadOnly = true;
             this.allwhbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.allwhbox.Size = new System.Drawing.Size(279, 45);
+            this.allwhbox.Size = new System.Drawing.Size(279, 55);
             this.allwhbox.TabIndex = 60;
             // 
             // lblnewzipcode
             // 
             this.lblnewzipcode.AutoSize = true;
-            this.lblnewzipcode.Location = new System.Drawing.Point(808, 363);
+            this.lblnewzipcode.Location = new System.Drawing.Point(806, 377);
             this.lblnewzipcode.Name = "lblnewzipcode";
             this.lblnewzipcode.Size = new System.Drawing.Size(71, 13);
             this.lblnewzipcode.TabIndex = 61;
@@ -636,35 +648,35 @@
             // 
             // newstreetbox
             // 
-            this.newstreetbox.Location = new System.Drawing.Point(909, 290);
+            this.newstreetbox.Location = new System.Drawing.Point(907, 304);
             this.newstreetbox.Name = "newstreetbox";
             this.newstreetbox.Size = new System.Drawing.Size(187, 20);
             this.newstreetbox.TabIndex = 62;
             // 
             // newcitybox
             // 
-            this.newcitybox.Location = new System.Drawing.Point(909, 312);
+            this.newcitybox.Location = new System.Drawing.Point(907, 326);
             this.newcitybox.Name = "newcitybox";
             this.newcitybox.Size = new System.Drawing.Size(187, 20);
             this.newcitybox.TabIndex = 63;
             // 
             // newstatebox
             // 
-            this.newstatebox.Location = new System.Drawing.Point(909, 335);
+            this.newstatebox.Location = new System.Drawing.Point(907, 349);
             this.newstatebox.Name = "newstatebox";
             this.newstatebox.Size = new System.Drawing.Size(100, 20);
             this.newstatebox.TabIndex = 64;
             // 
             // newzipcodebox
             // 
-            this.newzipcodebox.Location = new System.Drawing.Point(909, 357);
+            this.newzipcodebox.Location = new System.Drawing.Point(907, 371);
             this.newzipcodebox.Name = "newzipcodebox";
             this.newzipcodebox.Size = new System.Drawing.Size(100, 20);
             this.newzipcodebox.TabIndex = 65;
             // 
             // btnupdatawh
             // 
-            this.btnupdatawh.Location = new System.Drawing.Point(1019, 335);
+            this.btnupdatawh.Location = new System.Drawing.Point(1017, 349);
             this.btnupdatawh.Name = "btnupdatawh";
             this.btnupdatawh.Size = new System.Drawing.Size(75, 42);
             this.btnupdatawh.TabIndex = 66;
@@ -675,7 +687,7 @@
             // updatewhresult
             // 
             this.updatewhresult.BackColor = System.Drawing.SystemColors.Window;
-            this.updatewhresult.Location = new System.Drawing.Point(810, 384);
+            this.updatewhresult.Location = new System.Drawing.Point(808, 398);
             this.updatewhresult.Multiline = true;
             this.updatewhresult.Name = "updatewhresult";
             this.updatewhresult.ReadOnly = true;
@@ -686,7 +698,7 @@
             // lblwarehousename
             // 
             this.lblwarehousename.AutoSize = true;
-            this.lblwarehousename.Location = new System.Drawing.Point(804, 61);
+            this.lblwarehousename.Location = new System.Drawing.Point(805, 57);
             this.lblwarehousename.Name = "lblwarehousename";
             this.lblwarehousename.Size = new System.Drawing.Size(93, 13);
             this.lblwarehousename.TabIndex = 68;
@@ -702,9 +714,10 @@
             // lblsearchproduct
             // 
             this.lblsearchproduct.AutoSize = true;
+            this.lblsearchproduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsearchproduct.Location = new System.Drawing.Point(129, 156);
             this.lblsearchproduct.Name = "lblsearchproduct";
-            this.lblsearchproduct.Size = new System.Drawing.Size(81, 13);
+            this.lblsearchproduct.Size = new System.Drawing.Size(95, 13);
             this.lblsearchproduct.TabIndex = 70;
             this.lblsearchproduct.Text = "Search Product";
             // 
@@ -728,7 +741,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 450);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1148, 478);
             this.Controls.Add(this.productpricebox);
             this.Controls.Add(this.lblproductprice);
             this.Controls.Add(this.lblsearchproduct);
@@ -801,7 +815,7 @@
             this.Controls.Add(this.lblupc);
             this.Controls.Add(this.lblcreateproduct);
             this.Name = "CreateUpdate";
-            this.Text = "CreateUpdate";
+            this.Text = "Create and Update Products, Categories, and Warehouses";
             this.ResumeLayout(false);
             this.PerformLayout();
 
