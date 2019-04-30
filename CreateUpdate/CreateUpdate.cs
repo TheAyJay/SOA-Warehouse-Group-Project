@@ -446,22 +446,38 @@ namespace CreateUpdate
 
         private void disable_Update_Buttons()
         {
+            //Disable buttons
             newupcbox.Enabled = false;
             newnamebox.Enabled = false;
             newcategorybox.Enabled = false;
             btnupdateupc.Enabled = false;
             btnupdatename.Enabled = false;
             btnupdatecategory.Enabled = false;
+            updateproductresult.Enabled = false;
+
+            //Clear inputs
+            updateproductresult.Clear();
+            newupcbox.Clear();
+            newnamebox.Clear();
+            newcategorybox.Clear();
         }
 
         private void enable_Update_Buttons()
         {
+            //Enable buttons
             newupcbox.Enabled = true;
             newnamebox.Enabled = true;
             newcategorybox.Enabled = true;
             btnupdateupc.Enabled = true;
             btnupdatename.Enabled = true;
             btnupdatecategory.Enabled = true;
+            updateproductresult.Enabled = true;
+
+            //Clear inputs
+            updateproductresult.Clear();
+            newupcbox.Clear();
+            newnamebox.Clear();
+            newcategorybox.Clear();
         }
 
         private void btncheckallcategories_Click(object sender, EventArgs e)
@@ -630,6 +646,18 @@ namespace CreateUpdate
                 }
             }
             updatecategoryresult.Text = result;
+        }
+
+        private void searchupcbox_TextChanged(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(searchupcbox.Text))
+            {
+                btnsearchupc.Enabled = false;
+            }
+            else
+            {
+                btnsearchupc.Enabled = true;
+            }
         }
     }
 

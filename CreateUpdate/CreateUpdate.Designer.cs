@@ -104,7 +104,7 @@
             // lblcreateproduct
             // 
             this.lblcreateproduct.AutoSize = true;
-            this.lblcreateproduct.Location = new System.Drawing.Point(147, 33);
+            this.lblcreateproduct.Location = new System.Drawing.Point(131, 33);
             this.lblcreateproduct.Name = "lblcreateproduct";
             this.lblcreateproduct.Size = new System.Drawing.Size(78, 13);
             this.lblcreateproduct.TabIndex = 0;
@@ -155,7 +155,7 @@
             // lblupdateproduct
             // 
             this.lblupdateproduct.AutoSize = true;
-            this.lblupdateproduct.Location = new System.Drawing.Point(137, 245);
+            this.lblupdateproduct.Location = new System.Drawing.Point(128, 246);
             this.lblupdateproduct.Name = "lblupdateproduct";
             this.lblupdateproduct.Size = new System.Drawing.Size(82, 13);
             this.lblupdateproduct.TabIndex = 6;
@@ -176,9 +176,11 @@
             this.searchupcbox.Name = "searchupcbox";
             this.searchupcbox.Size = new System.Drawing.Size(100, 20);
             this.searchupcbox.TabIndex = 8;
+            this.searchupcbox.TextChanged += new System.EventHandler(this.searchupcbox_TextChanged);
             // 
             // btnsearchupc
             // 
+            this.btnsearchupc.Enabled = false;
             this.btnsearchupc.Location = new System.Drawing.Point(242, 169);
             this.btnsearchupc.Name = "btnsearchupc";
             this.btnsearchupc.Size = new System.Drawing.Size(87, 23);
@@ -189,9 +191,11 @@
             // 
             // productdetail
             // 
+            this.productdetail.BackColor = System.Drawing.SystemColors.Window;
             this.productdetail.Location = new System.Drawing.Point(47, 195);
             this.productdetail.Multiline = true;
             this.productdetail.Name = "productdetail";
+            this.productdetail.ReadOnly = true;
             this.productdetail.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.productdetail.Size = new System.Drawing.Size(282, 45);
             this.productdetail.TabIndex = 10;
@@ -292,9 +296,11 @@
             // 
             // updateproductresult
             // 
+            this.updateproductresult.BackColor = System.Drawing.SystemColors.Window;
             this.updateproductresult.Location = new System.Drawing.Point(44, 339);
             this.updateproductresult.Multiline = true;
             this.updateproductresult.Name = "updateproductresult";
+            this.updateproductresult.ReadOnly = true;
             this.updateproductresult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.updateproductresult.Size = new System.Drawing.Size(285, 87);
             this.updateproductresult.TabIndex = 22;
@@ -354,9 +360,11 @@
             // allcategoriesbox
             // 
             this.allcategoriesbox.AcceptsReturn = true;
+            this.allcategoriesbox.BackColor = System.Drawing.SystemColors.Window;
             this.allcategoriesbox.Location = new System.Drawing.Point(407, 150);
             this.allcategoriesbox.Multiline = true;
             this.allcategoriesbox.Name = "allcategoriesbox";
+            this.allcategoriesbox.ReadOnly = true;
             this.allcategoriesbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.allcategoriesbox.Size = new System.Drawing.Size(318, 49);
             this.allcategoriesbox.TabIndex = 30;
@@ -442,9 +450,11 @@
             // 
             // updatecategoryresult
             // 
+            this.updatecategoryresult.BackColor = System.Drawing.SystemColors.Window;
             this.updatecategoryresult.Location = new System.Drawing.Point(407, 363);
             this.updatecategoryresult.Multiline = true;
             this.updatecategoryresult.Name = "updatecategoryresult";
+            this.updatecategoryresult.ReadOnly = true;
             this.updatecategoryresult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.updatecategoryresult.Size = new System.Drawing.Size(318, 63);
             this.updatecategoryresult.TabIndex = 40;
@@ -606,9 +616,11 @@
             // 
             // allwhbox
             // 
+            this.allwhbox.BackColor = System.Drawing.SystemColors.Window;
             this.allwhbox.Location = new System.Drawing.Point(817, 202);
             this.allwhbox.Multiline = true;
             this.allwhbox.Name = "allwhbox";
+            this.allwhbox.ReadOnly = true;
             this.allwhbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.allwhbox.Size = new System.Drawing.Size(279, 45);
             this.allwhbox.TabIndex = 60;
@@ -662,9 +674,11 @@
             // 
             // updatewhresult
             // 
+            this.updatewhresult.BackColor = System.Drawing.SystemColors.Window;
             this.updatewhresult.Location = new System.Drawing.Point(810, 384);
             this.updatewhresult.Multiline = true;
             this.updatewhresult.Name = "updatewhresult";
+            this.updatewhresult.ReadOnly = true;
             this.updatewhresult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.updatewhresult.Size = new System.Drawing.Size(284, 42);
             this.updatewhresult.TabIndex = 67;
@@ -688,11 +702,11 @@
             // lblsearchproduct
             // 
             this.lblsearchproduct.AutoSize = true;
-            this.lblsearchproduct.Location = new System.Drawing.Point(140, 156);
+            this.lblsearchproduct.Location = new System.Drawing.Point(129, 156);
             this.lblsearchproduct.Name = "lblsearchproduct";
-            this.lblsearchproduct.Size = new System.Drawing.Size(80, 13);
+            this.lblsearchproduct.Size = new System.Drawing.Size(81, 13);
             this.lblsearchproduct.TabIndex = 70;
-            this.lblsearchproduct.Text = "Search product";
+            this.lblsearchproduct.Text = "Search Product";
             // 
             // lblproductprice
             // 
