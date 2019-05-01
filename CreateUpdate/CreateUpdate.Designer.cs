@@ -193,7 +193,7 @@
             // 
             // productdetail
             // 
-            this.productdetail.BackColor = System.Drawing.SystemColors.Window;
+            this.productdetail.BackColor = System.Drawing.SystemColors.Control;
             this.productdetail.Location = new System.Drawing.Point(47, 198);
             this.productdetail.Multiline = true;
             this.productdetail.Name = "productdetail";
@@ -298,7 +298,7 @@
             // 
             // updateproductresult
             // 
-            this.updateproductresult.BackColor = System.Drawing.SystemColors.Window;
+            this.updateproductresult.BackColor = System.Drawing.SystemColors.Control;
             this.updateproductresult.Location = new System.Drawing.Point(44, 377);
             this.updateproductresult.Multiline = true;
             this.updateproductresult.Name = "updateproductresult";
@@ -365,7 +365,7 @@
             // allcategoriesbox
             // 
             this.allcategoriesbox.AcceptsReturn = true;
-            this.allcategoriesbox.BackColor = System.Drawing.SystemColors.Window;
+            this.allcategoriesbox.BackColor = System.Drawing.SystemColors.Control;
             this.allcategoriesbox.Location = new System.Drawing.Point(407, 150);
             this.allcategoriesbox.Multiline = true;
             this.allcategoriesbox.Name = "allcategoriesbox";
@@ -460,7 +460,7 @@
             // 
             // updatecategoryresult
             // 
-            this.updatecategoryresult.BackColor = System.Drawing.SystemColors.Window;
+            this.updatecategoryresult.BackColor = System.Drawing.SystemColors.Control;
             this.updatecategoryresult.Location = new System.Drawing.Point(407, 377);
             this.updatecategoryresult.Multiline = true;
             this.updatecategoryresult.Name = "updatecategoryresult";
@@ -628,7 +628,7 @@
             // 
             // allwhbox
             // 
-            this.allwhbox.BackColor = System.Drawing.SystemColors.Window;
+            this.allwhbox.BackColor = System.Drawing.SystemColors.Control;
             this.allwhbox.Location = new System.Drawing.Point(817, 202);
             this.allwhbox.Multiline = true;
             this.allwhbox.Name = "allwhbox";
@@ -686,7 +686,7 @@
             // 
             // updatewhresult
             // 
-            this.updatewhresult.BackColor = System.Drawing.SystemColors.Window;
+            this.updatewhresult.BackColor = System.Drawing.SystemColors.Control;
             this.updatewhresult.Location = new System.Drawing.Point(808, 398);
             this.updatewhresult.Multiline = true;
             this.updatewhresult.Name = "updatewhresult";

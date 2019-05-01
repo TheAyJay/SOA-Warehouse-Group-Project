@@ -40,7 +40,7 @@
             this.productlocationresult = new System.Windows.Forms.TextBox();
             this.lblwhchecker = new System.Windows.Forms.Label();
             this.lblwhname = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.checkerwhbox = new System.Windows.Forms.TextBox();
             this.btncheckwh = new System.Windows.Forms.Button();
             this.whinventoryresult = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -48,16 +48,17 @@
             // lblproductchecker
             // 
             this.lblproductchecker.AutoSize = true;
-            this.lblproductchecker.Location = new System.Drawing.Point(132, 22);
+            this.lblproductchecker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblproductchecker.Location = new System.Drawing.Point(124, 22);
             this.lblproductchecker.Name = "lblproductchecker";
-            this.lblproductchecker.Size = new System.Drawing.Size(87, 13);
+            this.lblproductchecker.Size = new System.Drawing.Size(102, 13);
             this.lblproductchecker.TabIndex = 0;
             this.lblproductchecker.Text = "Product Checker";
             // 
             // lblcheckerupc
             // 
             this.lblcheckerupc.AutoSize = true;
-            this.lblcheckerupc.Location = new System.Drawing.Point(53, 57);
+            this.lblcheckerupc.Location = new System.Drawing.Point(57, 57);
             this.lblcheckerupc.Name = "lblcheckerupc";
             this.lblcheckerupc.Size = new System.Drawing.Size(29, 13);
             this.lblcheckerupc.TabIndex = 1;
@@ -65,25 +66,29 @@
             // 
             // checkerupcbox
             // 
-            this.checkerupcbox.Location = new System.Drawing.Point(102, 54);
+            this.checkerupcbox.Location = new System.Drawing.Point(101, 54);
             this.checkerupcbox.Name = "checkerupcbox";
             this.checkerupcbox.Size = new System.Drawing.Size(133, 20);
             this.checkerupcbox.TabIndex = 2;
+            this.checkerupcbox.TextChanged += new System.EventHandler(this.checkerupcbox_TextChanged);
             // 
             // btncheckproduct
             // 
-            this.btncheckproduct.Location = new System.Drawing.Point(120, 92);
+            this.btncheckproduct.Enabled = false;
+            this.btncheckproduct.Location = new System.Drawing.Point(101, 92);
             this.btncheckproduct.Name = "btncheckproduct";
-            this.btncheckproduct.Size = new System.Drawing.Size(99, 23);
+            this.btncheckproduct.Size = new System.Drawing.Size(133, 23);
             this.btncheckproduct.TabIndex = 3;
             this.btncheckproduct.Text = "Check Product";
             this.btncheckproduct.UseVisualStyleBackColor = true;
             // 
             // productlocationresult
             // 
+            this.productlocationresult.BackColor = System.Drawing.SystemColors.Window;
             this.productlocationresult.Location = new System.Drawing.Point(45, 135);
             this.productlocationresult.Multiline = true;
             this.productlocationresult.Name = "productlocationresult";
+            this.productlocationresult.ReadOnly = true;
             this.productlocationresult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.productlocationresult.Size = new System.Drawing.Size(249, 216);
             this.productlocationresult.TabIndex = 4;
@@ -91,54 +96,59 @@
             // lblwhchecker
             // 
             this.lblwhchecker.AutoSize = true;
-            this.lblwhchecker.Location = new System.Drawing.Point(439, 22);
+            this.lblwhchecker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblwhchecker.Location = new System.Drawing.Point(437, 22);
             this.lblwhchecker.Name = "lblwhchecker";
-            this.lblwhchecker.Size = new System.Drawing.Size(105, 13);
+            this.lblwhchecker.Size = new System.Drawing.Size(122, 13);
             this.lblwhchecker.TabIndex = 5;
             this.lblwhchecker.Text = "Warehouse Checker";
             // 
             // lblwhname
             // 
             this.lblwhname.AutoSize = true;
-            this.lblwhname.Location = new System.Drawing.Point(391, 60);
+            this.lblwhname.Location = new System.Drawing.Point(331, 57);
             this.lblwhname.Name = "lblwhname";
             this.lblwhname.Size = new System.Drawing.Size(93, 13);
             this.lblwhname.TabIndex = 6;
             this.lblwhname.Text = "Warehouse Name";
             // 
-            // textBox3
+            // checkerwhbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(490, 57);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(123, 20);
-            this.textBox3.TabIndex = 7;
+            this.checkerwhbox.Location = new System.Drawing.Point(430, 54);
+            this.checkerwhbox.Name = "checkerwhbox";
+            this.checkerwhbox.Size = new System.Drawing.Size(123, 20);
+            this.checkerwhbox.TabIndex = 7;
+            this.checkerwhbox.TextChanged += new System.EventHandler(this.checkerwhbox_TextChanged);
             // 
             // btncheckwh
             // 
-            this.btncheckwh.Location = new System.Drawing.Point(442, 92);
+            this.btncheckwh.Enabled = false;
+            this.btncheckwh.Location = new System.Drawing.Point(430, 92);
             this.btncheckwh.Name = "btncheckwh";
-            this.btncheckwh.Size = new System.Drawing.Size(121, 23);
+            this.btncheckwh.Size = new System.Drawing.Size(123, 23);
             this.btncheckwh.TabIndex = 8;
             this.btncheckwh.Text = "Check Warehouse";
             this.btncheckwh.UseVisualStyleBackColor = true;
             // 
             // whinventoryresult
             // 
+            this.whinventoryresult.BackColor = System.Drawing.SystemColors.Window;
             this.whinventoryresult.Location = new System.Drawing.Point(355, 135);
             this.whinventoryresult.Multiline = true;
             this.whinventoryresult.Name = "whinventoryresult";
+            this.whinventoryresult.ReadOnly = true;
             this.whinventoryresult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.whinventoryresult.Size = new System.Drawing.Size(276, 216);
             this.whinventoryresult.TabIndex = 9;
             // 
-            // Form1
+            // Checker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 378);
             this.Controls.Add(this.whinventoryresult);
             this.Controls.Add(this.btncheckwh);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.checkerwhbox);
             this.Controls.Add(this.lblwhname);
             this.Controls.Add(this.lblwhchecker);
             this.Controls.Add(this.productlocationresult);
@@ -162,7 +172,7 @@
         private System.Windows.Forms.TextBox productlocationresult;
         private System.Windows.Forms.Label lblwhchecker;
         private System.Windows.Forms.Label lblwhname;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox checkerwhbox;
         private System.Windows.Forms.Button btncheckwh;
         private System.Windows.Forms.TextBox whinventoryresult;
     }

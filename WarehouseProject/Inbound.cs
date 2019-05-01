@@ -83,7 +83,7 @@ namespace Inbound
             }
             else if (string.IsNullOrEmpty(qtybox.Text))
             {
-                result = "Enter a Quentity!";
+                result = "Enter a Quantity!";
             }
             else
             {
@@ -105,7 +105,7 @@ namespace Inbound
                     sb.Append("New Inventory is created successfully" + "\r\n");
                     sb.Append("Product Name: " + upc_product.ProductName + "\r\n");
                     sb.Append("Warehouse Name: " + warehousebyname.WarehouseID + "\r\n");
-                    sb.Append("Quentity: " + inventory.Product_Quantity + "\r\n");
+                    sb.Append("Quantity: " + inventory.Product_Quantity + "\r\n");
 
                     result = sb.ToString();
 
@@ -142,7 +142,7 @@ namespace Inbound
                     var whinventory = client.Get_Inventories_By_Warehouse_Name(whname, ref message);
                     //show result
                     var sb = new StringBuilder();
-                    sb.Append("*** List of all Inbound of Warehouse" + whname + "***");
+                    sb.Append("*** List of all Inbound for warehouse " + whname + "***");
                     sb.Append("\r\n");
 
                     foreach (var Inventory in whinventory)
@@ -153,7 +153,7 @@ namespace Inbound
                         //show the result
                         sb.Append("Product Name: " + inventory_product.ProductName + "\r\n");
                         sb.Append("UPC: " + inventory_product.UPC + "\r\n");
-                        sb.Append("Quentity: " + Inventory.Product_Quantity + "\r\n");
+                        sb.Append("Quantity: " + Inventory.Product_Quantity + "\r\n");
                         sb.Append("\r\n");
                     }
 
@@ -168,6 +168,18 @@ namespace Inbound
 
             inboundhistory.Text = result;
 
+        }
+
+        private void upcbox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(upcbox.Text))
+            {
+                btngetproduct.Enabled = false;
+            }
+            else
+            {
+                btngetproduct.Enabled = true;
+            }
         }
     }
 }

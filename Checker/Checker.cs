@@ -16,5 +16,29 @@ namespace Checker
         {
             InitializeComponent();
         }
+
+        private void checkerupcbox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(checkerupcbox.Text))
+            {
+                btncheckproduct.Enabled = false;
+            }
+            else
+            {
+                btncheckproduct.Enabled = true;
+            }
+        }
+
+        private void checkerwhbox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(checkerwhbox.Text))
+            {
+                btncheckwh.Enabled = false;
+            }
+            else
+            {
+                btncheckwh.Enabled = true;
+            }
+        }
     }
 }
