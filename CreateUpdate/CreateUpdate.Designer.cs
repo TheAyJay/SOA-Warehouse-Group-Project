@@ -157,7 +157,7 @@
             // 
             this.lblupdateproduct.AutoSize = true;
             this.lblupdateproduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblupdateproduct.Location = new System.Drawing.Point(128, 280);
+            this.lblupdateproduct.Location = new System.Drawing.Point(128, 279);
             this.lblupdateproduct.Name = "lblupdateproduct";
             this.lblupdateproduct.Size = new System.Drawing.Size(96, 13);
             this.lblupdateproduct.TabIndex = 6;
@@ -236,7 +236,7 @@
             // 
             // btnupdateupc
             // 
-            this.btnupdateupc.Location = new System.Drawing.Point(225, 295);
+            this.btnupdateupc.Location = new System.Drawing.Point(225, 296);
             this.btnupdateupc.Name = "btnupdateupc";
             this.btnupdateupc.Size = new System.Drawing.Size(104, 23);
             this.btnupdateupc.TabIndex = 15;
@@ -338,7 +338,7 @@
             // btncreatecategory
             // 
             this.btncreatecategory.Enabled = false;
-            this.btncreatecategory.Location = new System.Drawing.Point(623, 56);
+            this.btncreatecategory.Location = new System.Drawing.Point(623, 57);
             this.btncreatecategory.Name = "btncreatecategory";
             this.btncreatecategory.Size = new System.Drawing.Size(102, 23);
             this.btncreatecategory.TabIndex = 26;
@@ -439,7 +439,7 @@
             // btnupdatecategoryname
             // 
             this.btnupdatecategoryname.Enabled = false;
-            this.btnupdatecategoryname.Location = new System.Drawing.Point(634, 288);
+            this.btnupdatecategoryname.Location = new System.Drawing.Point(634, 289);
             this.btnupdatecategoryname.Name = "btnupdatecategoryname";
             this.btnupdatecategoryname.Size = new System.Drawing.Size(91, 23);
             this.btnupdatecategoryname.TabIndex = 38;
@@ -492,7 +492,7 @@
             // lblstreet
             // 
             this.lblstreet.AutoSize = true;
-            this.lblstreet.Location = new System.Drawing.Point(805, 80);
+            this.lblstreet.Location = new System.Drawing.Point(806, 80);
             this.lblstreet.Name = "lblstreet";
             this.lblstreet.Size = new System.Drawing.Size(35, 13);
             this.lblstreet.TabIndex = 43;
@@ -501,7 +501,7 @@
             // lblcity
             // 
             this.lblcity.AutoSize = true;
-            this.lblcity.Location = new System.Drawing.Point(805, 102);
+            this.lblcity.Location = new System.Drawing.Point(806, 103);
             this.lblcity.Name = "lblcity";
             this.lblcity.Size = new System.Drawing.Size(24, 13);
             this.lblcity.TabIndex = 44;
@@ -510,7 +510,7 @@
             // lblstate
             // 
             this.lblstate.AutoSize = true;
-            this.lblstate.Location = new System.Drawing.Point(805, 123);
+            this.lblstate.Location = new System.Drawing.Point(806, 127);
             this.lblstate.Name = "lblstate";
             this.lblstate.Size = new System.Drawing.Size(32, 13);
             this.lblstate.TabIndex = 46;
@@ -519,7 +519,7 @@
             // lblzipcode
             // 
             this.lblzipcode.AutoSize = true;
-            this.lblzipcode.Location = new System.Drawing.Point(805, 145);
+            this.lblzipcode.Location = new System.Drawing.Point(806, 149);
             this.lblzipcode.Name = "lblzipcode";
             this.lblzipcode.Size = new System.Drawing.Size(46, 13);
             this.lblzipcode.TabIndex = 47;
@@ -534,28 +534,28 @@
             // 
             // citybox
             // 
-            this.citybox.Location = new System.Drawing.Point(897, 99);
+            this.citybox.Location = new System.Drawing.Point(897, 100);
             this.citybox.Name = "citybox";
             this.citybox.Size = new System.Drawing.Size(199, 20);
             this.citybox.TabIndex = 49;
             // 
             // statebox
             // 
-            this.statebox.Location = new System.Drawing.Point(897, 120);
+            this.statebox.Location = new System.Drawing.Point(897, 123);
             this.statebox.Name = "statebox";
             this.statebox.Size = new System.Drawing.Size(100, 20);
             this.statebox.TabIndex = 50;
             // 
             // zipcodebox
             // 
-            this.zipcodebox.Location = new System.Drawing.Point(897, 142);
+            this.zipcodebox.Location = new System.Drawing.Point(897, 146);
             this.zipcodebox.Name = "zipcodebox";
             this.zipcodebox.Size = new System.Drawing.Size(100, 20);
             this.zipcodebox.TabIndex = 51;
             // 
             // btncreatewh
             // 
-            this.btncreatewh.Location = new System.Drawing.Point(1003, 120);
+            this.btncreatewh.Location = new System.Drawing.Point(1003, 122);
             this.btncreatewh.Name = "btncreatewh";
             this.btncreatewh.Size = new System.Drawing.Size(93, 45);
             this.btncreatewh.TabIndex = 52;
@@ -584,9 +584,9 @@
             // 
             // whidbox
             // 
-            this.whidbox.Location = new System.Drawing.Point(907, 282);
+            this.whidbox.Location = new System.Drawing.Point(897, 282);
             this.whidbox.Name = "whidbox";
-            this.whidbox.Size = new System.Drawing.Size(185, 20);
+            this.whidbox.Size = new System.Drawing.Size(195, 20);
             this.whidbox.TabIndex = 55;
             // 
             // lblnewstreet
@@ -603,9 +603,9 @@
             this.lblnewcity.AutoSize = true;
             this.lblnewcity.Location = new System.Drawing.Point(806, 330);
             this.lblnewcity.Name = "lblnewcity";
-            this.lblnewcity.Size = new System.Drawing.Size(46, 13);
+            this.lblnewcity.Size = new System.Drawing.Size(49, 13);
             this.lblnewcity.TabIndex = 57;
-            this.lblnewcity.Text = "NewCity";
+            this.lblnewcity.Text = "New City";
             // 
             // lblnewstate
             // 
@@ -618,7 +618,7 @@
             // 
             // btncheckallwh
             // 
-            this.btncheckallwh.Location = new System.Drawing.Point(897, 170);
+            this.btncheckallwh.Location = new System.Drawing.Point(897, 171);
             this.btncheckallwh.Name = "btncheckallwh";
             this.btncheckallwh.Size = new System.Drawing.Size(133, 23);
             this.btncheckallwh.TabIndex = 59;
@@ -629,12 +629,12 @@
             // allwhbox
             // 
             this.allwhbox.BackColor = System.Drawing.SystemColors.Control;
-            this.allwhbox.Location = new System.Drawing.Point(817, 202);
+            this.allwhbox.Location = new System.Drawing.Point(808, 202);
             this.allwhbox.Multiline = true;
             this.allwhbox.Name = "allwhbox";
             this.allwhbox.ReadOnly = true;
             this.allwhbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.allwhbox.Size = new System.Drawing.Size(279, 55);
+            this.allwhbox.Size = new System.Drawing.Size(288, 55);
             this.allwhbox.TabIndex = 60;
             // 
             // lblnewzipcode
@@ -648,30 +648,30 @@
             // 
             // newstreetbox
             // 
-            this.newstreetbox.Location = new System.Drawing.Point(907, 304);
+            this.newstreetbox.Location = new System.Drawing.Point(897, 304);
             this.newstreetbox.Name = "newstreetbox";
-            this.newstreetbox.Size = new System.Drawing.Size(185, 20);
+            this.newstreetbox.Size = new System.Drawing.Size(195, 20);
             this.newstreetbox.TabIndex = 62;
             // 
             // newcitybox
             // 
-            this.newcitybox.Location = new System.Drawing.Point(907, 326);
+            this.newcitybox.Location = new System.Drawing.Point(897, 326);
             this.newcitybox.Name = "newcitybox";
-            this.newcitybox.Size = new System.Drawing.Size(185, 20);
+            this.newcitybox.Size = new System.Drawing.Size(195, 20);
             this.newcitybox.TabIndex = 63;
             // 
             // newstatebox
             // 
-            this.newstatebox.Location = new System.Drawing.Point(907, 349);
+            this.newstatebox.Location = new System.Drawing.Point(897, 349);
             this.newstatebox.Name = "newstatebox";
-            this.newstatebox.Size = new System.Drawing.Size(100, 20);
+            this.newstatebox.Size = new System.Drawing.Size(110, 20);
             this.newstatebox.TabIndex = 64;
             // 
             // newzipcodebox
             // 
-            this.newzipcodebox.Location = new System.Drawing.Point(907, 371);
+            this.newzipcodebox.Location = new System.Drawing.Point(897, 372);
             this.newzipcodebox.Name = "newzipcodebox";
-            this.newzipcodebox.Size = new System.Drawing.Size(100, 20);
+            this.newzipcodebox.Size = new System.Drawing.Size(110, 20);
             this.newzipcodebox.TabIndex = 65;
             // 
             // btnupdatawh
