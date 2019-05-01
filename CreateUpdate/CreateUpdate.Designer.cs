@@ -708,7 +708,7 @@
             // 
             this.warehousenamebox.Location = new System.Drawing.Point(897, 54);
             this.warehousenamebox.Name = "warehousenamebox";
-            this.warehousenamebox.Size = new System.Drawing.Size(197, 20);
+            this.warehousenamebox.Size = new System.Drawing.Size(199, 20);
             this.warehousenamebox.TabIndex = 69;
             // 
             // lblsearchproduct
@@ -814,6 +814,7 @@
             this.Controls.Add(this.lblproductname);
             this.Controls.Add(this.lblupc);
             this.Controls.Add(this.lblcreateproduct);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CreateUpdate";
             this.Text = "Create and Update Products, Categories, and Warehouses";
             this.ResumeLayout(false);

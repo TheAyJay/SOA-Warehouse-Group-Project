@@ -45,7 +45,7 @@
             // upc
             // 
             this.upc.AutoSize = true;
-            this.upc.Location = new System.Drawing.Point(78, 52);
+            this.upc.Location = new System.Drawing.Point(38, 52);
             this.upc.Name = "upc";
             this.upc.Size = new System.Drawing.Size(29, 13);
             this.upc.TabIndex = 0;
@@ -54,7 +54,7 @@
             // warehousename
             // 
             this.warehousename.AutoSize = true;
-            this.warehousename.Location = new System.Drawing.Point(78, 155);
+            this.warehousename.Location = new System.Drawing.Point(38, 155);
             this.warehousename.Name = "warehousename";
             this.warehousename.Size = new System.Drawing.Size(93, 13);
             this.warehousename.TabIndex = 2;
@@ -63,7 +63,7 @@
             // Quantity
             // 
             this.Quantity.AutoSize = true;
-            this.Quantity.Location = new System.Drawing.Point(78, 186);
+            this.Quantity.Location = new System.Drawing.Point(38, 186);
             this.Quantity.Name = "Quantity";
             this.Quantity.Size = new System.Drawing.Size(46, 13);
             this.Quantity.TabIndex = 3;
@@ -71,9 +71,9 @@
             // 
             // Submit
             // 
-            this.Submit.Location = new System.Drawing.Point(289, 152);
+            this.Submit.Location = new System.Drawing.Point(249, 152);
             this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(75, 47);
+            this.Submit.Size = new System.Drawing.Size(75, 51);
             this.Submit.TabIndex = 4;
             this.Submit.Text = "Submit";
             this.Submit.UseVisualStyleBackColor = true;
@@ -81,21 +81,21 @@
             // 
             // whnamebox
             // 
-            this.whnamebox.Location = new System.Drawing.Point(177, 152);
+            this.whnamebox.Location = new System.Drawing.Point(137, 152);
             this.whnamebox.Name = "whnamebox";
-            this.whnamebox.Size = new System.Drawing.Size(90, 20);
+            this.whnamebox.Size = new System.Drawing.Size(106, 20);
             this.whnamebox.TabIndex = 5;
             // 
             // qtybox
             // 
-            this.qtybox.Location = new System.Drawing.Point(177, 183);
+            this.qtybox.Location = new System.Drawing.Point(137, 183);
             this.qtybox.Name = "qtybox";
-            this.qtybox.Size = new System.Drawing.Size(90, 20);
+            this.qtybox.Size = new System.Drawing.Size(106, 20);
             this.qtybox.TabIndex = 6;
             // 
             // upcbox
             // 
-            this.upcbox.Location = new System.Drawing.Point(130, 49);
+            this.upcbox.Location = new System.Drawing.Point(90, 49);
             this.upcbox.Name = "upcbox";
             this.upcbox.Size = new System.Drawing.Size(153, 20);
             this.upcbox.TabIndex = 7;
@@ -104,7 +104,7 @@
             // btngetproduct
             // 
             this.btngetproduct.Enabled = false;
-            this.btngetproduct.Location = new System.Drawing.Point(289, 47);
+            this.btngetproduct.Location = new System.Drawing.Point(249, 47);
             this.btngetproduct.Name = "btngetproduct";
             this.btngetproduct.Size = new System.Drawing.Size(75, 23);
             this.btngetproduct.TabIndex = 8;
@@ -115,7 +115,7 @@
             // productbox
             // 
             this.productbox.AcceptsReturn = true;
-            this.productbox.Location = new System.Drawing.Point(81, 78);
+            this.productbox.Location = new System.Drawing.Point(41, 78);
             this.productbox.Multiline = true;
             this.productbox.Name = "productbox";
             this.productbox.ReadOnly = true;
@@ -127,7 +127,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(187, 21);
+            this.label1.Location = new System.Drawing.Point(147, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 10;
@@ -136,7 +136,7 @@
             // inboundhistory
             // 
             this.inboundhistory.AcceptsReturn = true;
-            this.inboundhistory.Location = new System.Drawing.Point(81, 254);
+            this.inboundhistory.Location = new System.Drawing.Point(41, 254);
             this.inboundhistory.Multiline = true;
             this.inboundhistory.Name = "inboundhistory";
             this.inboundhistory.ReadOnly = true;
@@ -146,7 +146,7 @@
             // 
             // checkinbound
             // 
-            this.checkinbound.Location = new System.Drawing.Point(130, 222);
+            this.checkinbound.Location = new System.Drawing.Point(90, 222);
             this.checkinbound.Name = "checkinbound";
             this.checkinbound.Size = new System.Drawing.Size(187, 23);
             this.checkinbound.TabIndex = 13;
@@ -158,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 450);
+            this.ClientSize = new System.Drawing.Size(374, 459);
             this.Controls.Add(this.checkinbound);
             this.Controls.Add(this.inboundhistory);
             this.Controls.Add(this.label1);
@@ -171,6 +171,7 @@
             this.Controls.Add(this.Quantity);
             this.Controls.Add(this.warehousename);
             this.Controls.Add(this.upc);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Inbound";
             this.Text = "Inbound";
             this.ResumeLayout(false);
