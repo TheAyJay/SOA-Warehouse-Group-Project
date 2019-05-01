@@ -415,7 +415,7 @@
             // 
             this.categoryidbox.Location = new System.Drawing.Point(517, 264);
             this.categoryidbox.Name = "categoryidbox";
-            this.categoryidbox.Size = new System.Drawing.Size(91, 20);
+            this.categoryidbox.Size = new System.Drawing.Size(111, 20);
             this.categoryidbox.TabIndex = 35;
             // 
             // newcategorynamebox
@@ -586,7 +586,7 @@
             // 
             this.whidbox.Location = new System.Drawing.Point(907, 282);
             this.whidbox.Name = "whidbox";
-            this.whidbox.Size = new System.Drawing.Size(100, 20);
+            this.whidbox.Size = new System.Drawing.Size(185, 20);
             this.whidbox.TabIndex = 55;
             // 
             // lblnewstreet
@@ -650,14 +650,14 @@
             // 
             this.newstreetbox.Location = new System.Drawing.Point(907, 304);
             this.newstreetbox.Name = "newstreetbox";
-            this.newstreetbox.Size = new System.Drawing.Size(187, 20);
+            this.newstreetbox.Size = new System.Drawing.Size(185, 20);
             this.newstreetbox.TabIndex = 62;
             // 
             // newcitybox
             // 
             this.newcitybox.Location = new System.Drawing.Point(907, 326);
             this.newcitybox.Name = "newcitybox";
-            this.newcitybox.Size = new System.Drawing.Size(187, 20);
+            this.newcitybox.Size = new System.Drawing.Size(185, 20);
             this.newcitybox.TabIndex = 63;
             // 
             // newstatebox
@@ -715,7 +715,7 @@
             // 
             this.lblsearchproduct.AutoSize = true;
             this.lblsearchproduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsearchproduct.Location = new System.Drawing.Point(129, 156);
+            this.lblsearchproduct.Location = new System.Drawing.Point(129, 154);
             this.lblsearchproduct.Name = "lblsearchproduct";
             this.lblsearchproduct.Size = new System.Drawing.Size(95, 13);
             this.lblsearchproduct.TabIndex = 70;
